@@ -3,7 +3,7 @@
 On the command line, execute:
 
 ```zsh
-dotnet new blazorwasm -o MyApp
+dotnet new blazorwasm -o NewBlazorWasmApp
 ```
 
 ## Licence
