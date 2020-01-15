@@ -1,8 +1,12 @@
 # Blazor Examples
 
-Examples for [Blazor](https://docs.microsoft.com/nl-nl/aspnet/core/blazor/).
+Examples for [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor).
 
 ![](https://img.shields.io/github/license/rickbeerendonk/blazor-examples.svg)
+
+# Docs
+
+- https://docs.microsoft.com/aspnet/core/blazor/
 
 ## Licence
 
