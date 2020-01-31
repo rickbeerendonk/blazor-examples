@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace Simple
+namespace SimpleWithRouter
 {
     public class Program
     {
