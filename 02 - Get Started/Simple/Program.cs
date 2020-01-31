@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace NewBlazorWasmApp
+namespace Simple
 {
     public class Program
     {

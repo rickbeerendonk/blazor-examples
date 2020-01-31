@@ -6,6 +6,10 @@ On the command line, execute:
 dotnet new blazorwasm -o NewBlazorWasmApp
 ```
 
+## Simple App
+
+The Simple App demo is a stripped down version of the standard app. It only contains the minimum code for an app.
+
 ## Licence
 
 European Union Public Licence version 1.2
