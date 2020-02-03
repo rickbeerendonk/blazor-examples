@@ -1,0 +1,10 @@
+﻿<ul>
+    @foreach (var item in _items)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+@code {
+    private string[] _items = new string[] {"one", "two", "three" };
+}
