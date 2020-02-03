@@ -1,0 +1,9 @@
+﻿<h1 @onclick="handleClick">Hello @_count!</h1>
+
+@code {
+    private int _count = 0;
+
+    private void handleClick(MouseEventArgs e) {
+        _count++;
+    }
+}
