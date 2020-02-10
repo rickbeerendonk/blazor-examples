@@ -2,12 +2,12 @@
 <!-- Copyright © 2020 Rick Beerendonk -->
 
 <ul>
-    @foreach (var item in _items)
+    @foreach (var item in items)
     {
         <li>@item</li>
     }
 </ul>
 
 @code {
-    private string[] _items = new string[] {"one", "two", "three" };
+    private string[] items = new string[] { "one", "two", "three" };
 }

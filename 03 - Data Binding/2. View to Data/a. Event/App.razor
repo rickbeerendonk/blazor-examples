@@ -1,12 +1,12 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<h1 @onclick="handleClick">This has been clicked @_count times!</h1>
+<h1 @onclick="handleClick">This has been clicked @count times!</h1>
 
 @code {
-    private int _count = 0;
+    private int count = 0;
 
     private void handleClick(MouseEventArgs e) {
-        _count++;
+        count++;
     }
 }

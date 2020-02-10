@@ -9,11 +9,11 @@ namespace SeparateTempateAndCodeFiles_Basics
     public partial class App : ComponentBase
     {
 
-        private int _count = 0;
+        private int count = 0;
 
         private void handleClick(EventArgs e)
         {
-            _count++;
+            count++;
         }
     }
 }
