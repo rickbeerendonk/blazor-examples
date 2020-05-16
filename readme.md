@@ -11,7 +11,7 @@ Examples for [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor).
 # Visual Studio Code Plugins
 
 - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-- [JavaScript Debugger (Nightly)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly)
+- [JavaScript Debugger (Nightly)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) with `debug.javascript.usePreview = true`.
 
 ## Licence
 
