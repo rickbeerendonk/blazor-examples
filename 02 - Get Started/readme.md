@@ -1,14 +1,24 @@
 # Get Started
 
-On the command line, execute:
+## Simple App
+
+The Simple App demo is a stripped down version of the standard app. It only contains the minimum code for an app.
+
+### New App
+
+A new app like this coulde be created by executing on the command line:
 
 ```zsh
 dotnet new blazorwasm -o NewBlazorWasmApp
 ```
 
-## Simple App
+### Run App
 
-The Simple App demo is a stripped down version of the standard app. It only contains the minimum code for an app.
+On the command line, execute:
+
+```zsh
+dotnet run
+```
 
 ## Licence
 
