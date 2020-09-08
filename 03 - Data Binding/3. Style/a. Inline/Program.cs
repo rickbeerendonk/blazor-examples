@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace DataBinding_Style
+namespace DataBinding_Style_Inline
 {
     public class Program
     {
