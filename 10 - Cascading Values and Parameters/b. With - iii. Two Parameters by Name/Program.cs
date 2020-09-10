@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace CascadingValuesParameters_With_TwoParameters
+namespace CascadingValuesParameters_With_TwoParametersByName
 {
     public class Program
     {
