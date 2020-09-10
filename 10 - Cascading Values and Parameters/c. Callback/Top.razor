@@ -1,0 +1,27 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<h1>Top</h1>
+<CascadingValue Value="@color" Name="ColorParameter">
+    <CascadingValue TValue="EventCallback" Value="@changeColorCallback" Name="SwitchColorParameter">
+        <Middle />
+        <button @onclick="changeColor">Top: Switch color</button>
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private string color = "red";
+    
+    private void changeColor() {
+        this.color = (this.color == "red") ? "green" : "red";
+    }
+
+    EventCallback _changeColorCallback = EventCallback.Empty;
+    EventCallback changeColorCallback {
+        get {
+            if (_changeColorCallback.Equals(EventCallback.Empty))
+                _changeColorCallback = EventCallback.Factory.Create(this, changeColor);
+            return _changeColorCallback;
+        }
+    }
+}
