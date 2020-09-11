@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Data Binding - Style - Separate File</title>
+    <base href="/" />
+    <link href="css/oblicum.css" rel="stylesheet" />
+    <link href="css/oblicum-aspnet5.css" rel="stylesheet" />
+
+    <!-- Add the scoped styles -->
+    <link href="_framework/scoped.styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <p style="color: gray; font-style: italic">
+      Notice the addition of the stylesheet link "scoped.styles.css" in the html
+      page.
+    </p>
+
+    <app>Loading...</app>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+  </body>
+</html>
