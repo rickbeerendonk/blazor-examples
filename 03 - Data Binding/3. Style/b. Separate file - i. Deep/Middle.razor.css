@@ -1,0 +1,12 @@
+﻿/* European Union Public License version 1.2 */
+/* Copyright © 2020 Rick Beerendonk */
+
+/* Applies to this component and children */
+::deep h1 {
+  color: red;
+}
+
+/* Applies to this component only */
+h1 {
+  background-color: lightgray;
+}
