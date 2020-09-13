@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<ul>
+    @if (visible)
+    {
+        <li>Visible</li>
+    }
+    else
+    {
+        <li>Not Visible</li>
+    }
+</ul>
+
+@code {
+    private Boolean visible = false;
+}
