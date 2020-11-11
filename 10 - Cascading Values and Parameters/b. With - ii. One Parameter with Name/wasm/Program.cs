@@ -12,7 +12,7 @@ namespace CascadingValuesParameters_With_OneParameterWithName
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             
-            builder.RootComponents.Add<Top>("app");
+            builder.RootComponents.Add<Top>("#app");
 
             await builder.Build().RunAsync();
         }
