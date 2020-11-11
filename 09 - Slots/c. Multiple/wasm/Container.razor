@@ -1,0 +1,28 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<div class="container">
+  The default item:
+  <div class="content">
+    @ChildContent
+  </div>
+  The 1st item:
+  <div class="content">
+    @First
+  </div>
+  The 2nd item:
+  <div class="content">
+    @Second
+  </div>
+</div>
+
+@code {
+  [Parameter]
+  public RenderFragment ChildContent { get; set; }
+
+  [Parameter]
+  public RenderFragment First { get; set; }
+
+  [Parameter]
+  public RenderFragment Second { get; set; }
+}
