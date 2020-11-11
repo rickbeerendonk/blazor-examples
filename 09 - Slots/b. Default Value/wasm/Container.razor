@@ -1,0 +1,21 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<div class="container">
+  The only item:
+  <div class="content">
+    @if (ChildContent != null)
+    {
+      @ChildContent
+    }
+    else
+    {
+      <span>Default Slot Value</span>
+    }
+  </div>
+</div>
+
+@code {
+  [Parameter]
+  public RenderFragment ChildContent { get; set; }
+}
