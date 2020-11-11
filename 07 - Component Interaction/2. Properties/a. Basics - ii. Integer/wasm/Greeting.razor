@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<h1>
+  Hello @(String.Concat(Enumerable.Repeat(Name, Count)))
+</h1>
+<p>
+  Property Count: @Count.ToString()
+</p>
+
+@code {
+  [Parameter]
+  public int Count { get; set; }
+
+  [Parameter]
+  public string Name { get; set; }
+}
