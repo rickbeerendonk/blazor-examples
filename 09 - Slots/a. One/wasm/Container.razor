@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<div class="container">
+  The only item:
+  <div class="content">
+    @ChildContent
+  </div>
+</div>
+
+@code {
+  // Slot type: RenderFragment
+  [Parameter]
+  public RenderFragment ChildContent { get; set; }
+}
