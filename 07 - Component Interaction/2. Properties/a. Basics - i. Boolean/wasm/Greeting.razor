@@ -1,0 +1,22 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<h1 style="background-color: @(Dark ? "gray" : "white"); color: @(Default ? "red" : "black");">
+  Hello @Name
+</h1>
+<p>
+  Property Default: @Default.ToString()
+  <br />
+  Property Dark: @Dark.ToString()
+</p>
+
+@code {
+  [Parameter]
+  public bool Dark { get; set; }
+
+  [Parameter]
+  public bool Default { get; set; }
+
+  [Parameter]
+  public string Name { get; set; }
+}
