@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace ComponentInteraction_EventModifiers_PreventDefault
+namespace EventModifiers_PreventDefault_Without
 {
     public class Program
     {
