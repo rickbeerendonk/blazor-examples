@@ -1,0 +1,9 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@{ var date = DateTime.Now.ToString(); }
+
+<form @onsubmit:preventDefault>
+    <p>Page loaded at: @date</p>
+    <button>Submit</button>
+</form>
