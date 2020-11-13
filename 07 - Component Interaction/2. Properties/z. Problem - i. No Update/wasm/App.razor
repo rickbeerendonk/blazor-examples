@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<Hello Name=@name />
+
+@code {
+  private string name = "A";
+
+  protected override void OnAfterRender(bool firstRender)
+  {
+    if (firstRender)
+    {
+      name = "B";
+      // Solution: StateHasChanged();
+    }
+  }
+
+}
