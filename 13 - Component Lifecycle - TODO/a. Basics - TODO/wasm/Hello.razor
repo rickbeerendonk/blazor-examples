@@ -1,0 +1,77 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<h1>Hello @Name! (@count time)</h1>
+
+@code {
+  private string count = "1";
+
+  // Property
+  [Parameter]
+  public string Name { get; set; }
+
+  public Hello()
+  {
+    Console.WriteLine("-- Constructor");
+  }
+
+  protected override void OnInitialized()
+  {
+    Console.WriteLine("-- OnInitialized");
+  }
+
+  protected override async Task OnInitializedAsync()
+  {
+    Console.WriteLine("-- OnInitializedAsync");
+    //await ...
+  }
+
+  protected override void OnParametersSet()
+  {
+    Console.WriteLine("-- OnParametersSet");
+  }
+
+  protected override async Task OnParametersSetAsync()
+  {
+    Console.WriteLine("-- OnParametersSetAsync");
+    // await ...
+  }
+
+  protected override bool ShouldRender()
+  {
+    Console.WriteLine("-- ShouldRender()");
+    return true;
+  }
+
+  protected override void OnAfterRender(bool firstRender)
+  {
+    if (firstRender)
+    {
+      Console.WriteLine("-- OnAfterRender (firstRender = true)");
+    }
+    else
+    {
+      Console.WriteLine("-- OnAfterRender (firstRender = false)");
+    }
+  }
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+      Console.WriteLine("-- OnAfterRenderAsync (firstRender = true)");
+      // await ...
+    }
+    else
+    {
+      Console.WriteLine("-- OnAfterRenderAsync (firstRender = false)");
+
+      if (Name == "B" && count == "1") {
+      Console.WriteLine("-- -- new state --");
+      this.count = "2";
+      StateHasChanged();
+    }
+      // await ...
+    }
+  }
+}
