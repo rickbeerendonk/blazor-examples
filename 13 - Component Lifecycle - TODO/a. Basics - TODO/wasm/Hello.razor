@@ -34,6 +34,12 @@
     //await ...
   }
 
+  public override async Task SetParametersAsync(ParameterView parameters)
+  {
+    Console.WriteLine("-- SetParametersAsync (parameters: ...TODO...)");
+    await base.SetParametersAsync(parameters);
+  }
+
   protected override void OnParametersSet()
   {
     Console.WriteLine("-- OnParametersSet");
