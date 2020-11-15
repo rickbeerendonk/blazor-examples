@@ -1,10 +1,17 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<Hello Name=@name />
+<header>
+  @if (visible)
+  {
+    <Hello Name=@name />
+  }
+</header>
 
 @code {
   private string name = "A";
+
+  private Boolean visible = true;
 
   protected override async Task OnAfterRenderAsync(bool firstRender)
   {
@@ -13,6 +20,11 @@
       await Task.Delay(100);
       Console.WriteLine("-- -- new prop --");
       name = "B";
+      StateHasChanged();
+
+      await Task.Delay(100);
+      Console.WriteLine("-- -- remove component --");
+      visible = false;
       StateHasChanged();
     }
   }

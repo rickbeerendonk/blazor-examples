@@ -1,6 +1,9 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
+@using System
+@implements IDisposable
+
 <h1>Hello @Name! (@count time)</h1>
 
 @code {
@@ -13,6 +16,11 @@
   public Hello()
   {
     Console.WriteLine("-- Constructor");
+  }
+
+  public void Dispose()
+  {
+    Console.WriteLine("-- Dispose");
   }
 
   protected override void OnInitialized()
