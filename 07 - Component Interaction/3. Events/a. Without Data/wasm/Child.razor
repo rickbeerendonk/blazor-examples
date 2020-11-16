@@ -1,0 +1,10 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<button @onclick="OnClickCallback">Click</button>
+
+@code {
+  // Property
+  [Parameter]
+  public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
+}
