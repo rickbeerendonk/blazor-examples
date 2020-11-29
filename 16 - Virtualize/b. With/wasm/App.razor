@@ -2,10 +2,9 @@
 <!-- Copyright © 2020 Rick Beerendonk -->
 
 <ul>
-    @foreach (var item in items)
-    {
+    <Virtualize Context="item" Items="@items">
         <li>@item</li>
-    }
+    </Virtualize>
 </ul>
 
 @code {
