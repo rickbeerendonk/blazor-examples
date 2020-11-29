@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<ul>
+    @foreach (var item in items)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+@code {
+    private IEnumerable<string> items = Enumerable
+        .Repeat(0, 1000)
+        .Select(i => new Random().Next(0, 10).ToString());
+}
