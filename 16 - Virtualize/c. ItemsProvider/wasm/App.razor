@@ -1,0 +1,29 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<ul>
+    <Virtualize Context="item" ItemsProvider="@LoadItems">
+        <li>@item</li>
+    </Virtualize>
+</ul>
+
+@code {
+    private string[] items = Enumerable
+        .Repeat(0, 1000)
+        .Select((i, idx) => idx.ToString())
+        .ToArray();
+
+
+    private async ValueTask<ItemsProviderResult<string>> LoadItems(
+        ItemsProviderRequest request)
+    {
+        // Fake slow result
+        await Task.Delay(500);
+
+        var items = Enumerable
+            .Repeat(0, request.Count)
+            .Select((i, idx) => (request.StartIndex + idx).ToString());
+
+        return new ItemsProviderResult<string>(items, 1000);
+    }
+}
