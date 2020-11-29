@@ -1,0 +1,31 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<EditForm Model="@demoModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label for="name">Name:</label>
+    <InputText id="name" @bind-Value="demoModel.Name" />
+
+    <br />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (result != string.Empty) {
+    <div>
+        Result: @result
+    </div>
+}
+
+@code {
+    private DemoModel demoModel = new DemoModel();
+
+    private string result = string.Empty;
+
+    private void HandleValidSubmit()
+    {
+        result = demoModel.Name;
+    }
+}
