@@ -8,7 +8,6 @@ namespace SeparateTempateAndCodeFiles_Basics
 {
     public partial class App : ComponentBase
     {
-
         private int count = 0;
 
         private void handleClick(EventArgs e)
