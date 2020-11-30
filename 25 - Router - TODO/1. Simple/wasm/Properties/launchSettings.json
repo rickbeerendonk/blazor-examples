@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SimpleWithRouter": {
+    "Router_Simple": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

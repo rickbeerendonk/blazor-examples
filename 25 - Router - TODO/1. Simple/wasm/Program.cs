@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace SimpleWithRouter
+namespace Router_Simple
 {
     public class Program
     {
