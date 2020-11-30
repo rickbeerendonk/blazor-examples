@@ -2,11 +2,7 @@ using System;
 
 namespace DependencyInjection_Singleton
 {
-    public interface ILogger {
-        void Info(string message);
-    }
-
-    public class LoggerService : ILogger
+    public class LoggerService
     {
         private static int uniqueId = 0;
 
