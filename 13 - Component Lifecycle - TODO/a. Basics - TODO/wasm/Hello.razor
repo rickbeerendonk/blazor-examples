@@ -36,7 +36,10 @@
 
   public override async Task SetParametersAsync(ParameterView parameters)
   {
-    Console.WriteLine("-- SetParametersAsync (parameters: ...TODO...)");
+    string ParameterViewString = string.Concat(
+      parameters.ToDictionary().Select(item => $"{item.Key}: {item.Value.ToString()}"));
+
+    Console.WriteLine($"-- SetParametersAsync (parameters: [{ParameterViewString}])");
     await base.SetParametersAsync(parameters);
   }
 
@@ -53,7 +56,7 @@
 
   protected override bool ShouldRender()
   {
-    Console.WriteLine("-- ShouldRender()");
+    Console.WriteLine("-- ShouldRender(): true");
     return true;
   }
 
