@@ -1,6 +1,6 @@
 # Install
 
-See: https://docs.microsoft.com/nl-nl/aspnet/core/blazor/get-started?view=aspnetcore-3.1&tabs=visual-studio-code
+See: https://docs.microsoft.com/nl-nl/aspnet/core/blazor/get-started?tabs=visual-studio-code
 
 ## Licence
 
