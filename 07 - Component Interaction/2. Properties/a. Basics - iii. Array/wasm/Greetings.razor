@@ -1,0 +1,13 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<ul>
+    @foreach (var name in Names)
+    {
+        <li>Hello @name</li>
+    }
+</ul>
+@code {
+  [Parameter]
+  public IEnumerable<string> Names { get; set; }
+}
