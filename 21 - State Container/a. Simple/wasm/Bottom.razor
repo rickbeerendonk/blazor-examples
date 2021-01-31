@@ -1,0 +1,20 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@inject AppState AppState
+@implements IDisposable
+
+<h3 style="color: @AppState.Color">Bottom</h3>
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Force Render
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+}
