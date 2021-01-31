@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "EventModifiers_PreventDefault_Without": {
+    "EventModifiers_PreventDefault_Form_Without": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
