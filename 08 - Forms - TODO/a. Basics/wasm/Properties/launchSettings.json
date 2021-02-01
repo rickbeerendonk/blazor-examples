@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DOM_JS_Selection": {
+    "Forms_Basics": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
