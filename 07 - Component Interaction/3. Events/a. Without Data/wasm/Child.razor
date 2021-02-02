@@ -6,10 +6,10 @@
 @code {
   // Event
   [Parameter]
-  public EventCallback<EventArgs> OnClickCallback { get; set; }
+  public EventCallback OnClickCallback { get; set; }
 
   private void handleClick(MouseEventArgs args)
   {
-    this.OnClickCallback.InvokeAsync(EventArgs.Empty);
+    this.OnClickCallback.InvokeAsync();
   }
 }
