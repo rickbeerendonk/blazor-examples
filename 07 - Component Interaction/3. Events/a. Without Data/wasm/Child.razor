@@ -1,14 +1,14 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<button @onclick="handleClick">Click</button>
+<button @onclick="HandleClick">Click</button>
 
 @code {
   // Event
   [Parameter]
   public EventCallback OnClickCallback { get; set; }
 
-  private void handleClick(MouseEventArgs args)
+  private void HandleClick(MouseEventArgs args)
   {
     this.OnClickCallback.InvokeAsync();
   }
