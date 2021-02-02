@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Simple": {
+    "ComponentInteraction_Events_WithoutData_LeakInternals": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
