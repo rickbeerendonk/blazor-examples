@@ -6,10 +6,11 @@
 @code {
   // Event
   [Parameter]
-  public EventCallback<string> OnClickCallback { get; set; }
+  public EventCallback<string> OnChangeCallback { get; set; }
 
   private void HandleChange(ChangeEventArgs e)
   {
-    this.OnClickCallback.InvokeAsync(e.Value.ToString());
+    Console.Write(e.Value.ToString());
+    this.OnChangeCallback.InvokeAsync(e.Value.ToString());
   }
 }
