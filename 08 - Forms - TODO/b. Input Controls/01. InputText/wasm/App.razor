@@ -4,7 +4,7 @@
 <div style="color: gray">Remove focus to pass the value to the model.</div>
 
 <EditForm Model="demoModel">
-    <InputText @bind-Value="demoModel.Value" />
+    <InputText @bind-Value="demoModel.Value" maxlength="10" />
 </EditForm>
 
 @demoModel.Value
