@@ -7,6 +7,6 @@ namespace Forms_InputControls_InputText
 {
   public class DemoModel
   {
-    public string Value { get; set; }
+    public string Value { get; set; } = "Blazor";   
   }
 }
