@@ -1,0 +1,13 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<ul>
+    @foreach (var item in items.Where(x => x.Length <= 3))
+    {
+        <li>@item</li>
+    }
+</ul>
+
+@code {
+    private string[] items = { "one", "two", "three", "four", "five", "six" };
+}
