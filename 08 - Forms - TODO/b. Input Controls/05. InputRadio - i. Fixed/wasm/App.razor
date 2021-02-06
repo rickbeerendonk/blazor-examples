@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<EditForm Model="demoModel">
+    <InputRadioGroup @bind-Value="demoModel.Value">
+        <InputRadio Value="Options.A" id="a" /><label for="a">@Options.A</label><br />
+        <InputRadio Value="Options.B" id="b" /><label for="b">@Options.B</label><br />
+        <InputRadio Value="Options.C" id="c" /><label for="c">@Options.C</label><br />
+    </InputRadioGroup>
+</EditForm>
+
+<pre>
+@demoModel.Value
+</pre>
+
+@code {
+    private DemoModel demoModel = new DemoModel();
+}
