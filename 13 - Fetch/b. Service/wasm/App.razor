@@ -1,0 +1,27 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@inject ITodosService TodosService
+
+@if (todos == null)
+{
+    <p>Loading TODO's...</p>
+}
+else
+{
+    <ul>
+        @foreach (var todo in todos)
+        {
+            <li>@todo.Completed - @todo.Title</li>
+        }
+    </ul>
+}
+
+@code {
+    private Todo[] todos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        todos = await TodosService.Todos();
+    }
+}
