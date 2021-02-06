@@ -1,0 +1,12 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<EditForm Model="demoModel">
+    <InputDate @bind-Value="demoModel.Value" />
+</EditForm>
+
+@demoModel.Value.ToString("dd-MM-yyyy")
+
+@code {
+    private DemoModel demoModel = new DemoModel();
+}
