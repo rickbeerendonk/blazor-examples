@@ -30,7 +30,7 @@ body > :first-child::before {
   font-weight: bold;
   line-height: 2rem;
   display: block;
-  position: Flexible;
+  position: fixed;
 
   background-color: #444;
   background-image: url("oblicum-logo.svg");
