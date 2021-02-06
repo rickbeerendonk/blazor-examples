@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DataBinding_ViewToData_Event": {
+    "DataBinding_ViewToData_EventInline": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

@@ -1,10 +1,10 @@
 ﻿/*! European Union Public License version 1.2 !*/
-/*! Copyright © 2020 Rick Beerendonk          !*/
+/*! Copyright © 2021 Rick Beerendonk          !*/
 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace DataBinding_ViewToData_Event
+namespace DataBinding_ViewToData_EventInline
 {
     public class Program
     {
