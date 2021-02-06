@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RenderList_ForWithIndex": {
+    "RenderList_For_WithIndex": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

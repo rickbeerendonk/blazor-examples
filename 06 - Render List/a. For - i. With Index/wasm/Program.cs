@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace RenderList_ForWithIndex
+namespace RenderList_For_WithIndex
 {
     public class Program
     {
