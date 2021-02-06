@@ -1,0 +1,13 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<ol>
+    @foreach (var item in items.Select((value, i) => new { i, value }))
+    {
+        <li value="@item.i">@item.value</li>
+    }
+</ol>
+
+@code {
+    private string[] items = { "one", "two", "three" };
+}
