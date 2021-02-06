@@ -1,0 +1,24 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<p class="comment">
+    Add some text in an input and observe what happens if you click the
+    button.
+</p>
+
+<button @onclick="insertTop">Insert at Top</button>
+
+<ul>
+    @foreach (var item in items)
+    {
+        <li><input placeholder="@item" /></li>
+    }
+</ul>
+
+@code {
+    private List<string> items = new List<string> { "one", "two", "three" };
+
+    private void insertTop(MouseEventArgs e) {
+        items.Insert(0, (items.Count + 1).ToString());
+    }
+}
