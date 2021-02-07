@@ -1,0 +1,30 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<div>
+    <label for="multiple">Multiple files:</label>
+    <InputFile id="multiple" OnChange="@OnInputFileMultipleChange" multiple />
+</div>
+
+@if (files.Count > 0)
+{
+    <h4>Files</h4>
+
+    @foreach (var file in files)
+    {
+        <pre style="background: lightblue; margin: 5px">Name: @file.Name
+Size: @file.Size
+ContentType: @file.ContentType
+        </pre>
+    }
+}
+
+@code {
+    private List<IBrowserFile> files = new List<IBrowserFile>();
+
+    private void OnInputFileMultipleChange(InputFileChangeEventArgs e)
+    {
+        files.Clear();
+        files.AddRange(e.GetMultipleFiles());
+    }
+}
