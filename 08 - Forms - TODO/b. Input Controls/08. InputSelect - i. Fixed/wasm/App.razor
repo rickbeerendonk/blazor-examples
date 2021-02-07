@@ -1,0 +1,16 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<EditForm Model="demoModel">
+    <InputSelect @bind-Value="demoModel.Value">
+        <option>First</option>
+        <option>Second</option>
+        <option>Third</option>        
+    </InputSelect>
+</EditForm>
+
+@demoModel.Value
+
+@code {
+    private DemoModel demoModel = new DemoModel();
+}
