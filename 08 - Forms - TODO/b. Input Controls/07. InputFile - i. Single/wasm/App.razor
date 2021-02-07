@@ -1,0 +1,26 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<div>
+    <label for="single">Single file:</label>
+    <InputFile id="single" OnChange="@OnInputFileSingleChange" accept="text/plain" />
+</div>
+
+@if (file != null)
+{
+    <h4>File</h4>
+
+    <pre style="background: lightblue; margin: 5px">Name: @file.Name
+Size: @file.Size
+ContentType: @file.ContentType
+    </pre>
+}
+
+@code {
+    private IBrowserFile file;
+
+    private void OnInputFileSingleChange(InputFileChangeEventArgs e)
+    {
+        file = e.File;
+    }
+}
