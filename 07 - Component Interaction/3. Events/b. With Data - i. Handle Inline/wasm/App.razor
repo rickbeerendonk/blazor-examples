@@ -2,15 +2,9 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <div style="color: gray">Remove focus to trigger the event.</div>
-<Child OnChangeCallback="@ChildChanged" />
+<Child OnChangeCallback="value => text = value" />
 <h1>Text: @text</h1>
 
 @code {
   private string text = "";
-
-  private void ChildChanged(string value)
-  {
-    Console.Write(value);
-    text = value;
-  }
 }

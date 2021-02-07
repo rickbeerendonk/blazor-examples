@@ -1,0 +1,16 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<input @onchange="HandleChange">
+
+@code {
+  // Event
+  [Parameter]
+  public EventCallback<string> OnChangeCallback { get; set; }
+
+  private void HandleChange(ChangeEventArgs e)
+  {
+    Console.Write(e.Value.ToString());
+    this.OnChangeCallback.InvokeAsync(e.Value.ToString());
+  }
+}

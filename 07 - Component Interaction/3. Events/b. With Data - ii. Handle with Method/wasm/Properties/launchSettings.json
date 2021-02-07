@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ComponentInteraction_Events_WithData": {
+    "ComponentInteraction_Events_WithData_HandleWithMethod": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

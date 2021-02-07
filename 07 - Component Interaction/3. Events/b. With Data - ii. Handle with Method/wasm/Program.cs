@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace ComponentInteraction_Events_WithData
+namespace ComponentInteraction_Events_WithData_HandleWithMethod
 {
     public class Program
     {
