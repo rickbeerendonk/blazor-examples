@@ -1,0 +1,14 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<p class="@(value ? "style1" : "style2")">
+    Style1
+</p>
+
+<p class="@(!value ? "style1" : "style2")">
+    Style2
+</p>
+
+@code {
+    private Boolean value = true;
+}
