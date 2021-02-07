@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<button @onclick="switchColor">Switch color</button>
+
+@code {
+    [CascadingParameter(Name = "ColorParameter")]
+    public string Color { get; set; }
+
+    [CascadingParameter(Name = "ChangeColorParameter")]
+    private EventCallback<string> ChangeColor { get; set; }
+
+    private void switchColor()
+    {
+        ChangeColor.InvokeAsync((Color == "red") ? "green" : "red");
+    }
+}

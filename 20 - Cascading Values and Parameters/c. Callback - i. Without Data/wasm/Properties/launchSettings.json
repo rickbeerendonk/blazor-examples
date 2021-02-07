@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "CascadingValuesParameters_Callback": {
+    "CascadingValuesParameters_Callback_WithoutData": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

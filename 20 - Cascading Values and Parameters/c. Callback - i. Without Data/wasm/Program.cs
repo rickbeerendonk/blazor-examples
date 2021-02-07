@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace CascadingValuesParameters_Callback
+namespace CascadingValuesParameters_Callback_WithoutData
 {
     public class Program
     {

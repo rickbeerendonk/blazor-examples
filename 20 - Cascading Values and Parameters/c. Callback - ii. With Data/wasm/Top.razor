@@ -1,0 +1,26 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>Top</h1>
+<CascadingValue Value="color" Name="ColorParameter">
+    <CascadingValue TValue="EventCallback<string>" Value="ChangeColorCallback" Name="ChangeColorParameter">
+        <Middle />
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private string color = "red";
+    
+    private void changeColor(string color) {
+        this.color = color;
+    }
+
+    private EventCallback<string> changeColorCallback = EventCallback<string>.Empty;
+    protected EventCallback<string> ChangeColorCallback {
+        get {
+            if (changeColorCallback.Equals(EventCallback<string>.Empty))
+                changeColorCallback = EventCallback.Factory.Create<string>(this, changeColor);
+            return changeColorCallback;
+        }
+    }
+}
