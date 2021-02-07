@@ -1,0 +1,26 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<div>
+    <label for="single">Single file:</label>
+    <InputFile id="single" OnChange="@OnInputFileSingleChange" accept="@format" />
+</div>
+
+@if (imageDataUrl != null)
+{
+    <img src="@imageDataUrl" />
+}
+
+@code {
+    private string format = "image/png";
+
+    private string imageDataUrl;
+
+    private async Task OnInputFileSingleChange(InputFileChangeEventArgs e)
+    {
+        var resizedImageFile = await e.File.RequestImageFileAsync(format, 400, 400);
+        var buffer = new byte[resizedImageFile.Size];
+        await resizedImageFile.OpenReadStream().ReadAsync(buffer);
+        imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+    }
+}
