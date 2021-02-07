@@ -1,0 +1,26 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<div>
+    <label for="single">Single file:</label>
+    <InputFile id="single" OnChange="@OnInputFileSingleChange" accept="@format" />
+</div>
+
+@if (content != null)
+{
+    <pre style="background: lightblue; margin: 5px">@content</pre>
+}
+
+@code {
+    private string format = "text/plain";
+
+    private string content;
+
+    private async Task OnInputFileSingleChange(InputFileChangeEventArgs e)
+    {
+        using (var reader = new StreamReader(e.File.OpenReadStream()))
+        {
+            content = await reader.ReadToEndAsync();
+        }
+    }
+}
