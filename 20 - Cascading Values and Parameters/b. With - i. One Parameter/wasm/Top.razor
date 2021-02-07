@@ -2,8 +2,15 @@
 <!-- Copyright © 2020 Rick Beerendonk -->
 
 <h1>Top</h1>
-<CascadingValue Value="@color">
+
+<!-- Value is automatically databinded -->
+<CascadingValue Value="color">
     <Middle />
+</CascadingValue>
+
+<!-- Value is fixed (escape databinding) -->
+<CascadingValue Value="@("blue")">
+    <Bottom />
 </CascadingValue>
 
 @code {
