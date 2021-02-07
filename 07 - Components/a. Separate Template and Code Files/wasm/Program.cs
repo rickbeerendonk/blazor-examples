@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace SeparateTempateAndCodeFiles_Basics
+namespace Components_SeparateTempateAndCodeFiles
 {
     public class Program
     {

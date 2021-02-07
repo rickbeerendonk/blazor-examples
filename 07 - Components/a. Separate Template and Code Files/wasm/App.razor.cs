@@ -4,7 +4,7 @@
 using System;
 using Microsoft.AspNetCore.Components;
 
-namespace SeparateTempateAndCodeFiles_Basics
+namespace Components_SeparateTempateAndCodeFiles
 {
     public partial class App : ComponentBase
     {

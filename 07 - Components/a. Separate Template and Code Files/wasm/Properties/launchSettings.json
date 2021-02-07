@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SeparateTempateAndCodeFiles_Basics": {
+    "Components_SeparateTempateAndCodeFiles": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
