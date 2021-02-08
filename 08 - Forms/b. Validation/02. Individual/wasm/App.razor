@@ -1,0 +1,41 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<!-- OnValidSubmit: Only submit when the form is valid -->
+<EditForm Model="@demoModel" OnValidSubmit="@HandleValidSubmit">
+    <!-- Validates based on Data Annotations -->
+    <DataAnnotationsValidator />
+
+    <label for="name">Name:</label>
+    <InputText id="name" @bind-Value="demoModel.Name" />
+    <!-- Shows specific validation violations -->
+    <ValidationMessage For="() => demoModel.Name"/>
+
+    <br />
+
+    <label for="age">Age:</label>
+    <InputNumber id="age" @bind-Value="demoModel.Age" />
+    <!-- Shows specific validation violations -->
+    <ValidationMessage For="() => demoModel.Age"/>
+
+    <br />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (result != string.Empty) {
+    <div>
+        Result: @result
+    </div>
+}
+
+@code {
+    private DemoModel demoModel = new DemoModel();
+
+    private string result = string.Empty;
+
+    private void HandleValidSubmit()
+    {
+        result = @"{demoModel.Name} ({demoModel.Age})";
+    }
+}
