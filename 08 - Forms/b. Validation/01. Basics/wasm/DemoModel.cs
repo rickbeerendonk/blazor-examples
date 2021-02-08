@@ -3,7 +3,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace Forms_Basics
+namespace Forms_Validation_Basics
 {
   public class DemoModel
   {
