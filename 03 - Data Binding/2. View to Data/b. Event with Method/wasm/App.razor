@@ -1,12 +1,14 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
+<!-- @onclick is a directive -->
 <button @onclick="handleClick">This has been clicked @count times!</button>
 
 @code {
     private int count = 0;
 
-    private void handleClick(MouseEventArgs e) {
+    private void handleClick(MouseEventArgs e)
+    {
         count++;
     }
 }
