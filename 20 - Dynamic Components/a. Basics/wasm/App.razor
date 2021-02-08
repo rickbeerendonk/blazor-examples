@@ -1,0 +1,19 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>Dynamic Components</h1>
+
+@foreach (Type t in types)
+{
+    @(renderComponent(t))
+}
+
+@code {
+    private IList<Type> types = new List<Type> { typeof(GreetingDutch), typeof(GreetingEnglish), typeof(GreetingSpanish) };
+
+    private RenderFragment renderComponent(Type t) => builder =>
+        {
+        builder.OpenComponent(0, t);
+        builder.CloseComponent();
+    };
+}
