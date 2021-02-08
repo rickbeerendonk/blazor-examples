@@ -1,0 +1,10 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<button @onclick="() => id++">Change ID</button>
+<br />
+<ClickMe @key="id" />
+
+@code {
+    private int id;
+}
