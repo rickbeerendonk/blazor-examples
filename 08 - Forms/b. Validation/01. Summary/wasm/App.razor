@@ -1,8 +1,12 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
+<!-- OnValidSubmit: Only submit when the form is valid -->
 <EditForm Model="@demoModel" OnValidSubmit="@HandleValidSubmit">
+    <!-- Validates based on Data Annotations -->
     <DataAnnotationsValidator />
+
+    <!-- Shows a list of all validation violations -->
     <ValidationSummary />
 
     <label for="name">Name:</label>

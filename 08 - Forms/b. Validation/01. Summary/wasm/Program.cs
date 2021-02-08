@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace Forms_Validation_Basics
+namespace Forms_Validation_Summary
 {
     public class Program
     {
