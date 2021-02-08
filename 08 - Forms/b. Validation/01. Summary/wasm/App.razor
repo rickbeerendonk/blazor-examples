@@ -14,6 +14,11 @@
 
     <br />
 
+    <label for="age">Age:</label>
+    <InputNumber id="age" @bind-Value="demoModel.Age" />
+
+    <br />
+
     <button type="submit">Submit</button>
 </EditForm>
 
@@ -30,6 +35,6 @@
 
     private void HandleValidSubmit()
     {
-        result = demoModel.Name;
+        result = @"{demoModel.Name} ({demoModel.Age})";
     }
 }
