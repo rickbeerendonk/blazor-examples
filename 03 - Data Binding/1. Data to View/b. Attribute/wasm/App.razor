@@ -2,7 +2,15 @@
 <!-- Copyright © 2020 Rick Beerendonk -->
 
 <input value="@name" />
+<input value=@name />
+
+<input value=@foo() />
 
 @code {
     private string name = "Blazor";
+
+    private string foo()
+    {
+        return "bar";
+    }
 }
