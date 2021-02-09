@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<a @attributes="OtherAttributes">@Important @ChildContent @Important</a>
+
+@code {
+  [Parameter]
+  public RenderFragment ChildContent { get; set; }
+
+  [Parameter]
+  public string Important { get; set; } = "!!!";
+
+  [Parameter(CaptureUnmatchedValues = true)]
+  public Dictionary<string, object> OtherAttributes { get; set; }
+}
