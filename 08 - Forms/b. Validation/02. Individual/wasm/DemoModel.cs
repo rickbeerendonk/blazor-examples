@@ -11,7 +11,6 @@ namespace Forms_Validation_Individual
     [StringLength(10, ErrorMessage = "Name is too long.")]
     public string Name { get; set; }
 
-    [Required]
     [Range(18, 67, ErrorMessage = "Age is out of range.")]
     public int Age { get; set; }
   }
