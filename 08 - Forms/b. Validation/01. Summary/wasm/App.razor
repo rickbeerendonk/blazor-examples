@@ -35,6 +35,10 @@
 
     private void HandleValidSubmit()
     {
-        result = @"{demoModel.Name} ({demoModel.Age})";
+        // Use the form result
+        result = $"{demoModel.Name} ({demoModel.Age})";
+
+        // Reset the form
+        demoModel = new DemoModel();
     }
 }
