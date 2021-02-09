@@ -18,7 +18,6 @@ namespace StateContainer_Simple
             // Add Services
             builder.Services.AddSingleton<AppState>();
 
-
             await builder.Build().RunAsync();
         }
     }
