@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace Components_ComponentsFolder
+namespace Components_ComponentsFolder_LocalImport
 {
     public class Program
     {

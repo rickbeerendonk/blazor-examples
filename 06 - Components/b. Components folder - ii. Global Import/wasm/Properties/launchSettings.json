@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Components_ComponentsFolder": {
+    "Components_ComponentsFolder_GlobalImport": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
