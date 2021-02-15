@@ -2,21 +2,21 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <!-- OnValidSubmit: Only submit when the form is valid -->
-<EditForm Model="@demoModel" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
     <!-- Validates based on Data Annotations -->
     <DataAnnotationsValidator />
 
     <label for="name">Name:</label>
-    <InputText id="name" @bind-Value="demoModel.Name" />
+    <InputText id="name" @bind-Value="model.Name" />
     <!-- Shows specific validation violations -->
-    <ValidationMessage For="() => demoModel.Name"/>
+    <ValidationMessage For="() => model.Name"/>
 
     <br />
 
     <label for="age">Age:</label>
-    <InputNumber id="age" @bind-Value="demoModel.Age" />
+    <InputNumber id="age" @bind-Value="model.Age" />
     <!-- Shows specific validation violations -->
-    <ValidationMessage For="() => demoModel.Age"/>
+    <ValidationMessage For="() => model.Age"/>
 
     <br />
 
@@ -30,16 +30,16 @@
 }
 
 @code {
-    private DemoModel demoModel = new DemoModel();
+    private DemoModel model = new DemoModel();
 
     private string result = string.Empty;
 
     private void HandleValidSubmit()
     {
         // Use the form result
-        result = $"{demoModel.Name} ({demoModel.Age})";
+        result = $"{model.Name} ({model.Age})";
 
         // Reset the form
-        demoModel = new DemoModel();
+        model = new DemoModel();
     }
 }

@@ -1,8 +1,8 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
-<EditForm Model="demoModel">
-    <InputSelect @bind-Value="demoModel.Value">
+<EditForm Model="model">
+    <InputSelect @bind-Value="model.Value">
         @foreach (Options option in Enum.GetValues(typeof(Options)))
         {
             <option value="@option">Option @option</option>
@@ -10,8 +10,8 @@
     </InputSelect>
 </EditForm>
 
-@demoModel.Value
+@model.Value
 
 @code {
-    private DemoModel demoModel = new DemoModel();
+    private DemoModel model = new DemoModel();
 }

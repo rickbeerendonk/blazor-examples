@@ -3,10 +3,10 @@
 
 <h1>@DateTime.Now</h1>
 
-<button @onclick="handleClick">Force Rerender</button>
+<button @onclick="HandleClick">Force Rerender</button>
 
 @code {
-    private void handleClick(MouseEventArgs e) {
+    private void HandleClick(MouseEventArgs e) {
         // Force Rerender without a state change.
         // See: https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-5.0#state-changes
         StateHasChanged();

@@ -3,12 +3,12 @@
 
 <div class="comment">Remove focus to pass the value to the model.</div>
 
-<EditForm Model="demoModel">
-    <InputText @bind-Value="demoModel.Value" maxlength="10" />
+<EditForm Model="model">
+    <InputText @bind-Value="model.Value" maxlength="10" />
 </EditForm>
 
-@demoModel.Value
+@model.Value
 
 @code {
-    private DemoModel demoModel = new DemoModel();
+    private DemoModel model = new DemoModel();
 }

@@ -3,7 +3,7 @@
 
 <div>
     <label for="single">Single file:</label>
-    <InputFile id="single" OnChange="@OnInputFileSingleChange" accept="@format" />
+    <InputFile id="single" OnChange="@HandleChange" accept="@format" />
 </div>
 
 @if (imageDataUrl != null)
@@ -16,7 +16,7 @@
 
     private string imageDataUrl;
 
-    private async Task OnInputFileSingleChange(InputFileChangeEventArgs e)
+    private async Task HandleChange(InputFileChangeEventArgs e)
     {
         var resizedImageFile = await e.File.RequestImageFileAsync(format, 400, 400);
         var buffer = new byte[resizedImageFile.Size];

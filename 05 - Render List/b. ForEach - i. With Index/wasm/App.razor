@@ -2,7 +2,7 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <ol>
-    @foreach (var item in items.Select((value, i) => new { i, value }))
+    @foreach (string item in items.Select((value, i) => new { i, value }))
     {
         <li value="@item.i">@item.value</li>
     }

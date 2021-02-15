@@ -10,9 +10,6 @@ namespace Components_SeparateTempateAndCodeFiles
     {
         private int count = 0;
 
-        private void handleClick(EventArgs e)
-        {
-            count++;
-        }
+        private void HandleClick() => count++;
     }
 }

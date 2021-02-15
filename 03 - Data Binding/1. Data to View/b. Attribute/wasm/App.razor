@@ -4,13 +4,10 @@
 <input value="@name" />
 <input value=@name />
 
-<input value=@foo() />
+<input value=@GetName() />
 
 @code {
     private string name = "Blazor";
 
-    private string foo()
-    {
-        return "bar";
-    }
+    private string GetName() => name;
 }

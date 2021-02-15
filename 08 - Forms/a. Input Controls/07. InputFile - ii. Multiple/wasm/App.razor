@@ -3,7 +3,7 @@
 
 <div>
     <label for="multiple">Multiple files:</label>
-    <InputFile id="multiple" OnChange="@OnInputFileMultipleChange" multiple />
+    <InputFile id="multiple" OnChange="@HandleChange" multiple />
 </div>
 
 @if (files.Count > 0)
@@ -22,7 +22,7 @@ ContentType: @file.ContentType
 @code {
     private List<IBrowserFile> files = new List<IBrowserFile>();
 
-    private void OnInputFileMultipleChange(InputFileChangeEventArgs e)
+    private void HandleChange(InputFileChangeEventArgs e)
     {
         files.Clear();
         files.AddRange(e.GetMultipleFiles());

@@ -3,7 +3,7 @@
 
 <div>
     <label for="single">Single file:</label>
-    <InputFile id="single" OnChange="@OnInputFileSingleChange" accept="@format" />
+    <InputFile id="single" OnChange="@HandleChange" accept="@format" />
 </div>
 
 @if (content != null)
@@ -16,7 +16,7 @@
 
     private string content;
 
-    private async Task OnInputFileSingleChange(InputFileChangeEventArgs e)
+    private async Task HandleChange(InputFileChangeEventArgs e)
     {
         using (var reader = new StreamReader(e.File.OpenReadStream()))
         {

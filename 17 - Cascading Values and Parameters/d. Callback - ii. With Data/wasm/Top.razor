@@ -11,7 +11,7 @@
 @code {
     private string color = "red";
     
-    private void changeColor(string color) {
+    private void ChangeColor(string color) {
         this.color = color;
     }
 
@@ -19,7 +19,7 @@
     protected EventCallback<string> ChangeColorCallback {
         get {
             if (changeColorCallback.Equals(EventCallback<string>.Empty))
-                changeColorCallback = EventCallback.Factory.Create<string>(this, changeColor);
+                changeColorCallback = EventCallback.Factory.Create<string>(this, ChangeColor);
             return changeColorCallback;
         }
     }

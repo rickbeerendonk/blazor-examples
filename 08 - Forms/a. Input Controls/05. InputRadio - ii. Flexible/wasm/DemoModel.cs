@@ -3,9 +3,9 @@
 
 namespace Forms_InputControls_InputRadio_Flexible
 {
-    public enum Options { A, B, C };
+  public enum Options { A, B, C };
 
-    public class DemoModel
+  public class DemoModel
   {
     public Options Value { get; set; }
   }

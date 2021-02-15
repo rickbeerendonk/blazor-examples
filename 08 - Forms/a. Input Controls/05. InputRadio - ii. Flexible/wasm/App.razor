@@ -1,8 +1,8 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
-<EditForm Model="demoModel">
-    <InputRadioGroup @bind-Value="demoModel.Value">
+<EditForm Model="model">
+    <InputRadioGroup @bind-Value="model.Value">
         @foreach (var option in (Options[])Enum.GetValues(typeof(Options)))
         {
             <InputRadio Value="option" id="@option" />
@@ -12,8 +12,8 @@
     </InputRadioGroup>
 </EditForm>
 
-@demoModel.Value
+@model.Value
 
 @code {
-    private DemoModel demoModel = new DemoModel();
+    private DemoModel model = new DemoModel();
 }

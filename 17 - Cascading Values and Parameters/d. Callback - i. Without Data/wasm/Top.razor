@@ -5,14 +5,14 @@
 <CascadingValue Value="color" Name="ColorParameter">
     <CascadingValue TValue="EventCallback" Value="ChangeColorCallback" Name="SwitchColorParameter">
         <Middle />
-        <button @onclick="changeColor">Top: Switch color</button>
+        <button @onclick="ChangeColor">Top: Switch color</button>
     </CascadingValue>
 </CascadingValue>
 
 @code {
     private string color = "red";
     
-    private void changeColor() {
+    private void ChangeColor() {
         this.color = (this.color == "red") ? "green" : "red";
     }
 
@@ -20,7 +20,7 @@
     protected EventCallback ChangeColorCallback {
         get {
             if (changeColorCallback.Equals(EventCallback.Empty))
-                changeColorCallback = EventCallback.Factory.Create(this, changeColor);
+                changeColorCallback = EventCallback.Factory.Create(this, ChangeColor);
             return changeColorCallback;
         }
     }

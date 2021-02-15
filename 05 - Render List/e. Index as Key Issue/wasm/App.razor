@@ -6,19 +6,19 @@
     button.
 </p>
 
-<button @onclick="insertTop">Insert at Top</button>
+<button @onclick="InsertTop">Insert at Top</button>
 
 <ul>
-    @foreach (var item in items)
+    @foreach (string item in items)
     {
         <li><input placeholder="@item" /></li>
     }
 </ul>
 
 @code {
-    private List<string> items = new List<string> { "one", "two", "three" };
+    private IList<string> items = new List<string> { "one", "two", "three" };
 
-    private void insertTop(MouseEventArgs e) {
+    private void InsertTop() {
         items.Insert(0, (items.Count + 1).ToString());
     }
 }

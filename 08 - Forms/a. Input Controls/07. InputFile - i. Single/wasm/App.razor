@@ -3,7 +3,7 @@
 
 <div>
     <label for="single">Single file:</label>
-    <InputFile id="single" OnChange="@OnInputFileSingleChange" />
+    <InputFile id="single" OnChange="@HandleChange" />
 </div>
 
 @if (file != null)
@@ -19,7 +19,7 @@ ContentType: @file.ContentType
 @code {
     private IBrowserFile file;
 
-    private void OnInputFileSingleChange(InputFileChangeEventArgs e)
+    private void HandleChange(InputFileChangeEventArgs e)
     {
         file = e.File;
     }
