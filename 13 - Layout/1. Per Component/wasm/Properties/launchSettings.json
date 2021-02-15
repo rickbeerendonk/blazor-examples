@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Layout_Basics": {
+    "Layout_PerComponent": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

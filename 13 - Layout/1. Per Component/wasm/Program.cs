@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace Layout_Basics
+namespace Layout_PerComponent
 {
     public class Program
     {
