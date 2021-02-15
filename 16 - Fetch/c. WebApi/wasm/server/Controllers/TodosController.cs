@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace server.Controllers
@@ -10,11 +8,11 @@ namespace server.Controllers
     public class TodosController : Controller
     {
         // Some dummy data (normally this would be stored in the database, for example.
-        private static Dictionary<int, Todo> data = new Dictionary<int, Todo>()
+        private static List<Todo> data = new List<Todo>()
         {
-            [0] = new Todo { Title = "Learn Danish", Completed = false },
-            [1] = new Todo { Title = "Learn Dutch", Completed = true },
-            [2] = new Todo { Title = "Learn Norwegian", Completed = false },
+            new Todo { Id = 0, Title = "Learn Danish", Completed = false },
+            new Todo { Id = 1, Title = "Learn Dutch", Completed = true },
+            new Todo { Id = 2, Title = "Learn Norwegian", Completed = false },
         };
         private static int nextid = 3;
 
@@ -22,22 +20,21 @@ namespace server.Controllers
         [HttpGet]
         public IEnumerable<Todo> Get()
         {
-            return data.Values;
+            return data;
         }
 
-        // GET /todos/5
+        // GET /todos/3
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            if (!data.ContainsKey(id))
+            try
             {
-                // Set the HTTP status code to 404 (Not Found).
-                return NotFound();
+                Todo todo = data.First(todo => todo.Id == id);
+                return new ObjectResult(todo);
             }
-            else
+            catch (System.Exception)
             {
-                // Set the HTTP status code to 200 (OK), and return the requested item in the HTTP response payload.
-                return new ObjectResult(data[id]);
+                return NotFound();
             }
         }
 
@@ -50,20 +47,18 @@ namespace server.Controllers
                 // Set the HTTP status code to 400 (Bad Request).
                 return BadRequest();
             }
-            else
-            {
-                // Insert the item.
-                var id = nextid++;
-                data[id] = value;
 
-                // Set the HTTP status code to 201 (Created), also set the HTTP Location header, and return the enriched item in the HTTP response payload.
-                return CreatedAtAction("GetById",         // Name of GET action method (for URL).
-                                        new { id = id },  // Parameters for GET method (for URL).
-                                        value);           // Enriched object to return to client.
-            }
+            // Insert the item.
+            value.Id = nextid++;
+            data.Add(value);
+
+            // Set the HTTP status code to 201 (Created), also set the HTTP Location header, and return the enriched item in the HTTP response payload.
+            return CreatedAtAction("GetById",               // Name of GET action method (for URL).
+                                    new { id = value.Id },  // Parameters for GET method (for URL).
+                                    value);                 // Enriched object to return to client.
         }
 
-        // PUT /todos/5
+        // PUT /todos/3
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Todo value)
         {
@@ -72,43 +67,44 @@ namespace server.Controllers
                 // Set the HTTP status code to 400 (Bad Request).
                 return BadRequest();
             }
-            else if (!data.ContainsKey(id))
+
+            int index = data.FindIndex(0, todo => todo.Id == id);
+            if (index < 0)
             {
                 // Set the HTTP status code to 404 (Not Found).
                 return NotFound();
             }
-            else
-            {
-                // Update the item.
-                data[id] = value;
 
-                // Set the HTTP status code to 204 (No Content, i.e. effectively void).
-                return new NoContentResult();
-            }
+            // Update the item.
+            data[index] = value;
+
+            // Set the HTTP status code to 204 (No Content, i.e. effectively void).
+            return new NoContentResult();
         }
 
-        // DELETE /todos/5
+        // DELETE /todos/3
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            if (!data.ContainsKey(id))
+            int index = data.FindIndex(0, todo => todo.Id == id);
+            if (index < 0)
             {
                 // Set the HTTP status code to 404 (Not Found).
                 return NotFound();
             }
-            else
-            {
-                // Delete the item.
-                data.Remove(id);
 
-                // Set the HTTP status code to 204 (No Content, i.e. effectively void).
-                return new NoContentResult();
-            }
+            // Delete the item.
+            data.RemoveAt(index);
+
+            // Set the HTTP status code to 204 (No Content, i.e. effectively void).
+            return new NoContentResult();
         }
     }
 
     public class Todo
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public bool Completed { get; set; }

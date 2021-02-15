@@ -16,7 +16,7 @@ namespace Fetch_WebApi_Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddSingleton(sp =>
+            builder.Services.AddTransient(sp =>
                 new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton<ITodosService, TodosHttpService>();
 
