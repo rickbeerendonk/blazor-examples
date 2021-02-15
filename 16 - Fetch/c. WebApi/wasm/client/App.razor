@@ -17,14 +17,25 @@ else
     </ul>
 }
 
-<button @onclick="update">Update</button>
+<button @onclick="Update">Update</button>
 
 @code {
     private Todo[] todos;
 
-    private void update()
+    private async Task Update()
     {
+        // Update 2nd item
+        Todo todo = todos[1];
+        await TodosService.UpdateAsync(new Todo { Id = todo.Id, Title = todo.Title, Completed = !todo.Completed });
 
+        // Add item
+        await TodosService.AddAsync(new Todo { Title = $"New item @ {DateTime.Now}", Completed = false });
+
+        // Delete first item
+        await TodosService.DeleteAsync(todos[0]);
+
+        // Get all items
+        todos = await TodosService.TodosAsync();
     }
 
     protected override async Task OnInitializedAsync()
