@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace CSharp_Calling_JS
+namespace CSharpCallingJS_WithoutReturn
 {
     public class Program
     {

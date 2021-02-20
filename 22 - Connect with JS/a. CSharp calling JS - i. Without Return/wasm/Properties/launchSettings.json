@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "CSharp_Calling_JS": {
+    "CSharpCallingJS_WithoutReturn": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

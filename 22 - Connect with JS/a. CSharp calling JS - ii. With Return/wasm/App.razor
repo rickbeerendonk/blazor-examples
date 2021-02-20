@@ -1,0 +1,23 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@inject IJSRuntime JS
+
+<button @onclick="handleClickAsync">Call JavaScript Function</button>
+<h1>@output</h1>
+
+@code {
+    private string output;
+
+    private async void handleClickAsync()
+    {
+        string input = DateTime.Now.ToString();
+        Console.WriteLine($"C# sent: {input}");
+
+        // Call JS function
+        double outputAsDouble = await JS.InvokeAsync<double>("jsfunc", input);
+
+        output = outputAsDouble.ToString();
+        Console.WriteLine($"C# received: {output}");
+    }
+}
