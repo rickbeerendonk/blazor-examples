@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DOM_Refs_Focus": {
+    "DOM_Refs_FocusControl": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

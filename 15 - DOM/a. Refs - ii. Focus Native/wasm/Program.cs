@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace DOM_Refs_Focus
+namespace DOM_Refs_FocusNative
 {
     public class Program
     {
