@@ -6,13 +6,13 @@ Rendering conditionally is done with [Razor syntax](https://docs.microsoft.com/e
 
 ```cshtml
 <ul>
-  @if (visible)
+  @if (value)
   {
-    <li>Visible</li>
+    <li>Rendered</li>
   }
-  @if (!visible)
+  @if (!value)
   {
-    <li>Not Visible</li>
+    <li>Not Rendered</li>
   }
 </ul>
 ```
@@ -21,13 +21,13 @@ Rendering conditionally is done with [Razor syntax](https://docs.microsoft.com/e
 
 ```cshtml
 <ul>
-  @if (visible)
+  @if (value)
   {
-    <li>Visible</li>
+    <li>Rendered</li>
   }
   else
   {
-    <li>Not Visible</li>
+    <li>Not Rendered</li>
   }
 </ul>
 ```
