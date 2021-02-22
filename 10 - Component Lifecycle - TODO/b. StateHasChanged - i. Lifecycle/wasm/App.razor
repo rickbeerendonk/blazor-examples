@@ -1,7 +1,7 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<Hello Name=@name />
+<h1>Hello @name</h1>
 
 @code {
   private string name = "A";
@@ -11,6 +11,8 @@
     if (firstRender)
     {
       name = "B";
+
+      // In some lifecycles, rendering isn't automatically taking place.
       
       // Solution:
       //StateHasChanged();

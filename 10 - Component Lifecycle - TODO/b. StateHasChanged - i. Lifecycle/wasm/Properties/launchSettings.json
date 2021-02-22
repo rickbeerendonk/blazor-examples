@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ComponentInteraction_Properties_Problem_NoUpdate": {
+    "ComponentLifecycle_StateHasChanged_Lifecycle": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

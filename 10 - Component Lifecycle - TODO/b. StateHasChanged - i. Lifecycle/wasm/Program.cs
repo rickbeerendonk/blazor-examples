@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace ComponentInteraction_Properties_Problem_NoUpdate
+namespace ComponentLifecycle_StateHasChanged_Lifecycle
 {
     public class Program
     {
