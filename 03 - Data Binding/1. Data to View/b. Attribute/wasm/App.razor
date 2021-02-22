@@ -6,6 +6,10 @@
 
 <input value=@GetName() />
 
+<!-- Combine with static text -->
+<input value="@name C#" />
+<input value="@(@name)s" />
+
 @code {
     private string name = "Blazor";
 
