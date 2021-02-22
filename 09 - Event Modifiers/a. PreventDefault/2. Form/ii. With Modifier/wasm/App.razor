@@ -3,7 +3,8 @@
 
 @{ var date = DateTime.Now.ToString(); }
 
-<EditForm OnSubmit:preventDefault="true">
+<!-- Doesn't work -->
+<form @onsubmit:preventDefault="true">
     <p>Page loaded at: @date</p>
-    <button type="submit">Submit</button>
-</EditForm>
+    <button>Submit</button>
+</form>
