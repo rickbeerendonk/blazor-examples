@@ -2,16 +2,16 @@
 <!-- Copyright © 2020 Rick Beerendonk -->
 
 <ul>
-    @if (visible)
+    @if (value)
     {
-        <li>Visible</li>
+        <li>Not Rendered</li>
     }
     else
     {
-        <li>Not Visible</li>
+        <li>Rendered</li>
     }
 </ul>
 
 @code {
-    private bool visible = false;
+    private bool value = false;
 }
