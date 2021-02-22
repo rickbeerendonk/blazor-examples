@@ -1,12 +1,19 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
+<!-- class contains a space-separated list -->
+<p class="style1 style2 style3">
+    Fixed styles
+</p>
+
+<!-- Add class conditionally -->
 <p class="@(value ? "style1" : "style2")">
     Style1
 </p>
 
-<p class="@(!value ? "style1" : "style2")">
-    Style2
+<!-- No special syntax needed to combine conditional and fixed classes -->
+<p class="@(!value ? "style1" : "style2") style3">
+    Style2 + Style 3
 </p>
 
 @code {
