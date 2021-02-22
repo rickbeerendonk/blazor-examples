@@ -9,9 +9,9 @@
 <button @onclick="InsertTop">Insert at Top</button>
 
 <ul>
-     @for (int i = 0; i < items.Count; i++)
+    @for (int i = 0; i < items.Count; i++)
     {
-        <li><input placeholder="@items[i]" @key="i" /></li>
+        <li @key="i"><input placeholder="@items[i]" /></li>
     }
 </ul>
 
