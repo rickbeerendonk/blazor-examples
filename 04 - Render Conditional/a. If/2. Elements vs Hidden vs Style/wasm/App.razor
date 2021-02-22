@@ -1,0 +1,31 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<ul>
+    @if (value)
+    {
+        <li>Rendered</li>
+    }
+    
+    @if (!value)
+    {
+        <li>Not Rendered</li>
+    }
+</ul>
+
+<ul>
+    @if (value)
+    {
+        <li>-- style="display: none" --</li>
+        <li style="display: none">Rendered, but Not Visible</li>
+        <li>-- hidden --</li>
+        <li hidden>Rendered, but Not Visible</li>
+        <li>-- style="visibility: hidden" --</li>
+        <li style="visibility: hidden">Rendered, but Hidden</li>
+        <li>--</li>
+    }
+</ul>
+
+@code {
+    private bool value = true;
+}

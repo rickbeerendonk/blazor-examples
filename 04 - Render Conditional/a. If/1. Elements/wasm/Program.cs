@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace RenderConditional_If
+namespace RenderConditional_If_Elements
 {
     public class Program
     {

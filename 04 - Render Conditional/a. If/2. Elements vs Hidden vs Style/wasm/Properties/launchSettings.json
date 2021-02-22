@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RenderConditional_If": {
+    "RenderConditional_If_ElementsHiddenStyle": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

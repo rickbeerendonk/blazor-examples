@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RenderConditional_If_CssClass": {
+    "RenderConditional_If_Attributes_CssClass": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

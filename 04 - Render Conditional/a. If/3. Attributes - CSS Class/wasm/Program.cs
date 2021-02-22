@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace RenderConditional_If_CssClass
+namespace RenderConditional_If_Attributes_CssClass
 {
     public class Program
     {
