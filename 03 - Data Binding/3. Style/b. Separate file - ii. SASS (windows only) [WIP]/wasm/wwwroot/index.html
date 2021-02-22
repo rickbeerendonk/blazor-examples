@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Data Binding - Style - Separate File - SASS</title>
+    <base href="/" />
+    <link href="css/oblicum.css" rel="stylesheet" />
+    <link href="css/oblicum-aspnet5.css" rel="stylesheet" />
+
+    <!-- Add the styles -->
+    <link
+      href="DataBinding_Style_SeparateFile_Sass.styles.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <p style="color: gray; font-style: italic">
+      Notice the addition of the stylesheet link "&lt;project
+      name&gt;.styles.css" in the html page.
+    </p>
+
+    <div id="app">Loading...</div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+  </body>
+</html>
