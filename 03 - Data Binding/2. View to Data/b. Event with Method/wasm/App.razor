@@ -1,8 +1,11 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<!-- @onclick is a directive -->
+@* @onclick is a directive *@
 <button @onclick="handleClick">This has been clicked @count times!</button>
+
+@* @ before the handler is optional *@
+<button @onclick="@handleClick">This has been clicked @count times!</button>
 
 @code {
     private int count = 0;
