@@ -1,0 +1,19 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>Hello @Name</h1>
+
+@code {
+  private string name;
+  public string Name
+  {
+    get => name;
+    set
+    {
+      name = value;
+
+      // Render needs to be forced
+      //StateHasChanged();
+    }
+  }
+}

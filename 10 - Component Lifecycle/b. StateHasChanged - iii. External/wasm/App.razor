@@ -1,0 +1,16 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<input @onchange="HandleChange">
+
+<Child @ref="child" />
+
+@code {
+  private Child child;
+
+  private void HandleChange(ChangeEventArgs e)
+  {
+    Console.WriteLine(e.Value.ToString());
+    child.Name = e.Value.ToString();
+  }
+}
