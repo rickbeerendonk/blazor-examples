@@ -1,0 +1,26 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>
+    @{
+        this.direction switch
+        {
+            Directions.Up    => "North",
+            Directions.Right => "East",
+            Directions.Down  => "South",
+            Directions.Left  => "West",
+        };
+    }
+</h1>
+
+@code {
+    public enum Directions
+    {
+        Up,
+        Down,
+        Right,
+        Left
+    }
+
+    public Directions directions = Directions.Right;
+}

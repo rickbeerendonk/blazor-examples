@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RenderConditional_Switch": {
+    "RenderConditional_Switch_Standard": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
