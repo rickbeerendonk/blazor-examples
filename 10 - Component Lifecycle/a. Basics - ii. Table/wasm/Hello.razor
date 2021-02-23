@@ -17,26 +17,26 @@
 
   public Hello()
   {
-    JS.InvokeVoidAsync("logEvent", "Constructor", Name, count);
     Console.WriteLine("-- Constructor");
+    JS.InvokeVoidAsync("logEvent", "Constructor", Name, count);
   }
 
   public void Dispose()
   {
-    JS.InvokeVoidAsync("logEvent", "Dispose", Name, count);
     Console.WriteLine("-- Dispose");
+    JS.InvokeVoidAsync("logEvent", "Dispose", Name, count);
   }
 
   protected override void OnInitialized()
   {
-    JS.InvokeVoidAsync("logEvent", "OnInitialized", Name, count);
     Console.WriteLine("-- OnInitialized");
+    JS.InvokeVoidAsync("logEvent", "OnInitialized", Name, count);
   }
 
   protected override async Task OnInitializedAsync()
   {
-    await JS.InvokeVoidAsync("logEvent", "OnInitializedAsync", Name, count);
     Console.WriteLine("-- OnInitializedAsync");
+    JS.InvokeVoidAsync("logEvent", "OnInitializedAsync", Name, count);
     //await ...
   }
 
@@ -45,64 +45,48 @@
     string ParameterViewString = string.Concat(
       parameters.ToDictionary().Select(item => $"{item.Key}: {item.Value.ToString()}"));
 
-    JS.InvokeVoidAsync("logEvent", $"SetParametersAsync (parameters: [{ParameterViewString}])", Name, count);
     Console.WriteLine($"-- SetParametersAsync (parameters: [{ParameterViewString}])");
+    JS.InvokeVoidAsync("logEvent", $"SetParametersAsync (parameters: [{ParameterViewString}])", Name, count);
     await base.SetParametersAsync(parameters);
   }
 
   protected override void OnParametersSet()
   {
-    JS.InvokeVoidAsync("logEvent", "OnParametersSet", Name, count);
     Console.WriteLine("-- OnParametersSet");
+    JS.InvokeVoidAsync("logEvent", "OnParametersSet", Name, count);
   }
 
   protected override async Task OnParametersSetAsync()
   {
-    await JS.InvokeVoidAsync("logEvent", "OnParametersSetAsync", Name, count);
     Console.WriteLine("-- OnParametersSetAsync");
+    JS.InvokeVoidAsync("logEvent", "OnParametersSetAsync", Name, count);
     // await ...
   }
 
   protected override bool ShouldRender()
   {
-    JS.InvokeVoidAsync("logEvent", "ShouldRender(): true", Name, count);
     Console.WriteLine("-- ShouldRender(): true");
+    JS.InvokeVoidAsync("logEvent", "ShouldRender(): true", Name, count);
     return true;
   }
 
   protected override void OnAfterRender(bool firstRender)
   {
-    if (firstRender)
-    {
-      JS.InvokeVoidAsync("logEvent", "OnAfterRender (firstRender = true)", Name, count);
-      Console.WriteLine("-- OnAfterRender (firstRender = true)");
-    }
-    else
-    {
-      JS.InvokeVoidAsync("logEvent", "OnAfterRender (firstRender = false)", Name, count);
-      Console.WriteLine("-- OnAfterRender (firstRender = false)");
-    }
+    Console.WriteLine($"-- OnAfterRender (firstRender = {firstRender})");
+    JS.InvokeVoidAsync("logEvent", $"OnAfterRender (firstRender = {firstRender})", Name, count);
   }
 
   protected override async Task OnAfterRenderAsync(bool firstRender)
   {
-    if (firstRender)
-    {
-      await JS.InvokeVoidAsync("logEvent", "OnAfterRenderAsync (firstRender = true)", Name, count);
-      Console.WriteLine("-- OnAfterRenderAsync (firstRender = true)");
-      // await ...
-    }
-    else
-    {
-      await JS.InvokeVoidAsync("logEvent", "OnAfterRenderAsync (firstRender = false)", Name, count);
-      Console.WriteLine("-- OnAfterRenderAsync (firstRender = false)");
+    Console.WriteLine($"-- OnAfterRenderAsync (firstRender = {firstRender})");
+    JS.InvokeVoidAsync("logEvent", $"OnAfterRenderAsync (firstRender = {firstRender})", Name, count);
 
-      if (Name == "B" && count == "1") {
+    if (!firstRender && Name == "B" && count == "1")
+    {
       Console.WriteLine("-- -- new state --");
       this.count = "2";
       StateHasChanged();
     }
-      // await ...
-    }
+    // await ...
   }
 }
