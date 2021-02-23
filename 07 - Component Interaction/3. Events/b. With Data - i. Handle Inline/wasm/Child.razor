@@ -11,6 +11,6 @@
   private void HandleChange(ChangeEventArgs e)
   {
     Console.Write(e.Value.ToString());
-    this.OnChangeCallback.InvokeAsync(e.Value.ToString());
+    OnChangeCallback.InvokeAsync(e.Value.ToString());
   }
 }
