@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ComponentLifecycle_Basics": {
+    "ComponentLifecycle_Basics_Console": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

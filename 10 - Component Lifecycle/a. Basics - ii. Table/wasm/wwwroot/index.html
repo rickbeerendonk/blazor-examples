@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Component Lifecycle - Basics - Table</title>
+    <base href="/" />
+    <link href="css/oblicum.css" rel="stylesheet" />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      th {
+        text-align: left;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Lifecycle Methods</h1>
+    <ol id="events"></ol>
+    <table id="result">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Method</th>
+          <th>Props</th>
+          <th>Data</th>
+          <th>DOM</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="app"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+  </body>
+</html>

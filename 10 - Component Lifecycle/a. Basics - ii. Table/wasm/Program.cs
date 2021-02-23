@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace ComponentLifecycle_Basics
+namespace ComponentLifecycle_Basics_Table
 {
     public class Program
     {
