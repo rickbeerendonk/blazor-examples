@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<Greeting @ref="greeting" />
+
+<button @onclick="HandleClick">Get Greeting's Name</button>
+<p>The Greeting's Name is: @greetingName</p>
+
+@code {
+    private Greeting greeting;
+
+    private string greetingName;
+
+    private void HandleClick()
+    {
+        greetingName = greeting.Name;
+    }
+}
