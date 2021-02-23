@@ -1,0 +1,9 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<input @onchange="e => name = e.Value.ToString()" value="@name">
+<Greeting Name="@name" />
+
+@code {
+    private string name = "Blazor";
+}
