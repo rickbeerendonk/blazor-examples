@@ -1,0 +1,13 @@
+/* Copyright © 2021 Rick Beerendonk */
+
+.placeholder {
+  background-color: lightpink;
+  border-color: red;
+  border-style: dotted;
+  border-width: 1px;
+  height: 100px;
+}
+
+.item {
+  background-color: lightblue;
+}

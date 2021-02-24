@@ -1,0 +1,28 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<Virtualize Context="item" ItemsProvider="@LoadItems" ItemSize="100">
+    <!-- Show while waiting for result -->
+    <Placeholder>
+        <div class="placeholder">Loading...</div>
+    </Placeholder>
+    <!-- Show result -->
+    <ItemContent>
+        <div @key="item" class="item">@item</div>
+    </ItemContent>
+</Virtualize>
+
+@code {
+    private async ValueTask<ItemsProviderResult<string>> LoadItems(
+        ItemsProviderRequest request)
+    {
+        // Fake slow result
+        await Task.Delay(500);
+
+        var items = Enumerable
+            .Repeat(0, request.Count)
+            .Select((i, idx) => (request.StartIndex + idx).ToString());
+
+        return new ItemsProviderResult<string>(items, 1000);
+    }
+}
