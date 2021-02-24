@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace JSCallingCSharp_WithoutReturn
+namespace JSCallingCSharp_StaticMethod
 {
     public class Program
     {
