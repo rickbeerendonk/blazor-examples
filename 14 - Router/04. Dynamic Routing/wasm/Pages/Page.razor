@@ -3,9 +3,9 @@
 
 @page "/page/{Id}"
 
-<h2>Page @Id.ToString()</h2>
+<h2>Page @Id</h2>
 
 @code {
     [Parameter]
-    public object Id { get; set; }
+    public string Id { get; set; }
 }
