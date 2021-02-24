@@ -1,12 +1,13 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
-<button @onclick="HandleClick">Click to add 2 to @count</button>
+<button @onclick="HandleClick">Click to add 3 to @count</button>
 
 @code {
   private int count = 0;
 
-  private async void HandleClick()
+  // No final update if we return "void"!!!
+  private async Task HandleClick()
   {
     count++;
     // Renders here automatically
@@ -14,6 +15,10 @@
     await Task.Delay(1000);
     count++;
     // Render needs to be forced
-    //StateHasChanged();
+    StateHasChanged();
+
+    await Task.Delay(1000);
+    count++;
+    // Last render doesn't need to be forced (we return Task)
   }
 }
