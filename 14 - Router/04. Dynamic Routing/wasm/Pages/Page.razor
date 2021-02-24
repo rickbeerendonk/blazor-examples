@@ -1,11 +1,11 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-@page "/page/{Id:int}"
+@page "/page/{Id}"
 
-<h2>Page @Id</h2>
+<h2>Page @Id.ToString()</h2>
 
 @code {
     [Parameter]
-    public int Id { get; set; }
+    public object Id { get; set; }
 }
