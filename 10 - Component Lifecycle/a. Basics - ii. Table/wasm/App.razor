@@ -21,6 +21,11 @@
       StateHasChanged();
 
       await Task.Delay(100);
+      Console.WriteLine("-- -- new prop --");
+      name = "C";
+      StateHasChanged();
+
+      await Task.Delay(100);
       Console.WriteLine("-- -- remove component --");
       visible = false;
       StateHasChanged();

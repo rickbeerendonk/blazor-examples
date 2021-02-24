@@ -65,9 +65,11 @@
 
   protected override bool ShouldRender()
   {
-    Console.WriteLine("-- ShouldRender(): true");
-    JS.InvokeVoidAsync("logEvent", "ShouldRender(): true", Name, count);
-    return true;
+    bool render = Name != "C";
+
+    Console.WriteLine($"-- ShouldRender(): {render}");
+    JS.InvokeVoidAsync("logEvent", $"ShouldRender(): {render}", Name, count);
+    return render;
   }
 
   protected override void OnAfterRender(bool firstRender)
