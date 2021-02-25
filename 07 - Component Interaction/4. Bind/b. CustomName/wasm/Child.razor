@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<input @onchange="HandleChange" value="@CustomName">
+
+@code {
+  [Parameter]
+  public string CustomName { get; set; }
+
+  [Parameter]
+  public EventCallback<string> CustomNameChanged { get; set; }
+
+  private void HandleChange(ChangeEventArgs e)
+  {
+    CustomNameChanged.InvokeAsync(e.Value.ToString());
+  }
+}
