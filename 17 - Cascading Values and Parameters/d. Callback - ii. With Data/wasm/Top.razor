@@ -11,12 +11,9 @@
 @code {
     private string color = "red";
 
-    private void ChangeColor(string color)
-    {
-        this.color = color;
-    }
+    private void ChangeColor(string color) => this.color = color;
 
-    private EventCallback<string> changeColorCallback = EventCallback<string>.Empty;
+    private EventCallback<string> changeColorCallback;
 
     protected override void OnInitialized()
     {
