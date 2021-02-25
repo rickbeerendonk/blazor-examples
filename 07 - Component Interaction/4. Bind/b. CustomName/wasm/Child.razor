@@ -10,8 +10,5 @@
   [Parameter]
   public EventCallback<string> CustomNameChanged { get; set; }
 
-  private void HandleChange(ChangeEventArgs e)
-  {
-    CustomNameChanged.InvokeAsync(e.Value.ToString());
-  }
+  private void HandleChange(ChangeEventArgs e) => CustomNameChanged.InvokeAsync(e.Value.ToString());
 }
