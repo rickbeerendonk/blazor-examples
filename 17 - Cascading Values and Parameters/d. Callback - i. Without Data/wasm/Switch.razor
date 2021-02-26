@@ -7,8 +7,5 @@
     [CascadingParameter(Name = "SwitchColorParameter")]
     private EventCallback changeColor { get; set; }
 
-    private void switchColor()
-    {
-        changeColor.InvokeAsync(null);
-    }
+    private void switchColor() => changeColor.InvokeAsync();
 }
