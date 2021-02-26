@@ -17,7 +17,7 @@ namespace Fetch_Basics
             builder.RootComponents.Add<App>("#app");
 
             // Register HttpClient service
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             await builder.Build().RunAsync();
         }
