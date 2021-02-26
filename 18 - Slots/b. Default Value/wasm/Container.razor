@@ -4,13 +4,13 @@
 <div class="container">
   The only item:
   <div class="content">
-    @if (ChildContent != null)
+    @if (ChildContent == null)
     {
-      @ChildContent
+      <span>Default Slot Value</span>
     }
     else
     {
-      <span>Default Slot Value</span>
+      @ChildContent
     }
   </div>
 </div>
