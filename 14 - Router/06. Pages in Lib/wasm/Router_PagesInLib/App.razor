@@ -1,0 +1,19 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@{
+    // Define additional assemblies
+    var additionalAssemblies = new List<System.Reflection.Assembly>();
+    additionalAssemblies.Add(typeof(Router_PagesInLib_Lib.Page2).Assembly);
+}
+
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="additionalAssemblies">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>404 Not Found</p>
+        </LayoutView>
+    </NotFound>
+</Router>
