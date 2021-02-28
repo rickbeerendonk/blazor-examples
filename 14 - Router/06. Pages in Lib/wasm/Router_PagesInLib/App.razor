@@ -1,6 +1,8 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
+@using System.Reflection
+
 <Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="additionalAssemblies">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
