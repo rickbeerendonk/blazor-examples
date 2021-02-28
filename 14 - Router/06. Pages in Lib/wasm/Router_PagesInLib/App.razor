@@ -1,12 +1,6 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
-@{
-    // Define additional assemblies
-    var additionalAssemblies = new List<System.Reflection.Assembly>();
-    additionalAssemblies.Add(typeof(Router_PagesInLib_Lib.Page2).Assembly);
-}
-
 <Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="additionalAssemblies">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -17,3 +11,8 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+@code {
+    private IEnumerable<Assembly> additionalAssemblies = new List<Assembly> { typeof(Router_PagesInLib_Lib.Page2).Assembly
+};
+}
