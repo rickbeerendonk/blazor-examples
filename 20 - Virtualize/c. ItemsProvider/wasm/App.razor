@@ -18,6 +18,6 @@
             .Repeat(0, request.Count)
             .Select((i, idx) => (request.StartIndex + idx).ToString());
 
-        return new ItemsProviderResult<string>(items, 1000);
+        return new ItemsProviderResult<string>(items, 1000 /* total # of items */);
     }
 }
