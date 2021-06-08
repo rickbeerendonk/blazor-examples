@@ -4,6 +4,7 @@ body > :first-child::after {
   content: "Blazor 6";
   font-family: Comfortaa;
   font-size: 1.7rem;
+  font-style: normal;
   font-weight: bold;
   display: block;
   position: fixed;

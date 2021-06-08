@@ -27,6 +27,7 @@ body > :first-child::before {
   content: "Copyright © Rick Beerendonk";
   font-family: Comfortaa;
   font-size: min(4vw, 1.7rem);
+  font-style: normal;
   font-weight: bold;
   line-height: 2rem;
   display: block;

@@ -1,8 +1,8 @@
 /*! Copyright © 2018 Rick Beerendonk !*/
 
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Anonymous%20Pro');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Anonymous%20Pro");
 
 * {
   font-family: Montserrat;
@@ -24,16 +24,17 @@ h6 * {
 }
 
 body > :first-child::before {
-  content: 'Copyright © Rick Beerendonk';
+  content: "Copyright © Rick Beerendonk";
   font-family: Comfortaa;
   font-size: min(4vw, 1.7rem);
+  font-style: normal;
   font-weight: bold;
   line-height: 2rem;
   display: block;
   position: fixed;
 
   background-color: #444;
-  background-image: url('oblicum-logo.svg');
+  background-image: url("oblicum-logo.svg");
   background-repeat: no-repeat;
   background-position-x: calc(100% - 0.8rem);
   color: white;
@@ -56,7 +57,7 @@ body > :first-child::before {
 }
 
 .code {
-  font-family: 'Anonymous Pro';
+  font-family: "Anonymous Pro";
 }
 
 .loading {
