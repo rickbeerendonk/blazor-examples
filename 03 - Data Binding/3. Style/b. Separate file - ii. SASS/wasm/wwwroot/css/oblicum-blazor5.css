@@ -1,9 +1,10 @@
-/*! Copyright © 2020 Rick Beerendonk !*/
+/*! Copyright © 2021 Rick Beerendonk !*/
 
 body > :first-child::after {
   content: "ASP.NET 5";
   font-family: Comfortaa;
   font-size: 1.7rem;
+  font-style: normal;
   font-weight: bold;
   display: block;
   position: fixed;

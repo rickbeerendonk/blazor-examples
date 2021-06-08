@@ -1,16 +1,17 @@
-/*! Copyright © 2021 Rick Beerendonk !*/
+/*! Copyright © 2020 Rick Beerendonk !*/
 
 body > :first-child::after {
-  content: "ASP.NET 5";
+  content: "Blazor 5";
   font-family: Comfortaa;
   font-size: 1.7rem;
+  font-style: normal;
   font-weight: bold;
   display: block;
   position: fixed;
 
   color: white;
-  background-color: red;
-  border-color: red;
+  background-color: #5c2a92;
+  border-color: #5c2a92;
   border-width: 0.2rem;
   border-style: solid;
   border-radius: 2rem;
