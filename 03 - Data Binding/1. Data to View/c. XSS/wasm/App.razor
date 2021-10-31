@@ -1,0 +1,9 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>@value</h1>
+<h1>@((MarkupString)value)</h1>
+
+@code {
+    private string value = "<u onmouseover=alert('Hacked!')>Click me!</u>";
+}
