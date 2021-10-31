@@ -1,0 +1,11 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<label>Dutch: <input @bind="name" @oninput="handleInput"></label>
+<p>Hallo @name</p>
+
+@code {
+  private string name { get; set; } = "Wereld";
+
+  private void handleInput(ChangeEventArgs changeEvent) => name = (string)changeEvent.Value;
+}

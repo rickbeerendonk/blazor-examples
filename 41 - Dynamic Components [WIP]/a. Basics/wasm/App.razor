@@ -1,0 +1,21 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<!-- https://docs.microsoft.com/en-us/aspnet/core/blazor/components/dynamiccomponent?view=aspnetcore-6.0 -->
+
+<label>
+    <input type="radio" value="dutch" />
+    Dutch
+</label>
+<label>
+    <input type="radio" value="english" />
+    English
+</label>
+<label>
+    <input type="radio" value="spanish" />
+    Spanish
+</label>
+
+<div style="background: bisque">
+    <DynamicComponent @Type="greetingLanguage" />
+</div>
