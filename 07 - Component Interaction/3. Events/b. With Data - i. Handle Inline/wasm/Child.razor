@@ -10,7 +10,7 @@
 
   private void HandleChange(ChangeEventArgs e)
   {
-    Console.Write(e.Value.ToString());
+    //Console.Write(e.Value.ToString());
     OnChangeCallback.InvokeAsync(e.Value.ToString());
   }
 }
