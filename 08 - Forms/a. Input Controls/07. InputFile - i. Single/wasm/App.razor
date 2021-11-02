@@ -2,8 +2,10 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <div>
-    <label for="single">Single file:</label>
-    <InputFile id="single" OnChange="@HandleChange" />
+    <label>
+        Single file:
+        <InputFile OnChange="@HandleChange" />
+    </label>
 </div>
 
 @if (file != null)

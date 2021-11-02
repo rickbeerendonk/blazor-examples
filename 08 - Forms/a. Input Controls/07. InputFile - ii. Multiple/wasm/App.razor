@@ -2,8 +2,10 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <div>
-    <label for="multiple">Multiple files:</label>
-    <InputFile id="multiple" OnChange="@HandleChange" multiple />
+    <label>
+        Multiple files:
+        <InputFile OnChange="@HandleChange" multiple />
+    </label>
 </div>
 
 @if (files.Count > 0)

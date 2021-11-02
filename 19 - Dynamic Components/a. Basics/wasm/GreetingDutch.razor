@@ -2,8 +2,10 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <EditForm Model="model">
-  <label for="language">Dutch: </label>
-  <InputText @bind-Value="model.World" id="language" />
+  <label>
+    Dutch:
+    <InputText @bind-Value="model.World" />
+  </label>
 </EditForm>
 
 <p>Hallo @model.World</p>

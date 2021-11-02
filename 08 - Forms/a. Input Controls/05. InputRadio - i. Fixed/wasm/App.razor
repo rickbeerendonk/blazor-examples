@@ -3,9 +3,9 @@
 
 <EditForm Model="model">
     <InputRadioGroup @bind-Value="model.Value">
-        <InputRadio Value="Options.A" id="a" /><label for="a">@Options.A</label><br />
-        <InputRadio Value="Options.B" id="b" /><label for="b">@Options.B</label><br />
-        <InputRadio Value="Options.C" id="c" /><label for="c">@Options.C</label><br />
+        <label><InputRadio Value="Options.A" />@Options.A</label><br />
+        <label><InputRadio Value="Options.B" />@Options.B</label><br />
+        <label><InputRadio Value="Options.C" />@Options.C</label><br />
     </InputRadioGroup>
 </EditForm>
 

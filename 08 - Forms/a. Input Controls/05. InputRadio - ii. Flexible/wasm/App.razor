@@ -5,8 +5,10 @@
     <InputRadioGroup @bind-Value="model.Value">
         @foreach (var option in (Options[])Enum.GetValues(typeof(Options)))
         {
-            <InputRadio Value="option" id="@option" />
-            <label for="@option">@option</label>
+            <label>
+                <InputRadio Value="option" />
+                @option
+            </label>
             <br>
         }
     </InputRadioGroup>

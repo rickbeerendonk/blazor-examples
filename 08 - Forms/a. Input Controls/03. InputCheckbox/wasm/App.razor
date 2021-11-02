@@ -2,8 +2,10 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <EditForm Model="model">
-    <InputCheckbox @bind-Value="model.Value" id="checkbox" />
-    <label for="checkbox">Value</label> 
+    <label>
+        Value
+        <InputCheckbox @bind-Value="model.Value" />
+    </label> 
 </EditForm>
 
 @model.Value
