@@ -1,14 +1,14 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
-<button @onclick="HandleClick(1)">Add 1</button>
-<button @onclick="HandleClick(2)">Add 2</button>
+<button @onclick="CreateHandleClick(1)">Add 1</button>
+<button @onclick="CreateHandleClick(2)">Add 2</button>
 <h1>Count: @count</h1>
 
 @code {
     private int count = 0;
 
-    private Action HandleClick(int nr) {
+    private Action CreateHandleClick(int nr) {
         return () => count += nr;
     }
 }
