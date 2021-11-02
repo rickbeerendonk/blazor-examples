@@ -1,0 +1,23 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<!-- https://github.com/dotnet/aspnetcore/pull/33950 -->
+
+<EditForm Model="model">
+    <InputSelect @bind-Value="model.Value" multiple>
+        <option>First</option>
+        <option>Second</option>
+        <option>Third</option>        
+    </InputSelect>
+</EditForm>
+
+<ul>
+@foreach (var value in model.Value)
+{
+    <li>@value</li>
+}
+</ul>
+
+@code {
+    private DemoModel model = new DemoModel();
+}
