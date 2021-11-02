@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ComponentInteraction_Properties_Basics": {
+    "DynamicComponents_Basics": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<EditForm Model="model">
+  <label>
+    Spanish:
+    <InputText @bind-Value="model.World" />
+  </label>
+</EditForm>
+
+<p>Hola @model.World</p>
+
+@code {
+  private LanguageModel model = new LanguageModel { World = "Mundo" };
+}
