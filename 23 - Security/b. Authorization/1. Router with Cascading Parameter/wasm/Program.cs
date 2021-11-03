@@ -22,8 +22,6 @@ namespace Security_Authorization_RouterCascadingParameter
 
             // Use fake AuthenticationStateProvider
             builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-            //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider1>();
-            //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider2>();
 
             await builder.Build().RunAsync();
         }

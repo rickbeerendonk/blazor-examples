@@ -8,13 +8,9 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
-    private bool loggedIn;
-
     public CustomAuthenticationStateProvider()
     {
-        Task.Delay(2000).ContinueWith(t => {
-            // Login
-            loggedIn = true;
+        Task.Delay(10000).ContinueWith(t => {
             NotifyAuthenticationStateChanged(GetLoggedInAuthenticationStateAsync());
         });
     }

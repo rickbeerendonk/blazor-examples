@@ -3,8 +3,6 @@
 
 @page "/"
 
-@inject IJSRuntime JsRuntime
-
 <h2>Home</h2>
 
 <AuthorizeView>
@@ -18,8 +16,7 @@
 </AuthorizeView>
 
 @code {
-    private async Task SecureMethod()
-    { 
-        await JsRuntime.InvokeVoidAsync("alert", "Secure Method called!");
+    private void SecureMethod()
+    {
     }
 }
