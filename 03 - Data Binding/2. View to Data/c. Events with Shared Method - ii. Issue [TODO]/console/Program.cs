@@ -2,10 +2,8 @@
 
 for (int i = 0; i < 3; i++)
 {
-    if (i < 2)
-    {
-        foo = () => Console.WriteLine(i);
-    }
+    //int j = i;
+    foo = () => Console.WriteLine(j);
 }
 
-foo();
+foo(); // Return 1 ???
