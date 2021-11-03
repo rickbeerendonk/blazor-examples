@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@for (int i = 0; i < 3; i++)
+{
+    <button @onclick="() => HandleClick(i)">Add @i</button>
+}
+
+<h1>Count: @count</h1>
+
+@code {
+    private int count = 0;
+
+    private void HandleClick(int nr) {
+        count += nr;
+    }
+}
