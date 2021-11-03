@@ -18,7 +18,11 @@ namespace Security_Authorization_RouterCascadingParameter
 
             // Setup Autorization
             builder.Services.AddOptions();
-            builder.Services.AddAuthorizationCore();
+            builder.Services.AddAuthorizationCore(options =>
+            {
+                options.AddPolicy("MemberPolicy", policyBuilder => policyBuilder.RequireClaim("Member"));
+                options.AddPolicy("VipMemberPolicy", policyBuilder => policyBuilder.RequireClaim("Member", "0000", "0001"));
+            });
 
             // Use fake AuthenticationStateProvider
             builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
