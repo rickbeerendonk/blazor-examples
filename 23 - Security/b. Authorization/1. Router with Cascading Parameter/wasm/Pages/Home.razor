@@ -1,0 +1,25 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@page "/"
+
+@inject IJSRuntime JsRuntime
+
+<h2>Home</h2>
+
+<AuthorizeView>
+    <Authorized>
+        <p>Authorized @context.User.Identity.Name!</p>
+        <button @onclick="SecureMethod">Authorized Only Button</button>
+    </Authorized>
+    <NotAuthorized>
+        <p>Not Authorized!</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private async Task SecureMethod()
+    { 
+        await JsRuntime.InvokeVoidAsync("alert", "Secure Method called!");
+    }
+}
