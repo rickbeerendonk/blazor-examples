@@ -1,0 +1,34 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@using System.Security.Claims
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>ClaimsPrincipal Info</h3>
+
+@if (user != null) {
+    <ul>
+        <li><b>Is authenticated:</b> @user.Identity.IsAuthenticated</li>
+        <li><b>Authentication Type:</b> @user.Identity.AuthenticationType</li>
+        <li><b>Name:</b> @user.Identity.Name</li>
+        <li><b>Claims:</b>
+            <ul>
+            @foreach (var claim in user.Claims)
+            {
+                <li>@claim.Type: @claim.Value (@claim.Issuer)</li>
+            }
+            </ul>
+        </li>
+    </ul>
+}
+
+@code {
+    private ClaimsPrincipal user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        user = authState.User;
+    }
+}
