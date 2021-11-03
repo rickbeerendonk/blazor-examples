@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace DataBinding_ViewToData_EventsWithSharedMethod
+namespace DataBinding_ViewToData_SharedMethodForLoopIssue
 {
     public class Program
     {
