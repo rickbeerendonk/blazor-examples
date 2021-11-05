@@ -10,7 +10,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
     public CustomAuthenticationStateProvider()
     {
-        Task.Delay(10000).ContinueWith(t => {
+        Task.Delay(3000).ContinueWith(t => {
             NotifyAuthenticationStateChanged(GetLoggedInAuthenticationStateAsync());
         });
     }
@@ -24,7 +24,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
             new Claim(ClaimTypes.Name, "Alexandra", ClaimValueTypes.String, issuer),
             new Claim(ClaimTypes.Surname, "Adams", ClaimValueTypes.String, issuer),
             new Claim(ClaimTypes.Country, "Australia", ClaimValueTypes.String, issuer),
-            new Claim("Member", "123", ClaimValueTypes.String, issuer)
+            new Claim("Member", "2", ClaimValueTypes.String, issuer)
         }, "Fake authentication type");
 
         var user = new ClaimsPrincipal(identity);

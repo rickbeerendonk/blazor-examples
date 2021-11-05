@@ -21,7 +21,7 @@ namespace Security_Authorization_RouterCascadingParameter
             builder.Services.AddAuthorizationCore(options =>
             {
                 options.AddPolicy("MemberPolicy", policyBuilder => policyBuilder.RequireClaim("Member"));
-                options.AddPolicy("VipMemberPolicy", policyBuilder => policyBuilder.RequireClaim("Member", "0000", "0001"));
+                options.AddPolicy("VipMemberPolicy", policyBuilder => policyBuilder.RequireClaim("Member", "0", "1"));
             });
 
             // Use fake AuthenticationStateProvider
