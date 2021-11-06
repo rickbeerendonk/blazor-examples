@@ -16,7 +16,7 @@ public class CustomAuthenticationStateProvider2 : AuthenticationStateProvider
             new Claim(ClaimTypes.Name, "Alexandra", ClaimValueTypes.String, issuer),
             new Claim(ClaimTypes.Surname, "Adams", ClaimValueTypes.String, issuer),
             new Claim(ClaimTypes.Country, "Australia", ClaimValueTypes.String, issuer),
-            new Claim("Member", "123", ClaimValueTypes.String, issuer)
+            new Claim("Member", "2", ClaimValueTypes.String, issuer)
         }, "Fake authentication type");
 
         var user = new ClaimsPrincipal(identity);
