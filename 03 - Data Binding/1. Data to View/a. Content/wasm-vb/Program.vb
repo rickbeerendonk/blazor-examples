@@ -1,7 +1,6 @@
 ﻿' European Union Public License version 1.2
 ' Copyright © 2020 Rick Beerendonk
 
-Imports System.Threading.Tasks
 Imports Microsoft.AspNetCore.Components.WebAssembly.Hosting
 
 Module Program
