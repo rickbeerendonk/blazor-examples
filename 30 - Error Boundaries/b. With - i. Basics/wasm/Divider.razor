@@ -9,21 +9,22 @@
 @result()
 
 @code {
-  private int numerator = 3;
-  private int denominator = 2;
+	private int numerator = 3;
+	private int denominator = 2;
 
-  private double result()
-  {
-    return numerator / denominator;
-  }
+	private double result()
+	{
+		return numerator / denominator;
+	}
 
-  private void DenominatorChanged(ChangeEventArgs e)
-  {
-    denominator = int.Parse(e.Value.ToString());
-  }
+	private void DenominatorChanged(ChangeEventArgs e)
+	{
+		Console.WriteLine(e.Value?.GetType());
+		denominator = int.Parse(e.Value?.ToString() ?? "0");
+	}
 
-  private void NumeratorChanged(ChangeEventArgs e)
-  {
-    numerator = int.Parse(e.Value.ToString());
-  }
+	private void NumeratorChanged(ChangeEventArgs e)
+	{
+		numerator = int.Parse(e.Value?.ToString() ?? "0");
+	}
 }

@@ -19,12 +19,12 @@
 
   private void DenominatorChanged(ChangeEventArgs e)
   {
-    Console.WriteLine(e.Value.GetType());
-    denominator = int.Parse(e.Value.ToString());
+    Console.WriteLine(e.Value?.GetType());
+    denominator = int.Parse(e.Value?.ToString() ?? "0");
   }
 
   private void NumeratorChanged(ChangeEventArgs e)
   {
-    numerator = int.Parse(e.Value.ToString());
+    numerator = int.Parse(e.Value?.ToString() ?? "0");
   }
 }
