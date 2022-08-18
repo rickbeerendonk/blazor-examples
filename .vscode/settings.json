@@ -1,4 +1,5 @@
 {
   "editor.tabSize": 4,
-  "csharp.referencesCodeLens.enabled": false
+  "csharp.referencesCodeLens.enabled": false,
+  "cSpell.words": ["Beerendonk"]
 }
