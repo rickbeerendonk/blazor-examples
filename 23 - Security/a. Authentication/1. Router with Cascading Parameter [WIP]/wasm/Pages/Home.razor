@@ -1,0 +1,34 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@page "/"
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h2>Home</h2>
+
+<ul>
+    <li>Authenticated (Cascading): @authCascading</li>
+    <li>Authenticated (Inject): @authInject</li>
+</ul>
+
+@*
+<button @onclick="Update">Update</button>
+*@
+
+<button @onclick="handleClick">This has been clicked @count times!</button>
+
+@code {
+    private bool authCascading;
+    private bool authInject;
+
+    private void Update() 
+    {
+        authCascading = !authCascading;
+        authInject = !authInject;
+    }
+
+    private int count = 0;
+
+    private void handleClick() => count++;
+}

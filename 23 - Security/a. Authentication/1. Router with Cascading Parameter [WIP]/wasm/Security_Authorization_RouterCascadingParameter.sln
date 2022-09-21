@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security_Authorization_RouterCascadingParameter", "Security_Authorization_RouterCascadingParameter.csproj", "{DEBF4474-192B-4274-8A0C-127F300BFEE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEBF4474-192B-4274-8A0C-127F300BFEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBF4474-192B-4274-8A0C-127F300BFEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBF4474-192B-4274-8A0C-127F300BFEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBF4474-192B-4274-8A0C-127F300BFEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE647D84-A1FB-4C1A-B0BB-D981B05C5FBF}
+	EndGlobalSection
+EndGlobal
