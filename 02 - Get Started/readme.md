@@ -20,10 +20,16 @@ On the command line, execute:
 dotnet run
 ```
 
+Use watch, to detect changes and recompile automatically:
+
+```zsh
+dotnet watch run
+```
+
 ## Licence
 
 European Union Public Licence version 1.2
 
 ## Copyright
 
-Copyright © 2020 Rick Beerendonk
+Copyright © 2020-2022 Rick Beerendonk
