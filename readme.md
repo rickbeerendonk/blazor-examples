@@ -33,4 +33,4 @@ European Union Public Licence version 1.2
 
 ## Copyright
 
-Copyright © 2020-2021 Rick Beerendonk
+Copyright © 2020-2022 Rick Beerendonk
