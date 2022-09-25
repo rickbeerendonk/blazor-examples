@@ -7,5 +7,4 @@ using DataBinding_DataToView_Attribute;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
-
 await builder.Build().RunAsync();
