@@ -5,10 +5,10 @@
 
 @code {
   [Parameter]
-  public string Value { get; set; } // Must be "Value" to use with @bind-Value
+  public string? Value { get; set; } // Must be "Value" to use with @bind-Value
 
   [Parameter]
-  public EventCallback<string> ValueChanged { get; set; } // Must be "ValueChanged" to use with @bind-Value
+  public EventCallback<string?> ValueChanged { get; set; } // Must be "ValueChanged" to use with @bind-Value
 
   private void HandleChange(ChangeEventArgs e) => ValueChanged.InvokeAsync(e.Value.ToString());
 }

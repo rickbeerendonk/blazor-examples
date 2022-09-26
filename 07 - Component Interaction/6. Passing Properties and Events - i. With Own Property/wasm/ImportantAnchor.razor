@@ -5,11 +5,11 @@
 
 @code {
   [Parameter]
-  public RenderFragment ChildContent { get; set; }
+  public RenderFragment? ChildContent { get; set; }
 
   [Parameter]
   public string Important { get; set; } = "!!!";
 
   [Parameter(CaptureUnmatchedValues = true)]
-  public Dictionary<string, object> OtherAttributes { get; set; }
+  public Dictionary<string, object>? OtherAttributes { get; set; }
 }
