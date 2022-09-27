@@ -1,24 +1,14 @@
 ﻿/*! European Union Public License version 1.2 !*/
 /*! Copyright © 2020 Rick Beerendonk          !*/
 
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace StateContainer_Simple
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            
-            builder.RootComponents.Add<Top>("#app");
+using StateContainer_Simple;
 
-            // Add Services
-            builder.Services.AddSingleton<AppState>();
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<Top>("#app");
 
-            await builder.Build().RunAsync();
-        }
-    }
-}
+// Add Services
+builder.Services.AddSingleton<AppState>();
+await builder.Build().RunAsync();

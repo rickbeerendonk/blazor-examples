@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentLifecycle_StateHasChanged_External", "ComponentLifecycle_StateHasChanged_External.csproj", "{056F0CFD-C6A9-410C-AAD7-7F139F8D352E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{056F0CFD-C6A9-410C-AAD7-7F139F8D352E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056F0CFD-C6A9-410C-AAD7-7F139F8D352E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056F0CFD-C6A9-410C-AAD7-7F139F8D352E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056F0CFD-C6A9-410C-AAD7-7F139F8D352E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83A71B60-4CED-42DE-9FD0-1B1C06AA3FA3}
+	EndGlobalSection
+EndGlobal

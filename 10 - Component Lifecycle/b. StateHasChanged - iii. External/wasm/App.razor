@@ -6,11 +6,14 @@
 <Child @ref="child" />
 
 @code {
-  private Child child;
+  private Child? child;
 
   private void HandleChange(ChangeEventArgs e)
   {
-    Console.WriteLine(e.Value.ToString());
-    child.Name = e.Value.ToString();
+    Console.WriteLine(e.Value?.ToString());
+    if (child != null)
+    {
+      child.Name = e.Value?.ToString();
+    }
   }
 }

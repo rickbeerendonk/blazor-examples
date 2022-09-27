@@ -9,7 +9,7 @@ namespace StateContainer_Simple
     {
         public string Color { get; private set; } = "red";
 
-        public event Action OnChange;
+        public event Action? OnChange;
 
         public void SwitchColor()
         {
