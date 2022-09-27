@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Security_Authorization_RouterCascadingParameter;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            
 builder.RootComponents.Add<App>("#app");
 
 // Setup Autorization
@@ -20,5 +19,4 @@ builder.Services.AddAuthorizationCore(options =>
 
 // Use fake AuthenticationStateProvider
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-
 await builder.Build().RunAsync();

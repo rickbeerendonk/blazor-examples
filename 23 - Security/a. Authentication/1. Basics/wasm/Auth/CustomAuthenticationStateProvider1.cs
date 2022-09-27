@@ -14,9 +14,10 @@ public class CustomAuthenticationStateProvider1 : AuthenticationStateProvider
         return Task.FromResult(new AuthenticationState(user));
     }
 
-    private class NoIdentity: IIdentity {
-        public string Name { get; }
-        public string AuthenticationType { get; }
+    private class NoIdentity : IIdentity
+    {
+        public string? Name { get; }
+        public string? AuthenticationType { get; }
         public bool IsAuthenticated { get; }
     }
 }

@@ -1,19 +1,10 @@
 ﻿/*! European Union Public License version 1.2 !*/
 /*! Copyright © 2021 Rick Beerendonk          !*/
 
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace RecursiveComponents_Conditional
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<Greeting>("#app");
+using RecursiveComponents_Conditional;
 
-            await builder.Build().RunAsync();
-        }
-    }
-}
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<Greeting>("#app");
+await builder.Build().RunAsync();

@@ -39,8 +39,8 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     }
 
     private class NoIdentity: IIdentity {
-        public string Name { get; }
-        public string AuthenticationType { get; }
+        public string? Name { get; }
+        public string? AuthenticationType { get; }
         public bool IsAuthenticated { get; }
     }
 }

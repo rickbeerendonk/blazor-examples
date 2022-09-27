@@ -9,9 +9,9 @@
 
 @if (user != null) {
     <ul>
-        <li><b>Is authenticated:</b> @user.Identity.IsAuthenticated</li>
-        <li><b>Authentication Type:</b> @user.Identity.AuthenticationType</li>
-        <li><b>Name:</b> @user.Identity.Name</li>
+        <li><b>Is authenticated:</b> @user.Identity?.IsAuthenticated</li>
+        <li><b>Authentication Type:</b> @user.Identity?.AuthenticationType</li>
+        <li><b>Name:</b> @user.Identity?.Name</li>
         <li><b>Claims:</b>
             <ul>
             @foreach (var claim in user.Claims)
@@ -24,7 +24,7 @@
 }
 
 @code {
-    private ClaimsPrincipal user;
+    private ClaimsPrincipal? user;
 
     protected override async Task OnInitializedAsync()
     {
