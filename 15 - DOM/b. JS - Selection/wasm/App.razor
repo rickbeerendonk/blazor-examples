@@ -13,7 +13,7 @@
 
     private void HandleInput(ChangeEventArgs e)
     {
-        name = e.Value.ToString();
+        name = e.Value?.ToString() ?? "";
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
