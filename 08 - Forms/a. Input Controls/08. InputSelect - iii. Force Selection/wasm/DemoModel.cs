@@ -3,8 +3,8 @@
 
 namespace Forms_InputControls_InputSelect_ForceSelection
 {
-  public class DemoModel
-  {
-    public string Value { get; set; }
-  }
+    public class DemoModel
+    {
+        public string? Value { get; set; }
+    }
 }
