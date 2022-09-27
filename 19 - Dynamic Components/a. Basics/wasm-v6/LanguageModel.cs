@@ -5,5 +5,5 @@ namespace DynamicComponents_Basics;
 
 public class LanguageModel
 {
-  public string World { get; set; } 
+    public string? World { get; set; }
 }
