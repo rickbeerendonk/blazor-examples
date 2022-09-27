@@ -7,11 +7,11 @@
 @code {
     private ElementReference inputElement;
 
-    private string name = "Blazor";
+    private string? name = "Blazor";
 
     private void HandleInput(ChangeEventArgs e)
     {
-        name = e.Value.ToString();
+        name = e.Value?.ToString();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

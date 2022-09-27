@@ -7,12 +7,12 @@
 <p>The Greeting's Name is: @greetingName</p>
 
 @code {
-    private Greeting greeting;
+    private Greeting? greeting;
 
-    private string greetingName;
+    private string? greetingName;
 
     private void HandleClick()
     {
-        greetingName = greeting.Name;
+        greetingName = greeting?.Name;
     }
 }
