@@ -10,7 +10,7 @@ namespace DependencyInjection_Singleton
 
         public LoggerService()
         {
-           this.id = ++LoggerService.uniqueId;
+            this.id = ++LoggerService.uniqueId;
         }
 
         public void Info(string message)
