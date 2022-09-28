@@ -2,7 +2,8 @@ using System;
 
 namespace DependencyInjection_Singleton_WithInterface
 {
-    public interface ILogger {
+    public interface ILogger
+    {
         void Info(string message);
     }
 
@@ -14,7 +15,7 @@ namespace DependencyInjection_Singleton_WithInterface
 
         public LoggerService()
         {
-           this.id = ++LoggerService.uniqueId;
+            this.id = ++LoggerService.uniqueId;
         }
 
         public void Info(string message)
