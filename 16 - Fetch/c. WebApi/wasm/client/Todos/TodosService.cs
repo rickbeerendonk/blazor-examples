@@ -1,7 +1,6 @@
 /*! European Union Public License version 1.2 !*/
 /*! Copyright © 2021 Rick Beerendonk          !*/
 
-using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -12,12 +11,10 @@ namespace Fetch_WebApi_Client
     {
         public int Id { get; set; }
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         public bool Completed { get; set; }
     }
-
-#nullable enable
 
     public interface ITodosService
     {
@@ -36,11 +33,12 @@ namespace Fetch_WebApi_Client
 
     public class TodosHttpService : ITodosService
     {
-        private HttpClient http;
+        private readonly HttpClient http;
+        private readonly Uri baseAddress = new Uri("https://localhost:5003/todos/");
 
         public TodosHttpService(HttpClient http)
         {
-            http.BaseAddress = new Uri("https://localhost:5003/todos/");
+            http.BaseAddress = this.baseAddress;
             this.http = http;
         }
 
@@ -57,13 +55,13 @@ namespace Fetch_WebApi_Client
 
         public Task<bool> DeleteAsync(Todo value)
         {
-            Task<HttpResponseMessage> result = http.DeleteAsync(new Uri(http.BaseAddress, value.Id.ToString()));
+            Task<HttpResponseMessage> result = http.DeleteAsync(new Uri(baseAddress, value.Id.ToString()));
             return result.ContinueWith<bool>(response => response.Result.IsSuccessStatusCode);
         }
 
         public Task<bool> UpdateAsync(Todo value)
         {
-            Task<HttpResponseMessage> result = http.PutAsJsonAsync(new Uri(http.BaseAddress, value.Id.ToString()), value);
+            Task<HttpResponseMessage> result = http.PutAsJsonAsync(new Uri(baseAddress, value.Id.ToString()), value);
             return result.ContinueWith<bool>(response => response.Result.IsSuccessStatusCode);
         }
     }
