@@ -13,14 +13,15 @@ namespace Fetch_Service
 
         public int ID { get; set; }
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         public bool Completed { get; set; }
     }
 
-    #nullable enable
+#nullable enable
 
-    public interface ITodosService {
+    public interface ITodosService
+    {
         Task<Todo[]?> Todos();
     }
 
