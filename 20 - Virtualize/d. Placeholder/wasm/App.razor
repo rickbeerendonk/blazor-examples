@@ -3,14 +3,17 @@
 
 <ul>
     <Virtualize Context="item" ItemsProvider="@LoadItems">
+
         <!-- Show while waiting for result -->
         <Placeholder>
             <li>Loading...</li>
         </Placeholder>
+
         <!-- Show result -->
         <ItemContent>
             <li @key="item">@item</li>
         </ItemContent>
+        
     </Virtualize>
 </ul>
 
