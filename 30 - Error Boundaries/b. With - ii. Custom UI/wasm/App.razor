@@ -7,6 +7,12 @@
         <Divider />
     </ChildContent>
     <ErrorContent Context="ex">
-        <div class="error"> Sorry, there is an expection: @ex</div>
+        <div class="error">
+            <h1>Sorry, there is an expection!</h1>
+            <p>Message: @ex.Message</p>
+            <p>Source: @ex.Source</p>
+            <p>Data: @ex.Data</p>
+            <p>StackTrace: @ex.StackTrace</p>
+        </div>
     </ErrorContent>
 </ErrorBoundary>
