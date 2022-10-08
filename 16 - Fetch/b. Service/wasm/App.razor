@@ -12,7 +12,7 @@ else
     <ul>
         @foreach (var todo in todos)
         {
-            <li>@todo.Completed - @todo.Title</li>
+            <li>@($"{(todo.Completed ? "☑" : "☐")} {todo.Title}")</li>
         }
     </ul>
 }
