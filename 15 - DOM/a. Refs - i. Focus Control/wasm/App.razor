@@ -1,0 +1,24 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<EditForm Model="model">
+    <label>
+        Focus: <InputText @bind-Value="model.Value" @ref="inputText" />
+    </label>
+</EditForm>
+
+<h1>Hello @model.Value!</h1>
+
+@code {
+    private DemoModel model = new DemoModel();
+
+    private InputText? inputText;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await (inputText?.Element?.FocusAsync() ?? ValueTask.CompletedTask);
+        }
+    }
+}
