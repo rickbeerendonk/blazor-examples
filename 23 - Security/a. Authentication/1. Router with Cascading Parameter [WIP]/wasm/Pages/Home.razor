@@ -16,7 +16,7 @@
 <button @onclick="Update">Update</button>
 *@
 
-<button @onclick="handleClick">This has been clicked @count times!</button>
+<button @onclick="HandleClick">This has been clicked @count times!</button>
 
 @code {
     private bool authCascading;
@@ -30,5 +30,5 @@
 
     private int count = 0;
 
-    private void handleClick() => count++;
+    private void HandleClick() => count++;
 }

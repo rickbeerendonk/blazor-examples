@@ -3,12 +3,12 @@
 # @on{EVENT}
 
 ```cshtml
-<button @onclick="handleClick">This has been clicked @count times!</button>
+<button @onclick="HandleClick">This has been clicked @count times!</button>
 
 @code {
     private int count = 0;
 
-    private void handleClick(MouseEventArgs e) {
+    private void HandleClick(MouseEventArgs e) {
         count++;
     }
 }

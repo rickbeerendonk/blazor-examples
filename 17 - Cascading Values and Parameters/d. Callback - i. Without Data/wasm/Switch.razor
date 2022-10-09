@@ -1,11 +1,11 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<button @onclick="switchColor">Switch color</button>
+<button @onclick="SwitchColor">Switch color</button>
 
 @code {
     [CascadingParameter(Name = "SwitchColorParameter")]
-    private EventCallback changeColor { get; set; }
+    private EventCallback ChangeColor { get; set; }
 
-    private void switchColor() => changeColor.InvokeAsync();
+    private void SwitchColor() => ChangeColor.InvokeAsync();
 }

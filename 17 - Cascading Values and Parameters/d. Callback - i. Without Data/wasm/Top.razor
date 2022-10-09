@@ -3,7 +3,7 @@
 
 <h1>Top</h1>
 <CascadingValue Value="color" Name="ColorParameter">
-    <CascadingValue TValue="EventCallback" Value="changeColorCallback" Name="SwitchColorParameter">
+    <CascadingValue TValue="EventCallback" Value="ChangeColorCallback" Name="SwitchColorParameter">
         <Middle />
         <button @onclick="ChangeColor">Top: Switch color</button>
     </CascadingValue>
@@ -17,13 +17,13 @@
         color = (color == "red") ? "green" : "red";
     }
 
-    private EventCallback changeColorCallback;
+    private EventCallback ChangeColorCallback;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
         // Thanks to: Anders Stubberup
-        changeColorCallback = EventCallback.Factory.Create(this, ChangeColor);
+        ChangeColorCallback = EventCallback.Factory.Create(this, ChangeColor);
     }
 }

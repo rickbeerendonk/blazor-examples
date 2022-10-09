@@ -3,7 +3,7 @@
 
 <h1>Top</h1>
 <CascadingValue Value="color" Name="ColorParameter">
-    <CascadingValue TValue="EventCallback<string>" Value="changeColorCallback" Name="ChangeColorParameter">
+    <CascadingValue TValue="EventCallback<string>" Value="ChangeColorCallback" Name="ChangeColorParameter">
         <Middle />
     </CascadingValue>
 </CascadingValue>
@@ -13,13 +13,13 @@
 
     private void ChangeColor(string color) => this.color = color;
 
-    private EventCallback<string> changeColorCallback;
+    private EventCallback<string> ChangeColorCallback;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
         // Thanks to: Anders Stubberup
-        changeColorCallback = EventCallback.Factory.Create<string>(this, ChangeColor);
+        ChangeColorCallback = EventCallback.Factory.Create<string>(this, ChangeColor);
     }
 }
