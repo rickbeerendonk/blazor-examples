@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<h1>Hello Blazor!</h1>
+
+@code
+{
+    [Inject]
+    private LoggerService? Logger { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Logger?.Info("Greeting component created.");
+    }
+}
