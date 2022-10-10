@@ -2,13 +2,14 @@
 <!-- Copyright © 2020 Rick Beerendonk -->
 
 @* @onclick is a directive *@
-<button @onclick=HandleClick>This has been clicked @count times!</button>
+<button @onclick="HandleClick">This has been clicked @count times!</button>
 
 @* Optionally prefix handler with @ *@
 <button @onclick="@HandleClick">This has been clicked @count times!</button>
+<button onclick="@HandleClick">This has been clicked @count times!</button>
 
 @* Optionally remove "" *@
-<button @onclick="HandleClick">This has been clicked @count times!</button>
+<button @onclick=HandleClick>This has been clicked @count times!</button>
 
 @code {
     private int count = 0;
