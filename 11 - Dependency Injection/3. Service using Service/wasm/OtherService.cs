@@ -10,16 +10,16 @@ public interface IOther
 
 public class OtherService : IOther
 {
-    private ILogger _logger;
+    private ILogger logger;
 
     // Inject through constructor (non-Blazor components classes)
     public OtherService(ILogger logger)
     {
-        _logger = logger;
+        this.logger = logger;
     }
 
     public void Info(string message)
     {
-        _logger.Info($"Via Other: {message}");
+        logger.Info($"VIA OTHER: {message}");
     }
 }
