@@ -1,8 +1,9 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
-<button @onclick="CreateHandleClick(1)">Add 1</button>
-<button @onclick="CreateHandleClick(2)">Add 2</button>
+<button @onclick="Use1">Use 1</button>
+<button @onclick="Use2">Use 2</button>
+<button @onclick="Use3">Use 3</button>
 
 <button @onclick="lastHandleClick">Add ?</button>
 <h1>Count: @count</h1>
@@ -10,10 +11,17 @@
 @code {
     private int count = 0;
 
-    private Action lastHandleClick;
+    private Action? lastHandleClick;
 
-    private Action CreateHandleClick(int nr) {
-        lastHandleClick = () => count += nr;
-        return lastHandleClick;
+    private void Use1() {
+        lastHandleClick = () => count += 1;
+    }
+
+    private void Use2() {
+        lastHandleClick = () => count += 2;
+    }
+
+    private void Use3() {
+        lastHandleClick = () => count += 3;
     }
 }
