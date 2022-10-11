@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2022 Rick Beerendonk -->
+
+<button @onclick="HandleClick">Switch</button>
+<br />
+<ClickMe @key="switched ? 1 : 0" />
+<ClickMe @key="switched ? 0 : 1" />
+
+@code {
+    private bool switched = false;
+
+    private void HandleClick() {
+        switched = !switched;
+    }
+}
