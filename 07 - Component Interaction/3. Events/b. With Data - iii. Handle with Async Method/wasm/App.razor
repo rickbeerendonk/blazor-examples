@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2022 Rick Beerendonk -->
+
+<Child OnChangeCallback="ChildChanged" />
+
+<h1>Text: @text</h1>
+
+@code {
+  private string text = "";
+
+  private void ChildChanged(string value)
+  {
+    text = value;
+  }
+}

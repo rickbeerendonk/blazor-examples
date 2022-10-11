@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2022 Rick Beerendonk -->
+
+<input @oninput="HandleChange">
+
+@code {
+  // Event
+  [Parameter]
+  public EventCallback<string> OnChangeCallback { get; set; }
+
+  private async Task HandleChange(ChangeEventArgs e)
+  {
+    await OnChangeCallback.InvokeAsync(e.Value?.ToString() ?? "");
+  }
+}
