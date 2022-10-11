@@ -11,5 +11,5 @@
   public EventCallback<string?> ValueChanged { get; set; } // Must be "ValueChanged" to use with @bind-Value
 
   private void HandleChange(ChangeEventArgs e) 
-    => ValueChanged.InvokeAsync(e.Value?.ToString() ?? "");
+    => ValueChanged.InvokeAsync(e.Value?.ToString());
 }
