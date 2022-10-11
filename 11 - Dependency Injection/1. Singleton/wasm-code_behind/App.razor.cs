@@ -7,7 +7,7 @@ namespace DependencyInjection_Singleton_CodeBehind;
 
 public partial class App : ComponentBase
 {
-    // In  Blazor components:
+    // In Blazor components:
     // - Constructor injection is not possible
     // - Inject only through properties
     [Inject]

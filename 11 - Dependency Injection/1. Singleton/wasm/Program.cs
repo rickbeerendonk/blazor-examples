@@ -11,4 +11,5 @@ builder.RootComponents.Add<App>("#app");
 
 // Add Services
 builder.Services.AddSingleton<LoggerService>();
+
 await builder.Build().RunAsync();
