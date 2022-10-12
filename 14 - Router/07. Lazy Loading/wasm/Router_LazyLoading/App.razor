@@ -32,6 +32,8 @@
             var assemblies = await lazyAssemblyLoader.LoadAssembliesAsync(
                 new List<string>() { "Router_LazyLoading_Lib.dll" });
             lazyLoadedAssemblies.AddRange(assemblies);
+
+            //Console.WriteLine($"OnNavigateAsync: {lazyLoadedAssemblies.Count}");
         }
     }
 }
