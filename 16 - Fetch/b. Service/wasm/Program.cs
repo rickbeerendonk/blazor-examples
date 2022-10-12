@@ -15,4 +15,5 @@ builder.Services.AddSingleton(sp =>
     new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddSingleton<ITodosService, TodosHttpService>();
+
 await builder.Build().RunAsync();
