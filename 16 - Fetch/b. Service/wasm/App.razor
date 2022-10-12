@@ -22,6 +22,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        todos = await TodosService.Todos();
+        todos = await TodosService.TodosAsync();
     }
 }
