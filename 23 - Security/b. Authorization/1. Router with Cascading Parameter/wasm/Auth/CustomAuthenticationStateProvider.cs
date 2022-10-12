@@ -10,7 +10,8 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
     public CustomAuthenticationStateProvider()
     {
-        Task.Delay(3000).ContinueWith(t => {
+        Task.Delay(3000).ContinueWith(t =>
+        {
             NotifyAuthenticationStateChanged(GetLoggedInAuthenticationStateAsync());
         });
     }
@@ -38,7 +39,8 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
         return Task.FromResult(new AuthenticationState(user));
     }
 
-    private class NoIdentity: IIdentity {
+    private class NoIdentity : IIdentity
+    {
         public string? Name { get; }
         public string? AuthenticationType { get; }
         public bool IsAuthenticated { get; }
