@@ -15,8 +15,21 @@
     </NotAuthorized>
 </AuthorizeView>
 
-@code {
+
+<AuthorizeView Policy="VipMemberPolicy">
+    <Authorized>
+        <p>VIP!</p>
+        <button @onclick="SecureVIPMethod">VIP Only Button</button>
+    </Authorized>
+</AuthorizeView>
+
+@code
+{
     private void SecureMethod()
+    {
+    }
+
+    private void SecureVIPMethod()
     {
     }
 }
