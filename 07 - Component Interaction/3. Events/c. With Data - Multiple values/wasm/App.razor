@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<Child OnChangeCallback="ChildChanged" />
+
+<h1>Text: @text (@moment)</h1>
+
+@code {
+    private string text = "";
+    private DateTime moment;
+
+    private void ChildChanged(Tuple<string, DateTime> value)
+    {
+        text = value.Item1;
+        moment = value.Item2;
+    }
+}

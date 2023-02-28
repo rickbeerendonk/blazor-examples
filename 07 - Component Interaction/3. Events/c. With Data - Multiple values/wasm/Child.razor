@@ -1,0 +1,15 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<input @oninput="HandleChange">
+
+@code {
+  // Event
+  [Parameter]
+  public EventCallback<Tuple<string, DateTime>> OnChangeCallback { get; set; }
+
+  private void HandleChange(ChangeEventArgs e)
+  {
+    OnChangeCallback.InvokeAsync(new Tuple<string, DateTime>(e.Value?.ToString() ?? "", DateTime.Now));
+  }
+}
