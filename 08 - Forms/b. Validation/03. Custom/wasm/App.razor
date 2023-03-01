@@ -1,0 +1,73 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Bind to EditContext -->
+<EditForm EditContext="@editContext" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label>
+        First:
+        <InputText @bind-Value="model.First" />
+    </label>
+
+    <br />
+
+    <label>
+        Second:
+        <InputText @bind-Value="model.Second" />
+    </label>
+
+    <br />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (result != string.Empty) {
+    <div>
+        Result: @result
+    </div>
+}
+
+@code {
+    private DemoModel? model;
+    private string result = string.Empty;
+
+    private EditContext? editContext;
+    private ValidationMessageStore? messageStore;
+
+    protected override void OnInitialized()
+    {
+        CreateNewModel();
+    }
+
+    private void HandleValidationRequested(object? sender,
+        ValidationRequestedEventArgs args)
+    {
+        messageStore?.Clear();
+
+        // Custom validation logic
+        if ((string.IsNullOrEmpty(model?.First) && string.IsNullOrEmpty(model?.Second))
+        || (!string.IsNullOrEmpty(model?.First) && !string.IsNullOrEmpty(model?.Second)))
+        {
+            messageStore?.Add(new FieldIdentifier(model!, "First"), "One of First or Second should have a value (not both).");
+        }
+    }
+
+    private void CreateNewModel()
+    {
+        model = new DemoModel();
+        editContext = new(model);
+        editContext.OnValidationRequested += HandleValidationRequested;
+        messageStore = new(editContext);
+    }
+
+    private void HandleValidSubmit()
+    {
+        // Use the form result
+        result = $"{model?.First} - {model?.Second}";
+
+        // Reset the form
+        CreateNewModel();
+    }
+}
