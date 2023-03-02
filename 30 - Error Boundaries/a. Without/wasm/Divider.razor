@@ -19,6 +19,7 @@
 
   private void DenominatorChanged(ChangeEventArgs e)
   {
+		//throw new Exception("Something went wrong!");
     Console.WriteLine(e.Value?.GetType());
     denominator = int.Parse(e.Value?.ToString() ?? "0");
   }
