@@ -1,3 +1,6 @@
+// European Union Public License version 1.2
+// Copyright © 2023 Rick Beerendonk
+
 using System.Runtime.InteropServices.JavaScript;
 using System.Runtime.Versioning;
 

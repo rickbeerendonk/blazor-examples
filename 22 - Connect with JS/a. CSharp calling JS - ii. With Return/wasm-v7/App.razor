@@ -1,5 +1,5 @@
 ﻿<!-- European Union Public License version 1.2 -->
-<!-- Copyright © 2021 Rick Beerendonk -->
+<!-- Copyright © 2023 Rick Beerendonk -->
 
 @using System.Runtime.InteropServices.JavaScript
 
@@ -9,12 +9,15 @@
 @code {
     private string output = string.Empty;
 
+    protected override async Task OnInitializedAsync()
+    {
+        await JSHost.ImportAsync("App", "../App.razor.js");
+    }
+
     private async void handleClickAsync()
     {
         string input = DateTime.Now.ToString();
         Console.WriteLine($"C# sent: {input}");
-
-        await JSHost.ImportAsync("App", "../App.razor.js");
 
         // Call JS function
         double outputAsDouble = JSFunc(input);
