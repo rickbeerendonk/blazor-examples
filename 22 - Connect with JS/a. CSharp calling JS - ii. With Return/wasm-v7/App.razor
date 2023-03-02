@@ -14,7 +14,7 @@
         string input = DateTime.Now.ToString();
         Console.WriteLine($"C# sent: {input}");
 
-        await JSHost.ImportAsync("App", "./App.razor.js");
+        await JSHost.ImportAsync("App", "../App.razor.js");
 
         // Call JS function
         double outputAsDouble = JSFunc(input);
