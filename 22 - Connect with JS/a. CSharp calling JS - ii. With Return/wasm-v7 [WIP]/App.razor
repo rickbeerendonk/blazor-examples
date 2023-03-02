@@ -1,0 +1,25 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@using System.Runtime.InteropServices.JavaScript
+
+<button @onclick="handleClickAsync">Call JavaScript Function</button>
+<h1>@output</h1>
+
+@code {
+    private string output = string.Empty;
+
+    private async void handleClickAsync()
+    {
+        string input = DateTime.Now.ToString();
+        Console.WriteLine($"C# sent: {input}");
+
+        await JSHost.ImportAsync("App", "./App.razor.js");
+
+        // Call JS function
+        double outputAsDouble = JSFunc(input);
+
+        output = outputAsDouble.ToString();
+        Console.WriteLine($"C# received: {output}");
+    }
+}
