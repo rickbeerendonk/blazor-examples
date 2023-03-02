@@ -20,17 +20,19 @@ public partial class App
 
 public class GeolocationPosition
 {
-  public GeolocationCoordinates Coords { get; set; }
-  //   timestamp
- }
+    public GeolocationCoordinates Coords { get; set; }
+    public long Timestamp { get; set; }
+    [JsonIgnore]
+    public DateTimeOffset DateTimeOffset => DateTimeOffset.FromUnixTimeMilliseconds(Timestamp);
+}
 
 public class GeolocationCoordinates
 {
-    Longitude { get; set; }
-    Latitude { get; set; }
-    Altitude { get; set; }
-    Accuracy { get; set; }
-    AltitudeAccuracy { get; set; }
-    Heading { get; set; }
-    Speed { get; set; }
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
+    public double? Altitude { get; set; }
+    public double Accuracy { get; set; }
+    public double? AltitudeAccuracy { get; set; }
+    public double? Heading { get; set; }
+    public double? Speed { get; set; }
 }
