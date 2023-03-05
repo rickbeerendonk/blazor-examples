@@ -2,7 +2,7 @@
 
 ## NuGet Package
 
-https://www.nuget.org/packages/Darnton.Blazor.DeviceInterop
+https://www.nuget.org/packages/Blazor.Geolocation.WebAssembly
 
 GitHub: https://github.com/IEvangelist/blazorators
 
