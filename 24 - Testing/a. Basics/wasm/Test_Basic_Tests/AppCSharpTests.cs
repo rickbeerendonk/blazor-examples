@@ -14,7 +14,9 @@ public class AppCSsharpTests : TestContext
         // Arrange
         var cut = RenderComponent<App>();
 
-        // Assert that content of the paragraph shows counter at zero
+        // Act
+
+        // Assert
         cut.Find("h1").MarkupMatches("<h1>Hello Blazor!</h1>");
     }
 }
