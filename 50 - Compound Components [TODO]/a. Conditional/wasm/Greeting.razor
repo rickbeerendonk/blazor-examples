@@ -1,0 +1,14 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<button @onclick="HandleClick" disabled="@recursive">Hello Blazor!</button>
+@if (recursive)
+{
+    <Greeting />
+}
+
+@code {
+    private bool recursive;
+
+    private void HandleClick() => recursive = true;
+}
