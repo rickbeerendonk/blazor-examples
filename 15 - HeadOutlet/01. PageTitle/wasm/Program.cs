@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using HeadContent_PageTitle;
+using HeadOutlet_PageTitle;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
