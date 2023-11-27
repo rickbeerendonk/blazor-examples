@@ -1,0 +1,25 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
+
+<QuickGrid Items="@words">
+    <PropertyColumn Property="@(w => w.Id)" Sortable="true" />
+    <PropertyColumn Property="@(w => w.Dutch)" />
+    <PropertyColumn Property="@(w => w.Danish)" />
+    <PropertyColumn Property="@(w => w.English)" />
+    <PropertyColumn Property="@(w => w.Norwegian)" />
+</QuickGrid>
+
+@code {
+    record Word(int Id, string Dutch, string Danish, string English, string Norwegian);
+
+    IQueryable<Word> words = new[]
+    {
+        new Word(1, "hallo", "hej", "hello", "hallo"),
+        new Word(2, "goedemorgen", "godmorgen", "good morning", "god morgen"),
+        new Word(3, "goedemiddag", "god eftermiddag", "good afternoon", "god ettermiddag"),
+        new Word(4, "goedenavond", "god aften", "good evening", "god kveld"),
+        new Word(5, "school", "skole", "school", "skole"),
+    }.AsQueryable();
+}
