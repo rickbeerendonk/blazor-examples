@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Get Started - Loading Progress</title>
+    <base href="/" />
+    <link href="css/oblicum.css" rel="stylesheet" />
+
+    <!-- Add style using --blazor-load-precentage-text -->
+    <style>
+      .loading-progress-text:after {
+        content: var(--blazor-load-percentage-text, "Loading");
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- Add div to style with progress -->
+      <div class="loading-progress-text"></div>
+    </div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+  </body>
+</html>
