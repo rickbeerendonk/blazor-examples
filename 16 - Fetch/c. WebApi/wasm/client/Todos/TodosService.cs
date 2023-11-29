@@ -55,13 +55,13 @@ namespace Fetch_WebApi_Client
 
         public Task<bool> DeleteAsync(Todo value)
         {
-            Task<HttpResponseMessage> result = http.DeleteAsync(new Uri(baseAddress, value.Id.ToString()));
+            Task<HttpResponseMessage> result = http.DeleteAsync(value.Id.ToString());
             return result.ContinueWith<bool>(response => response.Result.IsSuccessStatusCode);
         }
 
         public Task<bool> UpdateAsync(Todo value)
         {
-            Task<HttpResponseMessage> result = http.PutAsJsonAsync(new Uri(baseAddress, value.Id.ToString()), value);
+            Task<HttpResponseMessage> result = http.PutAsJsonAsync(value.Id.ToString(), value);
             return result.ContinueWith<bool>(response => response.Result.IsSuccessStatusCode);
         }
     }
