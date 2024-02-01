@@ -1,10 +1,11 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
+<!-- Quotes recommended -->
 <input value="@name" />
 <input value=@name />
 
-<input value=@GetName() />
+<input value="@GetName()" />
 
 <!-- Combine with static text -->
 <input value="@name C#" />
@@ -13,5 +14,5 @@
 @code {
     private string name = "Blazor";
 
-    private string GetName() => name;
+    private string GetName() => $"Name: {name}";
 }
