@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+<div class="comment">Remove focus to pass the value to the model.</div>
+
+<!--
+    FormName is required for Blazor Server
+    See: https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/binding#form-names
+-->
+<EditForm Model="model" FormName="MyForm">
+    <InputText @bind-Value="model.Value" maxlength="10" />
+</EditForm>
+
+@model.Value
+
+@code {
+    private DemoModel model = new DemoModel();
+}
