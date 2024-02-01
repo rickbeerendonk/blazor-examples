@@ -1,0 +1,54 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023-2024 Rick Beerendonk -->
+
+<!-- Bind to EditContext -->
+<EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label>
+        First:
+        <InputText @bind-Value="model.First" />
+    </label>
+
+    <br />
+
+    <label>
+        Second:
+        <InputText @bind-Value="model.Second" />
+    </label>
+
+    <br />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (result != string.Empty) {
+    <div>
+        Result: @result
+    </div>
+}
+
+@code {
+    private DemoModel? model;
+    private string result = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        CreateNewModel();
+    }
+
+    private void CreateNewModel()
+    {
+        model = new DemoModel();
+    }
+
+    private void HandleValidSubmit()
+    {
+        // Use the form result
+        result = $"{model?.First} - {model?.Second}";
+
+        // Reset the form
+        CreateNewModel();
+    }
+}
