@@ -1,0 +1,13 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/"
+@rendermode InteractiveServer
+
+<h2>Home</h2>
+
+<button @onclick="() => count++">This has been clicked @count times!</button>
+
+@code {
+    private int count = 0;
+}
