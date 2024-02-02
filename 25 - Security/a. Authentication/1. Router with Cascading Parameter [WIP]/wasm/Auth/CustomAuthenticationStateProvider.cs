@@ -1,5 +1,5 @@
 /*! European Union Public License version 1.2 !*/
-/*! Copyright © 2021 Rick Beerendonk          !*/
+/*! Copyright © 2024 Rick Beerendonk          !*/
 
 using System.Security.Claims;
 using System.Security.Principal;
@@ -9,11 +9,18 @@ namespace Security_Authorization_RouterCascadingParameter;
 
 public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
+    private bool isAuthenticated = false;
+
     public CustomAuthenticationStateProvider()
     {
-        Task.Delay(10000).ContinueWith(t => {
-            NotifyAuthenticationStateChanged(GetLoggedInAuthenticationStateAsync());
-        });
+        DelayedAuthentication();
+    }
+
+    private async Task DelayedAuthentication()
+    {
+        await Task.Delay(TimeSpan.FromSeconds(3));
+        isAuthenticated = true;
+        NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
     }
 
     private Task<AuthenticationState> GetLoggedInAuthenticationStateAsync()
@@ -35,8 +42,15 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 
     public override Task<AuthenticationState> GetAuthenticationStateAsync()
     {
-        var user = new ClaimsPrincipal(new NoIdentity());
-        return Task.FromResult(new AuthenticationState(user));
+        if (isAuthenticated)
+        {
+            return GetLoggedInAuthenticationStateAsync();
+        }
+        else
+        {
+            var user = new ClaimsPrincipal(new NoIdentity());
+            return Task.FromResult(new AuthenticationState(user));
+        }
     }
 
     private class NoIdentity: IIdentity {
