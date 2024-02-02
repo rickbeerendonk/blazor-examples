@@ -10,5 +10,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<Top>("#app");
 
 // Add Services
-builder.Services.AddSingleton<AppState>();
+builder.Services.AddScoped<AppState>();
+
 await builder.Build().RunAsync();
