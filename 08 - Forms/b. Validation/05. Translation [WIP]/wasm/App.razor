@@ -1,0 +1,55 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<!-- OnValidSubmit: Only submit when the form is valid -->
+<EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
+    <!-- Validates based on Data Annotations -->
+    <DataAnnotationsValidator />
+
+    <!-- Shows a list of all validation violations -->
+    <ValidationSummary />
+
+    <label>
+        Name:
+        <InputText @bind-Value="@(model.Name)" />
+    </label>
+
+    <br />
+
+    <label>
+        Age:
+        <InputNumber @bind-Value="model.Age" />
+    </label>
+
+    <br />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (result != string.Empty) {
+    <div>
+        Result: @result
+    </div>
+}
+
+@code {
+    private DemoModel model = new DemoModel();
+
+    private string result = string.Empty;
+
+    private void HandleValidSubmit()
+    {
+        // Use the form result
+        result = $"{model.Name} ({model.Age})";
+
+        // Reset the form
+        model = new DemoModel();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var culture = new CultureInfo("nl");
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+    }
+}

@@ -1,5 +1,5 @@
 ﻿<!-- European Union Public License version 1.2 -->
-<!-- Copyright © 2021 Rick Beerendonk -->
+<!-- Copyright © 2024 Rick Beerendonk -->
 
 @page "/"
 
@@ -12,23 +12,42 @@
     <li>Authenticated (Inject): @authInject</li>
 </ul>
 
-@*
-<button @onclick="Update">Update</button>
-*@
-
-<button @onclick="HandleClick">This has been clicked @count times!</button>
-
 @code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+
     private bool authCascading;
     private bool authInject;
 
-    private void Update() 
+    /*
+
+    protected override async Task OnInitializedAsync()
     {
-        authCascading = !authCascading;
-        authInject = !authInject;
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        authInject = user.Identity.IsAuthenticated;
+        authCascading = user.Identity.IsAuthenticated;
+
+        // Subscribe to authentication state changes
+        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).AuthenticationStateChanged += HandleAuthenticationStateChanged;
     }
 
-    private int count = 0;
+    private async void HandleAuthenticationStateChanged(Task<AuthenticationState> task)
+    {
+        var authState = await task;
+        var user = authState.User;
 
-    private void HandleClick() => count++;
+        authInject = user.Identity.IsAuthenticated;
+        authCascading = user.Identity.IsAuthenticated;
+
+        StateHasChanged(); // Notify Blazor to re-render the component
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from the event when the component is disposed
+        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).AuthenticationStateChanged -= HandleAuthenticationStateChanged;
+    }
+    */
 }
