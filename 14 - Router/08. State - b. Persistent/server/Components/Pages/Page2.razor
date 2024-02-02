@@ -1,0 +1,24 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+@page "/page2"
+@rendermode InteractiveServer
+
+@inject AppState AppState
+@implements IDisposable
+
+<h2>Page 2</h2>
+
+<button @onclick="() => AppState.Count2++">This has been clicked @AppState.Count2 times!</button>
+
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+}

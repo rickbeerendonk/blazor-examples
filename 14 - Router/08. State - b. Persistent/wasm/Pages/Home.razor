@@ -1,0 +1,23 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+@page "/"
+
+@inject AppState AppState
+@implements IDisposable
+
+<h2>Home</h2>
+
+<button @onclick="() => AppState.CountHome++">This has been clicked @AppState.CountHome times!</button>
+
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+}
