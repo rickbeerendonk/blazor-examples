@@ -11,7 +11,7 @@ public class AppState
 
     public void SwitchColor()
     {
-        Color = (Color == "red") ? "green" : "red";
+        Color = (Color == "red") ? "blue" : "red";
         NotifyStateChanged();
     }
 
