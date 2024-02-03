@@ -1,4 +1,4 @@
-using DataBinding_DataToView_Content.Components;
+using Simple.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
