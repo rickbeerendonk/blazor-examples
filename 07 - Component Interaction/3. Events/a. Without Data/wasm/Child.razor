@@ -8,8 +8,9 @@
   [Parameter]
   public EventCallback OnClickCallback { get; set; }
 
-  private void HandleClick(/* MouseEventArgs args */)
+  private Task HandleClick(/* MouseEventArgs args */)
   {
-    OnClickCallback.InvokeAsync();
+      return returOnClickCallback.InvokeAsync();
+
   }
 }
