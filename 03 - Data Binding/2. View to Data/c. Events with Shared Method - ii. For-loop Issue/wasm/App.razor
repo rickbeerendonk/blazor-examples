@@ -3,6 +3,8 @@
 
 @for (int i = 0; i < 3; i++)
 {
+    // ISSUE: The lambda expression is not necessary
+    //        and doesn't grab the value of i at the time of the loop.
     <button @onclick="() => HandleClick(i)">Add @i</button>
 }
 
