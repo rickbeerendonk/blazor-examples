@@ -1,0 +1,25 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+<h2>@DateTime.Now - @ComplexType?.Title</h2>
+
+@code {
+    private bool shouldRender;
+
+    [Parameter]
+    public ComplexType? ComplexType { get; set; }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        shouldRender = parameters
+            .ToDictionary()
+            .Any(parameter => !Equals(
+                GetType().GetProperty(parameter.Key)?.GetValue(this), 
+                parameter.Value)
+            );
+
+        return base.SetParametersAsync(parameters);
+    }
+
+    protected override bool ShouldRender() => shouldRender;
+}

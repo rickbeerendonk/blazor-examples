@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+<h1>@DateTime.Now</h1>
+<Child ComplexType="@complexType"></Child>
+
+<button @onclick="HandleClick">Force Rerender</button>
+
+@code {
+    private void HandleClick(MouseEventArgs e) {
+        // Force Rerender without a state change.
+        // See: https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-5.0#state-changes
+        StateHasChanged();
+    }
+
+    private ComplexType complexType = new("Complex");
+}
