@@ -2,8 +2,7 @@
 /*! Copyright © 2021 Rick Beerendonk          !*/
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
-using ForceRerender;
+using Demo;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
