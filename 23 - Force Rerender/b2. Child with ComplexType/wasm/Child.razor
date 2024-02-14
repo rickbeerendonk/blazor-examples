@@ -1,16 +1,23 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2024 Rick Beerendonk -->
 
-<h2>@DateTime.Now - @ComplexType?.Title</h2>
+<div>
+    <h2>@DateTime.Now - @ComplexType?.Title</h2>
+
+    <button @onclick="() => count++">Count: @count</button>
+</div>
 
 @code {
-    private bool shouldRender;
+    private bool shouldRender = true;
+
+    private int count = 0;
 
     [Parameter]
     public ComplexType? ComplexType { get; set; }
 
     public override Task SetParametersAsync(ParameterView parameters)
     {
+        // Should the next render take place?
         shouldRender = parameters
             .ToDictionary()
             .Any(parameter => !Equals(
@@ -21,5 +28,12 @@
         return base.SetParametersAsync(parameters);
     }
 
-    protected override bool ShouldRender() => shouldRender;
+    protected override bool ShouldRender() {
+        bool shouldRenderNow = this.shouldRender;
+
+        // Allow future renders when the local fields (count f.e.) changes
+        this.shouldRender = true;
+
+        return shouldRenderNow;
+    }
 }
