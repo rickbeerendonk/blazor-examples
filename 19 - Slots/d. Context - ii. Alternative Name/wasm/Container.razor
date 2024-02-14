@@ -4,14 +4,14 @@
 <div class="container">
   Item:
   <div class="content">
-    @if (Item != null)
+    @if (ChildContent != null)
     {
-      @Item("Data from Container")
+      @ChildContent("Data from Container")
     }
   </div>
 </div>
 
 @code {
   [Parameter]
-  public RenderFragment<string>? Item { get; set; }
+  public RenderFragment<string>? ChildContent { get; set; }
 }

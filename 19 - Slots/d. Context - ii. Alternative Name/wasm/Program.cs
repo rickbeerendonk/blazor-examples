@@ -2,8 +2,7 @@
 /*! Copyright © 2020 Rick Beerendonk          !*/
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
-using Slots_Context_AlternativeName;
+using Demo;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
