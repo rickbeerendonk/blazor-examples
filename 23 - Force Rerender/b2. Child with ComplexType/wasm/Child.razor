@@ -20,9 +20,11 @@
         // Should the next render take place?
         shouldRender = parameters
             .ToDictionary()
-            .Any(parameter => !Equals(
-                GetType().GetProperty(parameter.Key)?.GetValue(this), 
-                parameter.Value)
+            .Any(parameter => 
+                // Shallow compare (no deep compare, no collection compare, no reference compare)
+                !Equals(
+                    GetType().GetProperty(parameter.Key)?.GetValue(this), 
+                    parameter.Value)
             );
 
         return base.SetParametersAsync(parameters);
