@@ -3,8 +3,8 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using RecursiveComponents_Conditional;
+using CompoundComponents_Basic;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<Greeting>("#app");
+builder.RootComponents.Add<GreetingEditor>("#app");
 await builder.Build().RunAsync();

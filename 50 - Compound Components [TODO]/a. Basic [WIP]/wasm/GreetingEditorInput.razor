@@ -1,0 +1,17 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2019 Rick Beerendonk -->
+
+<input @oninput="OnInput" value="@Name" />
+
+@code {
+    [Parameter]
+    public required string Name { get; set; }
+
+    [Parameter]
+    public EventCallback<string> NameChanged { get; set; }
+
+    private async Task OnInput(ChangeEventArgs e)
+    {
+        await NameChanged.InvokeAsync(e.Value?.ToString());
+    }
+}

@@ -1,0 +1,19 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2019 Rick Beerendonk -->
+
+<GreetingEditor>
+    <GreetingEditorInput />
+    <GreetingEditorText />
+</GreetingEditor>
+
+@code {
+    [Parameter]
+    public required RenderFragment ChildContent { get; set; }
+
+    private string name = "World";
+
+    private void SetName(string newName)
+    {
+        name = newName;
+    }
+}
