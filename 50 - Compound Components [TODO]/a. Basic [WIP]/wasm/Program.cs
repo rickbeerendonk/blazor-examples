@@ -3,8 +3,18 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using CompoundComponents_Basic;
+var builder = WebApplication.CreateBuilder(args);
 
-var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<GreetingEditor>("#app");
-await builder.Build().RunAsync();
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+var app = builder.Build();
+
+app.UseStaticFiles();
+app.UseAntiforgery();
+
+app.MapRazorComponents<GreetingEditor>()
+    .AddInteractiveServerRenderMode();
+
+app.Run();
