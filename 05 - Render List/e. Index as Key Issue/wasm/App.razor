@@ -16,7 +16,7 @@
 </ul>
 
 @code {
-    private IList<string> items = new List<string> { "one", "two", "three" };
+    private IList<string> items = ["one", "two", "three"];
 
     private void InsertTop() {
         items.Insert(0, (items.Count + 1).ToString());
