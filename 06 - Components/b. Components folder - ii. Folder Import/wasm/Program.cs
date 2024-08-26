@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using Components_ComponentsFolder_GlobalImport;
+using Components_ComponentsFolder_FolderImport;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
