@@ -1,12 +1,11 @@
 // European Union Public License version 1.2
 // Copyright © 2021 Rick Beerendonk
 
-namespace Forms_InputControls_InputRadio_Fixed
-{
-  public enum Options { A, B, C };
+namespace Forms_InputControls_InputRadio_Fixed;
 
-  public class DemoModel
-  {
-    public Options Value { get; set; }
-  }
+public enum Options { A, B, C };
+
+public class DemoModel
+{
+  public Options Value { get; set; }
 }

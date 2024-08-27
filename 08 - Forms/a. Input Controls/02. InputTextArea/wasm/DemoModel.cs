@@ -1,10 +1,9 @@
 // European Union Public License version 1.2
 // Copyright © 2021 Rick Beerendonk
 
-namespace Forms_InputControls_InputTextArea
+namespace Forms_InputControls_InputTextArea;
+
+public class DemoModel
 {
-  public class DemoModel
-  {
-    public string Value { get; set; } = "Line 1\nLine 2";
-  }
+  public string Value { get; set; } = "Line 1\nLine 2";
 }
