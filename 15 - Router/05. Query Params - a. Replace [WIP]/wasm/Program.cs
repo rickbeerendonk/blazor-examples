@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using Router_QueryParams_FixUpdate;
+using Router_QueryParams_Replace;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

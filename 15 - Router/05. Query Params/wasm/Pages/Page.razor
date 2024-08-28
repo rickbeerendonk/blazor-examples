@@ -4,21 +4,9 @@
 @page "/page"
 @inject NavigationManager NavManager
 
-<div class="comment">Go to another page (id) doesn't always update the UI!</div>
-
 <h2>Page @Id.ToString()</h2>
 
 @code {
+    [SupplyParameterFromQuery]
     public int Id { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Uri uri = NavManager.ToAbsoluteUri(NavManager.Uri);
-
-        // Helper from Microsoft.AspNetCore.WebUtilities package
-        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("id", out var idParam))
-        {
-            Id = Convert.ToInt32(idParam);
-        }
-    }
 }

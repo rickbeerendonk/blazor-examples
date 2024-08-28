@@ -1,0 +1,20 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+@page "/page"
+@inject NavigationManager NavManager
+
+<h2>Page @Id.ToString()</h2>
+
+<button @onclick="GoToNextPage">Go to next page</button>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    void GoToNextPage()
+    {
+        var newUrl = NavManager.GetUriWithQueryParameter("id", 100);
+        NavManager.NavigateTo(newUrl);
+    }
+}
