@@ -2,17 +2,12 @@ namespace DependencyInjection_Singleton;
 
 public class LoggerService
 {
-    private static int uniqueId = 0;
+    private static int uniqueId;
 
-    private readonly int id;
-
-    public LoggerService()
-    {
-        this.id = ++LoggerService.uniqueId;
-    }
+    private readonly int id = ++uniqueId;
 
     public void Info(string message)
     {
-        Console.WriteLine($"{message} [logger: {this.id}]");
+        Console.WriteLine($"{message} [logger: {id}]");
     }
 }

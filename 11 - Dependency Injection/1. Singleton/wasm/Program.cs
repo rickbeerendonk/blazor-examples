@@ -2,7 +2,6 @@
 /*! Copyright © 2020 Rick Beerendonk          !*/
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 
 using DependencyInjection_Singleton;
 
