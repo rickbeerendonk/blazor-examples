@@ -5,5 +5,5 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using CompoundComponents_Basic;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<GreetingEditor>("#app");
+builder.RootComponents.Add<App>("#app");
 await builder.Build().RunAsync();

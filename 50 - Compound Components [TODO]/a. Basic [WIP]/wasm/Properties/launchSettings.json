@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RecursiveComponents_Conditional": {
+    "CompoundComponents_Basic": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

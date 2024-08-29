@@ -1,10 +1,10 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2019 Rick Beerendonk -->
 
-<GreetingEditor>
-    <GreetingEditorInput />
-    <GreetingEditorText />
-</GreetingEditor>
+<!-- Render the child content and pass the state as parameters -->
+<ChildContent Context="child">
+    @child(name, SetName)
+</ChildContent>
 
 @code {
     [Parameter]
