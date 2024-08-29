@@ -1,0 +1,14 @@
+﻿<!-- Step 6: Add a Razor component -->
+
+<h1>Blazor Component</h1>
+
+<button @onclick="handleClick">This button has been clicked @count times</button>
+
+@code {
+	private int count = 0;
+
+	private void handleClick()
+	{
+		count++;
+	}
+}
