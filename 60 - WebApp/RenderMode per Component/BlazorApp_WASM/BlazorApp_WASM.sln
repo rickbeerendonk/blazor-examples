@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_WASM", "BlazorApp_WASM\BlazorApp_WASM\BlazorApp_WASM.csproj", "{7454DAAF-E1A0-4D6E-907C-20EB09D211CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_WASM.Client", "BlazorApp_WASM\BlazorApp_WASM.Client\BlazorApp_WASM.Client.csproj", "{BD3164D6-CCC5-497C-BEEE-3E67E9B3DAB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7454DAAF-E1A0-4D6E-907C-20EB09D211CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7454DAAF-E1A0-4D6E-907C-20EB09D211CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7454DAAF-E1A0-4D6E-907C-20EB09D211CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7454DAAF-E1A0-4D6E-907C-20EB09D211CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3164D6-CCC5-497C-BEEE-3E67E9B3DAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3164D6-CCC5-497C-BEEE-3E67E9B3DAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3164D6-CCC5-497C-BEEE-3E67E9B3DAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3164D6-CCC5-497C-BEEE-3E67E9B3DAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4366BAC6-BC3F-48FF-9A44-0EEFF2B3A041}
+	EndGlobalSection
+EndGlobal
