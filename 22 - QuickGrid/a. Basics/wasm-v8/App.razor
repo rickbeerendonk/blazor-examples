@@ -4,16 +4,17 @@
 <!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
 
 <QuickGrid Items="@words">
-    <PropertyColumn Property="@(w => w.Id)" Sortable="true" />
-    <PropertyColumn Property="@(w => w.Dutch)" />
+    <PropertyColumn Property="@(w => w.Id)" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Auto" />
+    <PropertyColumn Property="@(w => w.Dutch)" Sortable="true" />
     <PropertyColumn Property="@(w => w.Danish)" />
-    <PropertyColumn Property="@(w => w.English)" />
+    <PropertyColumn Property="@(w => w.English)" Sortable="true" />
     <PropertyColumn Property="@(w => w.Norwegian)" />
 </QuickGrid>
 
 @code {
     record Word(int Id, string Dutch, string Danish, string English, string Norwegian);
 
+    //
     IQueryable<Word> words = new[]
     {
         new Word(1, "hallo", "hej", "hello", "hallo"),
