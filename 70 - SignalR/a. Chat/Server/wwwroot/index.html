@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignalR Chat</title>
+  </head>
+  <body>
+    <h1>SignalR: Web</h1>
+    <input id="user" placeholder="User" />
+    <input id="msg" placeholder="Message" />
+    <button id="sendBtn">Send</button>
+    <ul id="log"></ul>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@microsoft/signalr": "https://esm.sh/@microsoft/signalr"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as signalR from "https://esm.sh/@microsoft/signalr";
+
+      // Create and configure the SignalR connection
+      const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chat")
+        .build();
+
+      // Handle incoming messages
+      connection.on("ReceiveMessage", (user, message) => {
+        const log = document.getElementById("log");
+        const listItem = document.createElement("li");
+        listItem.textContent = `${user}: ${message}`;
+        log.appendChild(listItem);
+      });
+
+      // Start the connection
+      connection
+        .start()
+        .catch((err) => console.error("Connection failed:", err));
+
+      // Send message on button click
+      document.getElementById("sendBtn").addEventListener("click", () => {
+        const user = document.getElementById("user").value;
+        const message = document.getElementById("msg").value;
+        connection
+          .invoke("SendMessage", user, message)
+          .catch((err) => console.error("Send failed:", err));
+      });
+    </script>
+  </body>
+</html>

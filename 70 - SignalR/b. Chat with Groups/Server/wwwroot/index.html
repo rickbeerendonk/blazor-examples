@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignalR Chat</title>
+  </head>
+  <body>
+    <h1>SignalR: Web</h1>
+    <input id="user" placeholder="User" />
+    <input id="msg" placeholder="Message" />
+    <button id="sendBtn">Send</button>
+    <ul id="log"></ul>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@microsoft/signalr": "https://esm.sh/@microsoft/signalr"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import { HubConnectionBuilder } from "https://esm.sh/@microsoft/signalr";
+
+      const group = "Web";
+
+      // Create and configure the SignalR connection
+      const connection = new HubConnectionBuilder().withUrl("/chat").build();
+
+      // Handle incoming messages
+      connection.on("ReceiveMessage", (user, message) => {
+        const log = document.getElementById("log");
+        const listItem = document.createElement("li");
+        listItem.textContent = `${user}: ${message}`;
+        log.appendChild(listItem);
+      });
+
+      // Start the connection and join the "Web" group
+      connection
+        .start()
+        .then(() => {
+          console.log("Connected to SignalR hub.");
+          // Automatically join the "Web" group
+          connection
+            .invoke("JoinGroup", group)
+            .then(() => console.log("Joined group 'Web'."))
+            .catch((err) => console.error("Failed to join group:", err));
+        })
+        .catch((err) => console.error("Connection failed:", err));
+
+      // Send message on button click
+      document.getElementById("sendBtn").addEventListener("click", () => {
+        const user = document.getElementById("user").value;
+        const message = document.getElementById("msg").value;
+        connection
+          .invoke("SendMessageToGroup", group, user, message)
+          .catch((err) => console.error("Send failed:", err));
+      });
+    </script>
+  </body>
+</html>

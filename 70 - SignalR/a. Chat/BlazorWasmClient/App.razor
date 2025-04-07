@@ -1,0 +1,68 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@using Microsoft.AspNetCore.SignalR.Client
+
+@inject NavigationManager NavigationManager
+
+<h1>SignalR: Blazor</h1>
+
+<input @bind="user" placeholder="User" />
+<input @bind="message" placeholder="Message" />
+<button @onclick="SendMessage">Send</button>
+<ul>
+    @foreach (var logEntry in log)
+    {
+        <li>@logEntry</li>
+    }
+</ul>
+
+@code {
+    private HubConnection? connection;
+    private string user = string.Empty;
+    private string message = string.Empty;
+    private List<string> log { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize the SignalR connection
+        connection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7270/chat")
+            .WithAutomaticReconnect()
+            .Build();
+
+        // Handle incoming messages
+        connection.On<string, string>("ReceiveMessage", (user, message) =>
+        {
+            InvokeAsync(() =>
+            {
+                log.Add($"{user}: {message}");
+
+                // Force a re-render
+                // This is necessary because SignalR calls this method on a different thread
+                // than the one used by Blazor to render the UI.
+                StateHasChanged();
+            });
+        });
+
+        // Start the connection
+        await connection.StartAsync();
+    }
+
+    private async Task SendMessage()
+    {
+        if (connection is not null && !string.IsNullOrWhiteSpace(user) && !string.IsNullOrWhiteSpace(message))
+        {
+            await connection.InvokeAsync("SendMessage", user, message);
+            message = string.Empty; // Clear the input after sending
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (connection is not null)
+        {
+            await connection.DisposeAsync();
+        }
+    }
+}

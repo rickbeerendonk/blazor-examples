@@ -1,0 +1,54 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@using Microsoft.AspNetCore.SignalR.Client
+
+@inject NavigationManager NavigationManager
+
+<h1>SignalR: Blazor</h1>
+
+<ul>
+    @foreach (var logEntry in log)
+    {
+        <li>@logEntry</li>
+    }
+</ul>
+
+@code {
+    private HubConnection? connection;
+    private List<string> log { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize the SignalR connection
+        connection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7270/ping")
+            .WithAutomaticReconnect()
+            .Build();
+
+        // Handle incoming messages
+        connection.On<string>("Ping", (ping) =>
+        {
+            InvokeAsync(() =>
+            {
+                log.Add(ping);
+
+                // Force a re-render
+                // This is necessary because SignalR calls this method on a different thread
+                // than the one used by Blazor to render the UI.
+                StateHasChanged();
+            });
+        });
+
+        // Start the connection
+        await connection.StartAsync();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (connection is not null)
+        {
+            await connection.DisposeAsync();
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignalR Chat</title>
+  </head>
+  <body>
+    <h1>SignalR: Web</h1>
+    <ul id="log"></ul>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@microsoft/signalr": "https://esm.sh/@microsoft/signalr"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import { HubConnectionBuilder } from "https://esm.sh/@microsoft/signalr";
+
+      // Create and configure the SignalR connection
+      const connection = new HubConnectionBuilder().withUrl("/ping").build();
+
+      // Handle incoming messages
+      connection.on("ping", (ping) => {
+        const log = document.getElementById("log");
+        const listItem = document.createElement("li");
+        listItem.textContent = ping;
+        log.appendChild(listItem);
+      });
+
+      // Start the connection
+      connection
+        .start()
+        .catch((err) => console.error("Connection failed:", err));
+    </script>
+  </body>
+</html>
