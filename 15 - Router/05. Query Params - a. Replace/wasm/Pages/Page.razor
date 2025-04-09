@@ -1,7 +1,9 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2024 Rick Beerendonk -->
 
+@* /page?id=3 *@
 @page "/page"
+
 @inject NavigationManager NavManager
 
 <h2>Page @Id.ToString()</h2>
@@ -12,9 +14,9 @@
     [SupplyParameterFromQuery]
     public int Id { get; set; }
 
-    void GoToNextPage()
+    private void GoToNextPage()
     {
-        var newUrl = NavManager.GetUriWithQueryParameter("id", 100);
+        var newUrl = NavManager.GetUriWithQueryParameter("id", Id + 1);
         NavManager.NavigateTo(newUrl);
     }
 }
