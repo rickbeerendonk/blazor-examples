@@ -1,0 +1,19 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+<h2>
+    <u>Hi @Name!</u>
+</h2>
+
+@code {
+    [CascadingParameter(Name = "Name")]
+    public required string? Name { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (Name == null)
+        {
+            throw new InvalidOperationException("Compound component CustomContent rendered outside GreetingEditor");
+        }
+    }
+}
