@@ -8,11 +8,17 @@
     <Middle />
 </CascadingValue>
 
-<!-- Value is fixed (escape databinding) -->
-<CascadingValue Value="@("blue")" IsFixed="true">
-    <Bottom />
+<CascadingValue Value="color" IsFixed>
+    <Middle />
 </CascadingValue>
 
+<input @oninput="HandleInput" value="@color" />
+
 @code {
-    const string color = "red";
+    private string color = "red";
+
+    private void HandleInput(ChangeEventArgs e)
+    {
+        color = e.Value.ToString();
+    }
 }
