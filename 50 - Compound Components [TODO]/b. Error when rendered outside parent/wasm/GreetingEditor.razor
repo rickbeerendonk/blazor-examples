@@ -1,0 +1,28 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2019 Rick Beerendonk -->
+
+<!-- Pass name and SetName as cascading values -->
+<CascadingValue Value="name" Name="Name">
+    <CascadingValue TValue="EventCallback<string>" Value="SetNameCallback" Name="SetName">
+        @ChildContent
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public required RenderFragment ChildContent { get; set; }
+
+    private string name = "World";
+
+    private void SetName(string newName) => name = newName;
+
+    private EventCallback<string> SetNameCallback;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        // Thanks to: Anders Stubberup
+        SetNameCallback = EventCallback.Factory.Create<string>(this, SetName);
+    }
+}

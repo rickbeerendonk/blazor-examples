@@ -14,4 +14,12 @@
     {
         await NameChanged?.InvokeAsync(e.Value?.ToString());
     }
+
+    protected override void OnInitialized()
+    {
+        if (Name == null || NameChanged == null)
+        {
+            throw new InvalidOperationException("Compound component GreetingEditorInput rendered outside GreetingEditor");
+        }
+    }
 }
