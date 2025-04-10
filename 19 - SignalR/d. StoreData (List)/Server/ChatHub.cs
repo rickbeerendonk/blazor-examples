@@ -10,6 +10,8 @@ public class ChatHub : Hub
     // Store the last 3 messages in memory:
     // - Must be thread safe
     // - Must be static to be shared between all users
+    // BETTER: Use a ConcurrentQueue for thread safety
+    // BETTER: Use a persisetent store (e.g. database)
     private static readonly List<(string User, string Message)> LastMessages = new();
     private static readonly object LockObject = new();
 
