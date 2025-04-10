@@ -2,8 +2,8 @@
 <!-- Copyright © 2019 Rick Beerendonk -->
 
 <!-- Pass name and SetName as cascading values -->
-<CascadingValue Value="name">
-    <CascadingValue Value="SetName">
+<CascadingValue Value="name" Name="Name">
+    <CascadingValue TValue="EventCallback<string>" Value="SetNameCallback" Name="SetName">
         @ChildContent
     </CascadingValue>
 </CascadingValue>
@@ -14,8 +14,15 @@
 
     private string name = "World";
 
-    private void SetName(string newName)
+    private void SetName(string newName) => name = newName;
+
+    private EventCallback<string> SetNameCallback;
+
+    protected override void OnInitialized()
     {
-        name = newName;
+        base.OnInitialized();
+
+        // Thanks to: Anders Stubberup
+        SetNameCallback = EventCallback.Factory.Create<string>(this, SetName);
     }
 }
