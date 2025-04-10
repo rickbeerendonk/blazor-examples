@@ -4,7 +4,6 @@
 <h1>Hello @Name!</h1>
 
 @code {
-    [Parameter]
-    [EditorRequired]
-    public required string Name { get; set; }
+    [CascadingParameter]
+    public required string? Name { get; set; }
 }

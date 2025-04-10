@@ -4,11 +4,11 @@
 <input @oninput="OnInput" value="@Name" />
 
 @code {
-    [Parameter]
+    [CascadingParameter]
     [EditorRequired]
-    public required string Name { get; set; }
+    public required string? Name { get; set; }
 
-    [Parameter]
+    [CascadingParameter]
     public EventCallback<string> NameChanged { get; set; }
 
     private async Task OnInput(ChangeEventArgs e)

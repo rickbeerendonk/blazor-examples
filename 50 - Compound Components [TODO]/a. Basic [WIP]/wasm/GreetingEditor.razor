@@ -1,10 +1,12 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2019 Rick Beerendonk -->
 
-<!-- Render the child content and pass the state as parameters -->
-<ChildContent Context="child">
-    @child(name, SetName)
-</ChildContent>
+<!-- Pass name and SetName as cascading values -->
+<CascadingValue Value="name">
+    <CascadingValue Value="SetName">
+        @ChildContent
+    </CascadingValue>
+</CascadingValue>
 
 @code {
     [Parameter]
