@@ -8,6 +8,14 @@ The Simple App demo is a stripped down version of the standard app. It only cont
 
 A new app like this coulde be created by executing on the command line:
 
+#### Web App
+
+```zsh
+dotnet new blazor -o NewBlazorApp
+```
+
+#### WASM
+
 ```zsh
 dotnet new blazorwasm -o NewBlazorWasmApp
 ```
@@ -32,4 +40,4 @@ European Union Public Licence version 1.2
 
 ## Copyright
 
-Copyright © 2020-2022 Rick Beerendonk
+Copyright © 2020-2025 Rick Beerendonk
