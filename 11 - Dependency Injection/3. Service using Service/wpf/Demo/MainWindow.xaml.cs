@@ -1,0 +1,21 @@
+﻿using System.Windows;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Demo;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+
+		var serviceCollection = new ServiceCollection();
+		serviceCollection.AddWpfBlazorWebView();
+		serviceCollection.AddTransient<ILogger, LoggerService>();
+		serviceCollection.AddSingleton<IOther, OtherService>();
+		Resources.Add("services", serviceCollection.BuildServiceProvider());
+	}
+}
