@@ -1,13 +1,13 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<Child OnClickCallback="@ChildChanged" />
+<Child OnClickCallback="ChildClicked" />
 <h1>Clicked: @count</h1>
 
 @code {
   private int count = 0;
 
-  private void ChildChanged(MouseEventArgs e)
+  private void ChildClicked(MouseEventArgs eventArgs)
   {
       count++;
   }
