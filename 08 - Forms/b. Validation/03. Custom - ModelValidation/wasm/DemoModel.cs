@@ -15,11 +15,10 @@ public class DemoModel
 
 internal class DemoValidationAttribute : ValidationAttribute
 {
-    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        var model = validationContext.ObjectInstance as DemoModel;
-
-        if (model == null)
+        //if (validationContext.ObjectInstance is not DemoModel model)
+        if (value is not DemoModel model)
             return new ValidationResult("Cannot validate input");
 
         // Custom validation logic
