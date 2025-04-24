@@ -30,18 +30,9 @@
 }
 
 @code {
-    private DemoModel? model;
+    private DemoModel model = new();
     private string result = string.Empty;
 
-    protected override void OnInitialized()
-    {
-        CreateNewModel();
-    }
-
-    private void CreateNewModel()
-    {
-        model = new DemoModel();
-    }
 
     private void HandleValidSubmit()
     {
@@ -49,6 +40,6 @@
         result = $"{model?.First} - {model?.Second}";
 
         // Reset the form
-        CreateNewModel();
+        model = new();
     }
 }
