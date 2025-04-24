@@ -3,11 +3,25 @@
 
 <!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
 
-<QuickGrid Items="@items">
-    <PropertyColumn Property="@(w => w.Id)" />
-    <PropertyColumn Property="@(w => w.First)" />
-    <PropertyColumn Property="@(w => w.Second)" />
-</QuickGrid>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First</th>
+            <th>Second</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in items)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.First</td>
+                <td>@item.Second</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 @code {
     record Item(int Id, string First, int Second);
