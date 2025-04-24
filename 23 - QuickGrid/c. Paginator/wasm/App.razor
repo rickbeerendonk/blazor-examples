@@ -4,10 +4,10 @@
 <!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
 
 <QuickGrid Items="@words" Pagination="@pagination">
-    <PropertyColumn Property="@(w => w.Id)" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Auto" />
-    <PropertyColumn Property="@(w => w.Dutch)" Sortable="true" />
+    <PropertyColumn Property="@(w => w.Id)" />
+    <PropertyColumn Property="@(w => w.Dutch)" />
     <PropertyColumn Property="@(w => w.Danish)" />
-    <PropertyColumn Property="@(w => w.English)" Sortable="true" />
+    <PropertyColumn Property="@(w => w.English)" />
     <PropertyColumn Property="@(w => w.Norwegian)" />
 </QuickGrid>
 <hr />
