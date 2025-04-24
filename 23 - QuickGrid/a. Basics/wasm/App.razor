@@ -14,13 +14,12 @@
 @code {
     record Word(int Id, string Dutch, string Danish, string English, string Norwegian);
 
-    //
-    IQueryable<Word> words = new[]
+    readonly IQueryable<Word> words = new Word[]
     {
-        new Word(1, "hallo", "hej", "hello", "hallo"),
-        new Word(2, "goedemorgen", "godmorgen", "good morning", "god morgen"),
-        new Word(3, "goedemiddag", "god eftermiddag", "good afternoon", "god ettermiddag"),
-        new Word(4, "goedenavond", "god aften", "good evening", "god kveld"),
-        new Word(5, "school", "skole", "school", "skole"),
+        new (1, "hallo", "hej", "hello", "hallo"),
+        new (2, "goedemorgen", "godmorgen", "good morning", "god morgen"),
+        new (3, "goedemiddag", "god eftermiddag", "good afternoon", "god ettermiddag"),
+        new (4, "goedenavond", "god aften", "good evening", "god kveld"),
+        new (5, "school", "skole", "school", "skole"),
     }.AsQueryable();
 }
