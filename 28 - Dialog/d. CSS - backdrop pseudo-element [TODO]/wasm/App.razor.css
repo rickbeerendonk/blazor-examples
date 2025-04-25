@@ -1,0 +1,7 @@
+/* European Union Public License version 1.2 */
+/* Copyright © 2025 Rick Beerendonk */
+
+dialog::backdrop {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
