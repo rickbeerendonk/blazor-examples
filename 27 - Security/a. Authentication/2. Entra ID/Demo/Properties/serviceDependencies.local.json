@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "identityapp1": {
+      "connectionInfo": "App registration: <AppRegistrationName>, Tenant: <TenantName> (<TenantDomain> - Microsoft Entra ID)",
+      "type": "identityapp.default"
+    }
+  }
+}
