@@ -4,9 +4,9 @@
 <!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
 
 <QuickGrid Items="@items">
-    <PropertyColumn Property="@(w => w.Id)" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Auto" />
-    <PropertyColumn Property="@(w => w.First)" Sortable="true"  />
-    <PropertyColumn Property="@(w => w.Second)" Sortable="true" />
+    <PropertyColumn Property="@(i => i.Id)" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Auto" />
+    <PropertyColumn Property="@(i => i.First)" Sortable="true"  />
+    <PropertyColumn Property="@(i => i.Second)" Sortable="true" />
 </QuickGrid>
 
 @code {
