@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+<dialog open="@isDialogOpen">
+    <h1>Dialog</h1>
+    <button @onclick="HandleClose">Close 1 (does not work)</button>
+    <button onclick="@HandleClose">Close 2</button>
+</dialog>
+
+@code {
+    private bool isDialogOpen = true;
+
+    private void HandleClose()
+    {
+        isDialogOpen = false;
+        Console.WriteLine("Dialog closed");
+    }
+}
