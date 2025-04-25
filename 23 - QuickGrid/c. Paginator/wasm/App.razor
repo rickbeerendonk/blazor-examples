@@ -4,9 +4,9 @@
 <!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
 
 <QuickGrid Items="@items" Pagination="@pagination">
-    <PropertyColumn Property="@(w => w.Id)" />
-    <PropertyColumn Property="@(w => w.First)" />
-    <PropertyColumn Property="@(w => w.Second)" />
+    <PropertyColumn Property="@(i => i.Id)" />
+    <PropertyColumn Property="@(i => i.First)" />
+    <PropertyColumn Property="@(i => i.Second)" />
 </QuickGrid>
 <hr />
 <Paginator State="pagination" />
