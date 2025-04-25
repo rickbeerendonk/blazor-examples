@@ -1,7 +1,8 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2025 Rick Beerendonk -->
 
-<dialog open>
+<!-- DOES NOT WORK: @onclose="HandleClose" -->
+<dialog open onclose="@HandleClose">
     <h1>Dialog</h1>
     <form method="dialog">
         <label>Form</label>
@@ -9,4 +10,9 @@
     </form>
 </dialog>
 
-@code {}
+@code {
+    private void HandleClose()
+    {
+        Console.WriteLine("Dialog closed");
+    }
+}
