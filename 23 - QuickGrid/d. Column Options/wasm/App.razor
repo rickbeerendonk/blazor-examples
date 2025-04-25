@@ -3,23 +3,17 @@
 
 <!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
 
-<QuickGrid Items="@words">
+<QuickGrid Items="@items">
     <PropertyColumn Property="@(w => w.Id)" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Auto" />
-    <PropertyColumn Property="@(w => w.Dutch)" Sortable="true" />
-    <PropertyColumn Property="@(w => w.Danish)" />
-    <PropertyColumn Property="@(w => w.English)" Sortable="true" />
-    <PropertyColumn Property="@(w => w.Norwegian)" />
+    <PropertyColumn Property="@(w => w.First)" Sortable="true"  />
+    <PropertyColumn Property="@(w => w.Second)" Sortable="true" />
 </QuickGrid>
 
 @code {
-    record Word(int Id, string Dutch, string Danish, string English, string Norwegian);
+    record Item(int Id, string First, int Second);
 
-    readonly IQueryable<Word> words = new Word[]
-    {
-        new (1, "hallo", "hej", "hello", "hallo"),
-        new (2, "goedemorgen", "godmorgen", "good morning", "god morgen"),
-        new (3, "goedemiddag", "god eftermiddag", "good afternoon", "god ettermiddag"),
-        new (4, "goedenavond", "god aften", "good evening", "god kveld"),
-        new (5, "school", "skole", "school", "skole"),
-    }.AsQueryable();
+    private readonly IQueryable<Item> items = Enumerable
+        .Repeat(0, 1000)
+        .Select((i, idx) => new Item(idx, $"Item {idx + 1}", Random.Shared.Next(0, 1000)))
+        .AsQueryable();
 }
