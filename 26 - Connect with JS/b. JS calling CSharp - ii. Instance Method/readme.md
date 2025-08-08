@@ -7,3 +7,4 @@ This sample shows how JavaScript can call a .NET instance method in a Blazor Web
 3. The .NET method updates the component state and returns the current time, which is logged in the browser console.
 
 Run the project with `dotnet watch run` and open the browser console to see the updates.
+
