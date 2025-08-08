@@ -1,0 +1,72 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2024 Rick Beerendonk -->
+
+<EditForm EditContext="editContext" OnValidSubmit="HandleSubmit">
+    @foreach (var field in fields)
+    {
+        <p>
+            <label>@field.Label: </label>
+            <DynamicComponent Type="typeof(InputText)" Parameters="GetParameters(field)" />
+        </p>
+    }
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (submitted != null)
+{
+    <dl>
+        <dt>Name</dt>
+        <dd>@submitted.Name</dd>
+        <dt>Age</dt>
+        <dd>@submitted.Age</dd>
+        <dt>City</dt>
+        <dd>@submitted.City</dd>
+    </dl>
+}
+
+@code {
+    private DemoModel model = new();
+    private DemoModel? submitted;
+    private EditContext editContext = default!;
+
+    private Field[] fields = new[]
+    {
+        new Field("Name", "text", nameof(DemoModel.Name)),
+        new Field("Age", "number", nameof(DemoModel.Age)),
+        new Field("City", "text", nameof(DemoModel.City))
+    };
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(model);
+    }
+
+    private IDictionary<string, object?> GetParameters(Field field)
+    {
+        var property = typeof(DemoModel).GetProperty(field.Binding)!;
+
+        Expression<Func<string?>> valueExpression = Expression.Lambda<Func<string?>>(
+            Expression.Property(Expression.Constant(model), property)
+        );
+
+        return new Dictionary<string, object?>
+        {
+            ["Value"] = (string?)property.GetValue(model),
+            ["ValueChanged"] = EventCallback.Factory.Create<string?>(this, v => property.SetValue(model, v)),
+            ["ValueExpression"] = valueExpression,
+            ["type"] = field.Type
+        };
+    }
+
+    private void HandleSubmit()
+    {
+        submitted = new DemoModel
+        {
+            Name = model.Name,
+            Age = model.Age,
+            City = model.City
+        };
+    }
+
+    private record Field(string Label, string Type, string Binding);
+}
