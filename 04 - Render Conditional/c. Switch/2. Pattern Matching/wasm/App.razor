@@ -2,13 +2,14 @@
 <!-- Copyright © 2021 Rick Beerendonk -->
 
 <main>
-    @(
-        number switch
-        {
-            0 => @<span>Zero</span>,
-            1 => @<i>One</i>,
-            _ => @<u>Large number</u>
-        })
+@(
+    number switch
+    {
+        0 => @<span>Zero</span>,
+        1 => @<i>One</i>,
+        _ => @<u>Large number</u>
+    }
+)
 </main>
 
 @code {
