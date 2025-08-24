@@ -1,6 +1,6 @@
 using Simple.Components;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateSlimBuilder();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -8,7 +8,6 @@ builder.Services.AddRazorComponents()
 
 var app = builder.Build();
 
-app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
