@@ -7,11 +7,11 @@
 @* Optionally prefix handler with @ *@
 <button @onclick="@HandleClick">This has been clicked @count times!</button>
 
-@* Optionally remove @ before eventname *@
-<button onclick="@HandleClick">This has been clicked @count times!</button>
-
 @* Optionally remove "" *@
 <button @onclick=HandleClick>This has been clicked @count times!</button>
+
+@* Not preferred, because: 1. JS, 2. No IntelliSense, 3. Less performant, 4. No Blazor features (f.e. onclick:preventDefault) *@
+<button onclick="@HandleClick">This has been clicked @count times!</button>
 
 @code {
     private int count;

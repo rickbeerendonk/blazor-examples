@@ -1,18 +1,20 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-@switch (number)
-{
-    case 0:
-        <p>Zero</p>
-        break;
-    case 1:
-        <p>One</p>
-        break;
-    default:
-        <p>Large number</p>
-        break;
-}
+<main>
+    @switch (number)
+    {
+        case 0:
+            <span>Zero</span>
+            break;
+        case 1:
+            <i>One</i>
+            break;
+        default:
+            <u>Large number</u>
+            break;
+    }
+</main>
 
 @code {
     private int number = 123;
