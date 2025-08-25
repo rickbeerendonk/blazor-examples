@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Router_Simple_WithLinks": {
+    "Router_Simple_AltLayout": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
