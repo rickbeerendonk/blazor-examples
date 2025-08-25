@@ -1,0 +1,26 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@page "/page1"
+
+<h2>Page 1</h2>
+
+<a href="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor">Blazor</a>
+
+<NavLink href="Page2">
+    Page 2
+</NavLink>
+
+<NavigationLock OnBeforeInternalNavigation="Callback" ConfirmExternalNavigation="true"></NavigationLock>
+
+@code
+{
+    private void Callback(LocationChangingContext obj)
+    {
+        Console.WriteLine($"Navigating to: {obj.TargetLocation}");
+        if (obj.TargetLocation.Contains("Page2"))
+        {
+            obj.PreventNavigation();
+        }
+    }
+}
