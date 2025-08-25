@@ -13,8 +13,7 @@
 
 <NavigationLock OnBeforeInternalNavigation="Callback" ConfirmExternalNavigation="true"></NavigationLock>
 
-@code
-{
+@code {
     private void Callback(LocationChangingContext obj)
     {
         Console.WriteLine($"Navigating to: {obj.TargetLocation}");
