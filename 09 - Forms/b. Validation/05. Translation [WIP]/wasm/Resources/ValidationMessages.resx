@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <data name="DemoModel_Name_Required" xml:space="preserve">
+  <data name="NameRequired" xml:space="preserve">
     <value>Name is required.</value>
   </data>
-  <data name="DemoModel_Name_StringLength" xml:space="preserve">
+  <data name="NameTooLong" xml:space="preserve">
     <value>Name is too long.</value>
   </data>
-  <data name="DemoModel_Age_Range" xml:space="preserve">
+  <data name="AgeOutOfRange" xml:space="preserve">
     <value>Age is out of range.</value>
   </data>
 </root>

@@ -12,11 +12,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 // Support translations
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-builder.Services.AddDataAnnotationsLocalization(options =>
-{
-    options.DataAnnotationLocalizerProvider = (type, factory) =>
-        factory.Create(typeof(ValidationMessages));
-});
 
 builder.RootComponents.Add<App>("#app");
 
@@ -24,7 +19,8 @@ var host = builder.Build();
 
 // Set the default culture for the application
 var defaultCulture = new CultureInfo("en-US");
+var defaultUICulture = new CultureInfo("nl-NL");
 CultureInfo.DefaultThreadCurrentCulture = defaultCulture;
-CultureInfo.DefaultThreadCurrentUICulture = defaultCulture;
+CultureInfo.DefaultThreadCurrentUICulture = defaultUICulture;
 
 await host.RunAsync();
