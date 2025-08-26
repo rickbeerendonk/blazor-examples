@@ -7,52 +7,39 @@
 <EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
     <!-- Validates based on Data Annotations -->
     <DataAnnotationsValidator />
-
-    <!-- Shows a list of all validation violations -->
+    
+    <!-- Show all validation errors -->
     <ValidationSummary />
-
-    <label>
-        Name:
-        <InputText @bind-Value="@(model.Name)" />
-    </label>
-
-    <br />
-
-    <label>
-        Age:
-        <InputNumber @bind-Value="model.Age" />
-    </label>
-
-    <br />
-
+    
+    <div>
+        <label>
+            Name:
+            <InputText @bind-Value="model.Name" />
+        </label>
+    </div>
+    
+    <div>
+        <label>
+            Age:
+            <InputNumber @bind-Value="model.Age" />
+        </label>
+    </div>
+    
     <button type="submit">Submit</button>
 </EditForm>
 
 @if (result != string.Empty) {
-    <div>
-        Result: @result
-    </div>
+    <h1>@result</h1>
 }
 
 @code {
-    private DemoModel model = new DemoModel();
-
+    private DemoModel model = new();
     private string result = string.Empty;
 
     private void HandleValidSubmit()
     {
-        // Use the form result
-        result = $"{model.Name} ({model.Age})";
-
-        // Reset the form
-        model = new DemoModel();
-    }
-
-    protected override Task OnInitializedAsync()
-    {
-        var culture = new CultureInfo("nl");
-        CultureInfo.DefaultThreadCurrentCulture = culture;
-        CultureInfo.DefaultThreadCurrentUICulture = culture;
-        return Task.CompletedTask;
+        result = CultureInfo.CurrentUICulture.Name == "nl-NL" 
+            ? $"Bedankt {model.Name}!" 
+            : $"Thank you {model.Name}!";
     }
 }

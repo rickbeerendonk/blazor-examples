@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <data name="NameRequired" xml:space="preserve">
-    <value>Naam is vereist.</value>
+    <value>Naam is verplicht.</value>
   </data>
   <data name="NameTooLong" xml:space="preserve">
     <value>Naam is te lang.</value>
   </data>
   <data name="AgeOutOfRange" xml:space="preserve">
-    <value>Leeftijd buiten bereik.</value>
+    <value>Leeftijd valt buiten het bereik.</value>
   </data>
 </root>

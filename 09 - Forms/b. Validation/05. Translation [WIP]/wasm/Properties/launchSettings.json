@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Forms_Validation_Summary": {
+    "Forms_Validation_Translation": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
