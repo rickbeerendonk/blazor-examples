@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DataBinding_ViewToData_SharedMethod": {
+    "DataBinding_ViewToData_SharedMethodForLoopSolution": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

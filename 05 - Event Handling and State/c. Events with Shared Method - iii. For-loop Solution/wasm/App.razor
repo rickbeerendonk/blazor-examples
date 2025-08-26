@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@for (int i = 1; i < 4; i++)
+{
+    var current = i;
+    <button @onclick="() => HandleClick(current)">Add @current</button>
+}
+
+<h1>Count: @count</h1>
+
+@code {
+    private int count = 0;
+
+    private void HandleClick(int nr) {
+        count += nr;
+    }
+}
