@@ -2,14 +2,15 @@
 <!-- Copyright © 2025 Rick Beerendonk -->
 
 @* @onclick is an event handler attribute *@
-<button @onclick="HandleClick">This has been clicked @count times!</button>
+<button @onclick="HandleClick">This has been clicked @count.ToString("0.#") times!</button>
 
 @code {
-    private int count;
+    private decimal count;
 
     private async Task HandleClick()
     {
+        count += 0.5m;
         await Task.Delay(1000);
-        count++;
+        count += 0.5m;
     }
 }
