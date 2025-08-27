@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using Test_Basic;
+using Test_Setup;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

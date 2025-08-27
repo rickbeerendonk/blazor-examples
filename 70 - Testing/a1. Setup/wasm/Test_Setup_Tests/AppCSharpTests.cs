@@ -1,9 +1,9 @@
 // European Union Public License version 1.2
 // Copyright © 2023 Rick Beerendonk
 
-using Test_Basic;
+using Test_Setup;
 
-namespace Test_Basic_Tests;
+namespace Test_Setup_Tests;
 
 // See more: https://bunit.dev/docs/getting-started/writing-tests.html#creating-basic-tests-in-razor-files
 public class AppCSsharpTests : TestContext
