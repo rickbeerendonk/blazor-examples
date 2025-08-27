@@ -1,0 +1,16 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@inject ILogger Logger
+
+<!-- Doesn't work -->
+@* @inject LoggerService Logger *@
+
+<h1>Hello Blazor!</h1>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.Info("Greeting component created.");
+    }
+}
