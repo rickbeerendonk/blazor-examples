@@ -1,0 +1,21 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<EditForm Model="model">
+    <InputRadioGroup @bind-Value="model.Value">
+        @foreach (var option in (Options[])Enum.GetValues(typeof(Options)))
+        {
+            <label>
+                <InputRadio Value="option" />
+                @option
+            </label>
+            <br>
+        }
+    </InputRadioGroup>
+</EditForm>
+
+@model.Value
+
+@code {
+    private DemoModel model = new DemoModel();
+}
