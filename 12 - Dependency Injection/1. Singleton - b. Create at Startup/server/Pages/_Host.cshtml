@@ -1,5 +1,5 @@
 ﻿@page "/"
-@namespace DependencyInjection_Singleton_WithInterface.Pages
+@namespace DependencyInjection_Singleton_CreateAtStartup.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -16,7 +16,9 @@
     <link href="css/oblicum.css" rel="stylesheet" />
 </head>
 <body>
-    <component type="typeof(App)" render-mode="ServerPrerendered" />
+    @* Use render-mode="Server" to avoid prerendering, so components are not initialized twice. *@
+    @* <component type="typeof(App)" render-mode="ServerPrerendered" /> *@
+    <component type="typeof(App)" render-mode="Server" />
 
     <div id="blazor-error-ui">
         <environment include="Staging,Production">

@@ -13,9 +13,9 @@ builder.RootComponents.Add<App>("#app");
 //builder.Services.AddTransient<ILogger, LoggerService>();
 builder.Services.AddSingleton<ILogger, LoggerService>();
 
-var host = builder.Build();
+var app = builder.Build();
 
 // Force service creation (use AddTransient to demonstrate)
-host.Services.GetRequiredService<ILogger>();
+app.Services.GetRequiredService<ILogger>();
 
-await host.RunAsync();
+await app.RunAsync();

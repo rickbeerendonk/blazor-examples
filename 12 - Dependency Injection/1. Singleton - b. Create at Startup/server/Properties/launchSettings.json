@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DependencyInjection_Singleton_WithInterface": {
+    "DependencyInjection_Singleton_CreateAtStartup": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
