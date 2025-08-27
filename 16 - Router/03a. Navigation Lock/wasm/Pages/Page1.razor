@@ -11,10 +11,10 @@
     Page 2
 </NavLink>
 
-<NavigationLock OnBeforeInternalNavigation="Callback" ConfirmExternalNavigation="true"></NavigationLock>
+<NavigationLock OnBeforeInternalNavigation="BeforeInternalNavigation" ConfirmExternalNavigation="true"></NavigationLock>
 
 @code {
-    private void Callback(LocationChangingContext obj)
+    private void BeforeInternalNavigation(LocationChangingContext obj)
     {
         Console.WriteLine($"Navigating to: {obj.TargetLocation}");
         if (obj.TargetLocation.Contains("Page2"))
