@@ -12,29 +12,41 @@
 {
     <div>
         <label>
-            <input type="checkbox" 
-                   checked="@Tags?.Contains(tag)" 
+            <input type="checkbox"
+                   checked="@selectedTags.Contains(tag)"
                    @onchange="@((e) => OnTagChanged(tag, (bool)e.Value!))" />
             @tag
         </label>
     </div>
 }
 
+<p>
+    @foreach (var tag in selectedTags) { <code>@tag</code> }
+</p>
+
 <h3>Current URL:</h3>
 <p><code>@NavManager.Uri</code></p>
 
 @code {
+    // Bind to ?id=...
     [SupplyParameterFromQuery]
     public int Id { get; set; }
 
-    [SupplyParameterFromQuery]
-    public string[]? Tags { get; set; } = [];
+    // Bind to ?tag=...&tag=...
+    [SupplyParameterFromQuery(Name = "tag")]
+    public string[]? Tags { get; set; }
 
-    private readonly string[] availableTags = [ "csharp", "blazor", "razor", "asp.net" ];
+    private readonly string[] availableTags = [ "csharp", "blazor", "razor", "aspnet" ];
+    private HashSet<string> selectedTags = new(StringComparer.OrdinalIgnoreCase);
+
+    protected override void OnParametersSet()
+    {
+        // Sync set from query params on load/navigation
+        selectedTags = new HashSet<string>(Tags ?? Array.Empty<string>(), StringComparer.OrdinalIgnoreCase);
+    }
 
     private void OnTagChanged(string tag, bool isChecked)
     {
-        IList<string> selectedTags = Tags.ToList();
         if (isChecked)
         {
             selectedTags.Add(tag);
@@ -44,17 +56,17 @@
             selectedTags.Remove(tag);
         }
 
-        UpdateUrl(selectedTags);
+        UpdateUrl();
     }
 
-    private void UpdateUrl(IList<string> selectedTags)
+    private void UpdateUrl()
     {
         var uri = NavManager.GetUriWithQueryParameters(new Dictionary<string, object?>
         {
             ["tag"] = selectedTags.Any() ? selectedTags.ToArray() : null
         });
 
-        // Use replace: true to update URL without triggering navigation
+        // Update URL without recreating the component
         NavManager.NavigateTo(uri, replace: true);
     }
 }
