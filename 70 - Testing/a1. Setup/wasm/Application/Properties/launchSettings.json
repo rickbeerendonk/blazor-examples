@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Test_Setup": {
+    "Application": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

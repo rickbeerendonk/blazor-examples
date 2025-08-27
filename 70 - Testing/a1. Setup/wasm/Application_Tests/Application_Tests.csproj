@@ -31,7 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Test_Setup\Test_Setup.csproj" />
+	  <ProjectReference Include="..\Application\Application.csproj" />
 	</ItemGroup>
 
 
