@@ -8,11 +8,20 @@
 
 <h2>Page @Id.ToString()</h2>
 
+<p>Created at: @componentCreatedTime</p>
+
 <button @onclick="GoToNextPage">Go to next page</button>
 
 @code {
     [SupplyParameterFromQuery]
     public int Id { get; set; }
+
+    private DateTime componentCreatedTime = DateTime.Now;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        // This runs every time parameters change (including initial load)
+    }
 
     private void GoToNextPage()
     {
