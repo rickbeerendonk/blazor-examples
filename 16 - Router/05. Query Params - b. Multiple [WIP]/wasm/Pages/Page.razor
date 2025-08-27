@@ -1,0 +1,60 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@* /page?tag=csharp&tag=blazor *@
+@page "/page"
+
+@inject NavigationManager NavManager
+
+<h2>Page @Id.ToString() with Multiple Tags</h2>
+
+@foreach (var tag in availableTags)
+{
+    <div>
+        <label>
+            <input type="checkbox" 
+                   checked="@Tags?.Contains(tag)" 
+                   @onchange="@((e) => OnTagChanged(tag, (bool)e.Value!))" />
+            @tag
+        </label>
+    </div>
+}
+
+<h3>Current URL:</h3>
+<p><code>@NavManager.Uri</code></p>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromQuery]
+    public string[]? Tags { get; set; } = [];
+
+    private readonly string[] availableTags = [ "csharp", "blazor", "razor", "asp.net" ];
+
+    private void OnTagChanged(string tag, bool isChecked)
+    {
+        IList<string> selectedTags = Tags.ToList();
+        if (isChecked)
+        {
+            selectedTags.Add(tag);
+        }
+        else
+        {
+            selectedTags.Remove(tag);
+        }
+
+        UpdateUrl(selectedTags);
+    }
+
+    private void UpdateUrl(IList<string> selectedTags)
+    {
+        var uri = NavManager.GetUriWithQueryParameters(new Dictionary<string, object?>
+        {
+            ["tag"] = selectedTags.Any() ? selectedTags.ToArray() : null
+        });
+
+        // Use replace: true to update URL without triggering navigation
+        NavManager.NavigateTo(uri, replace: true);
+    }
+}
