@@ -1,0 +1,19 @@
+{
+  "title": "Customer",
+  "fields": [
+    {
+      "label": "Name",
+      "property": "Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Jane Doe"
+    },
+    {
+      "label": "Age",
+      "property": "Age",
+      "type": "number",
+      "required": true,
+      "placeholder": "28"
+    }
+  ]
+}

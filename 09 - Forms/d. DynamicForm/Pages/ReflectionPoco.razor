@@ -1,0 +1,67 @@
+@page "/reflection-poco"
+@using System.ComponentModel.DataAnnotations
+@using System.Reflection
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+
+<PageTitle>Reflection on POCO</PageTitle>
+
+<h1>2. Reflection on POCO</h1>
+<p>Fields are generated from properties and DataAnnotations of a strongly-typed model.</p>
+
+<EditForm Model="@model" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    
+    @foreach (var property in typeof(DynamicForms.Models.Customer).GetProperties(BindingFlags.Public | BindingFlags.Instance))
+    {
+        <div class="field">
+            @if (property.PropertyType == typeof(string))
+            {
+                <label>@property.Name:</label>
+                <InputText class="form-control"
+                           Value="@BindString(property)"
+                           ValueChanged="(string? v) => BindStringChanged(v, property)"
+                           ValueExpression="@(() => BindString(property))" />
+            }
+            else if (property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
+            {
+                <label>@property.Name:</label>
+                <InputNumber TValue="int?" class="form-control"
+                             Value="@BindInt(property)"
+                             ValueChanged="(int? v) => BindIntChanged(v, property)"
+                             ValueExpression="@(() => BindInt(property))" />
+            }
+            }
+        </div>
+    }
+    
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (submitted is not null)
+{
+    <h3>Result</h3>
+    <pre>@submitted</pre>
+}
+
+@code {
+    private DynamicForms.Models.Customer model = new();
+    private PropertyInfo[] props = typeof(DynamicForms.Models.Customer).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+    private string? submitted;
+
+    string? BindString(PropertyInfo p)
+    {
+        return (string?)p.GetValue(model);
+    }
+    void BindStringChanged(string? v, PropertyInfo p) => p.SetValue(model, v);
+    int? BindInt(PropertyInfo p) => (int?)p.GetValue(model);
+    void BindIntChanged(int? v, PropertyInfo p) => p.SetValue(model, v);
+    // Removed date/bool helpers; model has only Name (string) and Age (int)
+
+    void OnSubmit()
+    {
+    submitted = System.Text.Json.JsonSerializer.Serialize(model, new System.Text.Json.JsonSerializerOptions{ WriteIndented = true });
+    }
+}

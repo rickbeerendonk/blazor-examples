@@ -1,0 +1,8 @@
+label.required::after {
+  color: red;
+}
+.validation-summary {
+  color: red;
+  border: 1px solid #fecaca;
+  background: #fff5f5;
+}
