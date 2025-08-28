@@ -1,11 +1,82 @@
 @page "/"
-<PageTitle>Home</PageTitle>
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@using DynamicForms.Components
+@using DynamicForms.Models
+@using DynamicForms.Services
+@inject FormSchemaService Schema
 
-<h1>Overview</h1>
-<p>Three dynamic form implementations:</p>
-<ol>
-  <li><strong>Schema + Dictionary</strong>: renders fields from a runtime schema to a <code>Dictionary&lt;string, object?&gt;</code>.</li>
-  <li><strong>Reflection on POCO</strong>: generates fields from properties and DataAnnotations of a strongly-typed model.</li>
-  <li><strong>JSON Schema</strong>: reads schema from <code>wwwroot/schema/customer.json</code> and renders it dynamically.</li>
-</ol>
-<p>Use the navigation to open examples.</p>
+<h1>Dynamic Forms</h1>
+<p>Fields are rendered from a runtime schema to a dictionary model.</p>
+
+@if (fields is null)
+{
+  <p>Loading…</p>
+}
+else
+{
+  <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
+    <ValidationSummary class="validation-summary" />
+
+    @foreach (var field in fields)
+    {
+      <DynamicFieldRenderer Field="field" Model="formData" />
+    }
+
+    <button type="submit">Submit</button>
+  </EditForm>
+
+  @if (submitted is not null)
+  {
+    <h3>Result</h3>
+    <pre>@submitted</pre>
+  }
+}
+
+@code {
+  private IReadOnlyList<DynamicForms.Models.DynamicField>? fields;
+  private Dictionary<string, object?> formData = new();
+  private EditContext? editContext;
+  private ValidationMessageStore? messages;
+  private string? submitted;
+
+  protected override async Task OnInitializedAsync()
+  {
+    fields = await Schema.GetCustomerFormAsync();
+    editContext = new EditContext(formData);
+    messages = new ValidationMessageStore(editContext);
+    editContext.OnValidationRequested += (_, __) => Validate();
+    editContext.OnFieldChanged += (_, __) => Validate();
+  }
+
+  private void Validate()
+  {
+    if (editContext is null || messages is null || fields is null) return;
+    messages.Clear();
+
+    foreach (var f in fields)
+    {
+      if (!f.Required) continue;
+      var val = formData.TryGetValue(f.Property, out var v) ? v : null;
+      var isEmpty = val is null || (val is string s && string.IsNullOrWhiteSpace(s));
+      if (isEmpty)
+      {
+        messages.Add(new FieldIdentifier(formData, f.Property), $"{f.Label} is required.");
+      }
+    }
+    editContext.NotifyValidationStateChanged();
+  }
+
+  private void HandleValidSubmit()
+  {
+    Validate();
+    if (editContext is null) return;
+    if (!editContext.GetValidationMessages().Any())
+    {
+      submitted = System.Text.Json.JsonSerializer.Serialize(formData, new System.Text.Json.JsonSerializerOptions
+      {
+        WriteIndented = true
+      });
+    }
+  }
+}

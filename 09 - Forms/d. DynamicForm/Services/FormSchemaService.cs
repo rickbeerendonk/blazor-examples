@@ -8,8 +8,8 @@ public class FormSchemaService
     {
         var fields = new List<DynamicField>
         {
-            new() { Label = "Name", Property = "Name", Type = "text", Required = true, Placeholder = "Jane Doe" },
-            new() { Label = "Age", Property = "Age", Type = "number", Required = true, Placeholder = "28" }
+            new() { Label = "Name", Property = "Name", Type = "text", Required = true, Placeholder = "Name" },
+            new() { Label = "Age", Property = "Age", Type = "number", Required = true, Placeholder = "Age" }
         };
         return Task.FromResult<IReadOnlyList<DynamicField>>(fields);
     }
