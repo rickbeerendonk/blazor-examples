@@ -8,7 +8,7 @@
     public string? Color { get; set; }
 
     [CascadingParameter(Name = "ChangeColorParameter")]
-    private EventCallback<string> ChangeColor { get; set; }
+    private Action<string> ChangeColor { get; set; }
 
-    private void SwitchColor() => ChangeColor.InvokeAsync((Color == "red") ? "blue" : "red");
+    private void SwitchColor() => ChangeColor((Color == "red") ? "blue" : "red");
 }

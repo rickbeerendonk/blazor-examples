@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using CascadingValuesParameters_CallbackEvent_WithoutData;
+using CascadingValuesParameters_CallbackEvent_UsedInEventHandler;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<Top>("#app");

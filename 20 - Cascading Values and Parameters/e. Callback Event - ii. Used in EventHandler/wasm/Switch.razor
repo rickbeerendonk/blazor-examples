@@ -5,7 +5,11 @@
 
 @code {
     [CascadingParameter(Name = "SwitchColorParameter")]
-    private EventCallback ChangeColor { get; set; }
+    private Action ChangeColor { get; set; }
 
-    private void SwitchColor() => ChangeColor.InvokeAsync();
+    private void SwitchColor()
+    {
+        // In ChangeColor we now must call StateHasChanged()
+        ChangeColor();
+    }
 }

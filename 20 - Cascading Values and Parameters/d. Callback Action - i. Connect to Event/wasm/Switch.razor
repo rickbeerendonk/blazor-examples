@@ -4,6 +4,6 @@
 <button @onclick="ChangeColor">Switch color</button>
 
 @code {
-    [CascadingParameter(Name = "SwitchColorParameter")]
+    [CascadingParameter(Name = "ChangeColorParameter")]
     private Action ChangeColor { get; set; } = () => {};
 }

@@ -1,0 +1,21 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>Top</h1>
+<CascadingValue Value="color" Name="ColorParameter">
+    <CascadingValue Value="ChangeColor" Name="ChangeColorParameter">
+        <Middle />
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private string color = "red";
+
+    private void ChangeColor(string color) {
+        this.color = color;
+
+        // Manually trigger a re-render,
+        // because this function is called from another component
+        StateHasChanged();
+    }
+}
