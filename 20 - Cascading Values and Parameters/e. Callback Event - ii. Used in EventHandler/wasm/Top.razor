@@ -20,4 +20,11 @@
         // because this function is called from another component
         StateHasChanged();
     }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        // Check we don't (sometimes) have 2 renders
+        // because ChangeColor calls StateHasChanged
+        Console.WriteLine("Top.OnAfterRender @ " + DateTime.Now);
+    }
 }
