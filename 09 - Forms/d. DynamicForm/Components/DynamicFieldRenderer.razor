@@ -1,8 +1,9 @@
 @using Microsoft.AspNetCore.Components.Forms
 
 @* Minimal renderer: supports only text (string) and number (int) *@
-<div class="form-group">
-    <label class="@(Field.Required ? "required" : null)">@Field.Label</label>
+
+<label class="@(Field.Required ? "required" : null)">
+    @Field.Label
     @if (Field.Type.Equals("number", StringComparison.OrdinalIgnoreCase))
     {
         <InputNumber class="form-control" @bind-Value="IntValue" />
@@ -11,18 +12,23 @@
     {
         <InputText class="form-control" placeholder="@Field.Placeholder" @bind-Value="StringValue" />
     }
-</div>
+</label>
 
 @code {
-    [Parameter] public DynamicField Field { get; set; } = default!;
-    [Parameter] public Dictionary<string, object?> Model { get; set; } = default!;
+    [Parameter]
+    public DynamicField Field { get; set; } = default!;
+    
+    [Parameter]
+    public Dictionary<string, object?> Model { get; set; } = default!;
 
     // Simple bind wrappers
+    
     string? StringValue
     {
         get => Model.TryGetValue(Field.Property, out var v) ? v as string : null;
         set => Model[Field.Property] = value;
     }
+
     int? IntValue
     {
         get => Model.TryGetValue(Field.Property, out var v) ? v as int? : null;

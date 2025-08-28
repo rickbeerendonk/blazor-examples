@@ -4,6 +4,7 @@
 @using DynamicForms.Components
 @using DynamicForms.Models
 @using DynamicForms.Services
+
 @inject FormSchemaService Schema
 
 <h1>Dynamic Forms</h1>
@@ -20,7 +21,9 @@ else
 
     @foreach (var field in fields)
     {
-      <DynamicFieldRenderer Field="field" Model="formData" />
+      <div>
+        <DynamicFieldRenderer Field="field" Model="formData" />
+      </div>
     }
 
     <button type="submit">Submit</button>
@@ -51,12 +54,20 @@ else
 
   private void Validate()
   {
-    if (editContext is null || messages is null || fields is null) return;
+    if (editContext is null || messages is null || fields is null)
+    {
+      return;
+    }
+    
     messages.Clear();
 
     foreach (var f in fields)
     {
-      if (!f.Required) continue;
+      if (!f.Required)
+      {
+        continue;
+      }
+
       var val = formData.TryGetValue(f.Property, out var v) ? v : null;
       var isEmpty = val is null || (val is string s && string.IsNullOrWhiteSpace(s));
       if (isEmpty)
@@ -69,8 +80,11 @@ else
 
   private void HandleValidSubmit()
   {
-    Validate();
-    if (editContext is null) return;
+    if (editContext is null)
+    {
+      return;
+    }
+
     if (!editContext.GetValidationMessages().Any())
     {
       submitted = System.Text.Json.JsonSerializer.Serialize(formData, new System.Text.Json.JsonSerializerOptions
