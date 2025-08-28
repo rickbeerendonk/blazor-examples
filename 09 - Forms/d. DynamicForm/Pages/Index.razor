@@ -58,7 +58,7 @@ else
     {
       return;
     }
-    
+
     messages.Clear();
 
     foreach (var f in fields)
@@ -80,17 +80,9 @@ else
 
   private void HandleValidSubmit()
   {
-    if (editContext is null)
+    submitted = System.Text.Json.JsonSerializer.Serialize(formData, new System.Text.Json.JsonSerializerOptions
     {
-      return;
-    }
-
-    if (!editContext.GetValidationMessages().Any())
-    {
-      submitted = System.Text.Json.JsonSerializer.Serialize(formData, new System.Text.Json.JsonSerializerOptions
-      {
-        WriteIndented = true
-      });
-    }
+      WriteIndented = true
+    });
   }
 }
