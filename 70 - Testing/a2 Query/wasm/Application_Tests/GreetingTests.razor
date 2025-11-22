@@ -1,0 +1,100 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@*
+  Razor test file approach:
+  - Uses .razor file with code block
+  - Uses Render with inline Razor syntax
+  - Good for developers who prefer Blazor/Razor syntax
+  - Compare with GreetingCSharpTests.cs for C# class approach
+*@
+
+@using Bunit
+@using Xunit
+@using Application
+@inherits TestContext
+
+@code {
+    [Fact]
+    public void CanFindByElementType()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query by element type
+        var heading = cut.Find("h1");
+        Assert.NotNull(heading);
+    }
+
+    [Fact]
+    public void CanFindByClass()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query by CSS class
+        var element = cut.Find(".greeting");
+        Assert.NotNull(element);
+    }
+
+    [Fact]
+    public void CanFindByText()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query by text content using :contains selector
+        var element = cut.Find("h1:contains('Hello World!')");
+        Assert.NotNull(element);
+    }
+
+    [Fact]
+    public void CanFindById()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query by ID
+        var input = cut.Find("#editbox");
+        Assert.NotNull(input);
+    }
+
+    [Fact]
+    public void CanFindByAttribute()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query by attribute selector
+        var input = cut.Find("input[type='text']");
+        Assert.NotNull(input);
+    }
+
+    [Fact]
+    public void CanFindAll()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query multiple elements
+        var inputs = cut.FindAll("input");
+        Assert.Single(inputs);
+    }
+
+    [Fact]
+    public void CanValidateMarkup()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Snapshot-like assertion
+        cut.Find("h1").MarkupMatches(@<h1 class="greeting">Hello World!</h1>);
+    }
+
+    [Fact]
+    public void CanFindByLabelAssociation()
+    {
+        var cut = Render(@<Greeting />);
+
+        // Query by label's for attribute
+        var label = cut.Find("label[for='editbox']");
+        Assert.Equal("Name:", label.TextContent);
+        
+        // Find associated input
+        var input = cut.Find("#editbox");
+        Assert.NotNull(input);
+    }
+}
