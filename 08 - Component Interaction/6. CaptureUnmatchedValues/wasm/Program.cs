@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using ComponentInteraction_PassingPropsAndEvents;
+using ComponentInteraction_PassingPropsAndEvents_CaptureUnmatchedValues;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
