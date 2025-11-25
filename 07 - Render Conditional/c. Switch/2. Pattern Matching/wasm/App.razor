@@ -5,6 +5,8 @@
 @(
     number switch
     {
+        // @ needed because we're in C# context
+        // (unlike @if/@while where markup is implicit)
         0 => @<span>Zero</span>,
         1 => @<i>One</i>,
         _ => @<u>Large number</u>
