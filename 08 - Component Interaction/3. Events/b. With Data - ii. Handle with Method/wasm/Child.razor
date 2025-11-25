@@ -8,8 +8,8 @@
   [Parameter]
   public EventCallback<string> OnChangeCallback { get; set; }
 
-  private void HandleChange(ChangeEventArgs e)
+  private Task HandleChange(ChangeEventArgs e)
   {
-    OnChangeCallback.InvokeAsync(e.Value?.ToString() ?? "");
+    return OnChangeCallback.InvokeAsync(e.Value?.ToString() ?? "");
   }
 }

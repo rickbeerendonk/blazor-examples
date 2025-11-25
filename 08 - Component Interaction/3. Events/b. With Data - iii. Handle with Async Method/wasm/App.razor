@@ -8,8 +8,9 @@
 @code {
   private string text = "";
 
-  private void ChildChanged(string value)
+  private async Task ChildChanged(string value)
   {
+    await Task.Delay(1000); // Simulate async work
     text = value;
   }
 }
