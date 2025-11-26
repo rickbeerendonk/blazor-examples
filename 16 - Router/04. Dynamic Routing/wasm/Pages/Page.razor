@@ -5,7 +5,11 @@
 
 <h2>Page @Id</h2>
 
+<p>Component created at @creationTime</p>
+
 @code {
+    private DateTime creationTime = DateTime.Now;
+
     [Parameter]
     public string? Id { get; set; }
 
