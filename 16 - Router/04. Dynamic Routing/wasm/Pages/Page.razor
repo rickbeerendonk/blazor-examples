@@ -8,4 +8,17 @@
 @code {
     [Parameter]
     public string? Id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Page isn't re-initialized on parameter changes
+        // (so don't fetch data here based on parameters)
+        Console.WriteLine($"OnInitialized: Id = {Id}");
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Use this to react to parameter changes (e.g., fetch data)
+        Console.WriteLine($"OnParametersSet: Id = {Id}");
+    }
 }
