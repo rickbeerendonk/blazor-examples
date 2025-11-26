@@ -7,6 +7,7 @@
 <h2>Page @Id.ToString()</h2>
 
 @code {
+    // WARNING: Throws when not an int (in the browser console)
     [SupplyParameterFromQuery]
     public int Id { get; set; }
 }
