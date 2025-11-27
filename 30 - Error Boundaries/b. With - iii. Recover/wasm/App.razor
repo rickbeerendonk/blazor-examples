@@ -1,0 +1,30 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>With Error Boundary - Recover</h1>
+
+<ErrorBoundary @ref="errorBoundary">
+    <ChildContent>
+        <Divider />
+    </ChildContent>
+    <ErrorContent Context="ex">
+        <div class="error">
+            <p>Sorry, there is an exception: @ex.Message</p>
+            <button @onclick="RecoverFromError">Recover from Error</button>
+        </div>
+    </ErrorContent>
+</ErrorBoundary>
+
+<p style="margin-top: 20px; color: gray;">
+    The Recover() method resets the error boundary to a non-error state.
+    This allows the component to be re-rendered and work normally again.
+</p>
+
+@code {
+    private ErrorBoundary? errorBoundary;
+
+    private void RecoverFromError()
+    {
+        errorBoundary?.Recover();
+    }
+}

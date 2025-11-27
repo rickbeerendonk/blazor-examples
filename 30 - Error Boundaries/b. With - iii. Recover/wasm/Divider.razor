@@ -1,0 +1,31 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<p style="color: gray">Divide by zero to throw an exception</p>
+<input @onchange="NumeratorChanged" value="@numerator" type="number" />
+<span> divided by </span>
+<input @onchange="DenominatorChanged" value="@denominator" autofocus type="number" />
+<span> is equal to </span>
+@result()
+
+@code {
+	private int numerator = 3;
+	private int denominator = 2;
+
+	private double result()
+	{
+		return numerator / denominator;
+	}
+
+	private void DenominatorChanged(ChangeEventArgs e)
+	{
+		//throw new Exception("Something went wrong!");
+		Console.WriteLine(e.Value?.GetType());
+		denominator = int.Parse(e.Value?.ToString() ?? "0");
+	}
+
+	private void NumeratorChanged(ChangeEventArgs e)
+	{
+		numerator = int.Parse(e.Value?.ToString() ?? "0");
+	}
+}
