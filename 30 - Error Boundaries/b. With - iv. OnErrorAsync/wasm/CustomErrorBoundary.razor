@@ -1,0 +1,31 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@inherits ErrorBoundary
+
+@if (CurrentException is null)
+{
+    @ChildContent
+}
+else if (ErrorContent is not null)
+{
+    @ErrorContent(CurrentException)
+}
+else
+{
+    <div class="error">
+        <p>An error occurred: @CurrentException.Message</p>
+    </div>
+}
+
+@code {
+    private string errorTimestamp = "";
+
+    protected override Task OnErrorAsync(Exception exception)
+    {
+        // Log to console (in production, this could be sent to a logging service)
+        Console.WriteLine($"Error caught by CustomErrorBoundary: {exception.GetType().Name} - {exception.Message}");
+        
+        return Task.CompletedTask;
+    }
+}

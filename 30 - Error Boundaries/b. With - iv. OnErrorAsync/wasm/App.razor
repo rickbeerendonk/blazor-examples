@@ -1,0 +1,24 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+<h1>With Error Boundary - OnErrorAsync</h1>
+
+<h2>CustomErrorBoundary with OnErrorAsync:</h2>
+<CustomErrorBoundary>
+    <ChildContent>
+        <Divider />
+    </ChildContent>
+    <ErrorContent Context="ex">
+        <div class="error">
+            <h3>Custom Error Handler</h3>
+            <p><strong>Message:</strong> @ex.Message</p>
+            <p><strong>Type:</strong> @ex.GetType().Name</p>
+            <p style="color: green;">✓ Error logged to console with timestamp</p>
+        </div>
+    </ErrorContent>
+</CustomErrorBoundary>
+
+<p style="margin-top: 20px; color: gray;">
+    The CustomErrorBoundary overrides OnErrorAsync to provide custom error handling logic,
+    such as logging errors to a service, sending telemetry, or performing cleanup operations.
+</p>
