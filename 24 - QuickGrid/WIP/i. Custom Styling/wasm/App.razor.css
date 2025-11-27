@@ -1,0 +1,39 @@
+/* Custom theme styling */
+.quickgrid[theme="custom-theme"] {
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.quickgrid[theme="custom-theme"] thead {
+  background-color: #4caf50;
+  color: white;
+}
+
+.quickgrid[theme="custom-theme"] th {
+  padding: 12px;
+  font-weight: bold;
+}
+
+.quickgrid[theme="custom-theme"] tbody tr:hover {
+  background-color: #e8f5e9;
+}
+
+/* Striped rows styling */
+.striped-grid tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.striped-grid tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.striped-grid tbody tr:hover {
+  background-color: #fff3cd;
+}
+
+.striped-grid th {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}

@@ -1,0 +1,64 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
+
+<h1>QuickGrid - TemplateColumn</h1>
+
+<p style="color: gray;">Use TemplateColumn for custom cell rendering with buttons, links, or formatted content.</p>
+
+<QuickGrid Items="@items">
+    <PropertyColumn Property="@(i => i.Id)" />
+    <PropertyColumn Property="@(i => i.First)" />
+    <TemplateColumn Title="Second">
+        <strong style="color: green;">@context.Second</strong>
+    </TemplateColumn>
+    <TemplateColumn Title="Actions">
+        <button @onclick="@(() => ViewDetails(context.Id))">View</button>
+        <button @onclick="@(() => EditItem(context.Id))">Edit</button>
+        <button @onclick="@(() => DeleteItem(context.Id))">Delete</button>
+    </TemplateColumn>
+</QuickGrid>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <div style="margin-top: 20px; padding: 10px; background-color: #ffffcc; border: 1px solid #ccc;">
+        @message
+    </div>
+}
+
+<div style="margin-top: 20px; padding: 15px; background-color: #f0f0f0;">
+    <h3>TemplateColumn Features:</h3>
+    <ul>
+        <li><code>TemplateColumn</code> - Allows custom rendering of cells with arbitrary content</li>
+        <li><code>@@context</code> - References the current row item within the template</li>
+        <li>Can include buttons, links, images, or any Razor markup</li>
+        <li>Perfect for action columns or formatted display</li>
+    </ul>
+</div>
+
+@code {
+    record Item(int Id, string First, int Second);
+
+    private readonly IQueryable<Item> items = Enumerable
+        .Repeat(0, 1000)
+        .Select((i, idx) => new Item(idx, $"Item {idx + 1}", Random.Shared.Next(0, 1000)))
+        .AsQueryable();
+
+    private string message = string.Empty;
+
+    private void ViewDetails(int id)
+    {
+        message = $"Viewing details for item ID: {id}";
+    }
+
+    private void EditItem(int id)
+    {
+        message = $"Editing item ID: {id}";
+    }
+
+    private void DeleteItem(int id)
+    {
+        message = $"Deleting item ID: {id}";
+    }
+}

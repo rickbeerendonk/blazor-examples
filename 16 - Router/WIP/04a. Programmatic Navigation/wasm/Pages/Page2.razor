@@ -1,0 +1,22 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/page2"
+
+@inject NavigationManager Navigation
+
+<h2>Page 2</h2>
+
+<p>If you came here using "Replace history", the back button won't return to Home.</p>
+
+<button @onclick="GoHome">Go Home</button>
+
+<h3>Try the browser's back button:</h3>
+<p>If you used NavigateTo with <code>replace: true</code>, the back button will skip the Home page.</p>
+
+@code {
+    private void GoHome()
+    {
+        Navigation.NavigateTo("/");
+    }
+}

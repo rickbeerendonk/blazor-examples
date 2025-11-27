@@ -1,0 +1,74 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
+
+<h1>QuickGrid - ItemsProvider</h1>
+
+<p style="color: gray;">Using ItemsProvider for server-side data loading with sorting and pagination.</p>
+
+<QuickGrid ItemsProvider="@itemsProvider" Pagination="@pagination">
+    <PropertyColumn Property="@(i => i.Id)" Sortable="true" />
+    <PropertyColumn Property="@(i => i.First)" Sortable="true" />
+    <PropertyColumn Property="@(i => i.Second)" Sortable="true" />
+</QuickGrid>
+
+<Paginator State="@pagination" />
+
+<div>
+    <h3>ItemsProvider Features:</h3>
+    <ul>
+        <li><code>ItemsProvider</code> - Delegate that loads data on-demand (simulates server-side loading)</li>
+        <li>Receives <code>GridItemsProviderRequest</code> with StartIndex, Count, SortBy info</li>
+        <li>Returns <code>GridItemsProviderResult</code> with items and total count</li>
+        <li>Supports sorting and pagination automatically</li>
+        <li>Perfect for large datasets or remote data sources</li>
+    </ul>
+</div>
+
+@code {
+    record Item(int Id, string First, int Second);
+
+    private GridItemsProvider<Item>? itemsProvider;
+    private PaginationState pagination = new() { ItemsPerPage = 10 };
+
+    // Simulated database
+    private readonly List<Item> allItems = Enumerable
+        .Repeat(0, 1000)
+        .Select((i, idx) => new Item(idx, $"Item {idx + 1}", Random.Shared.Next(0, 1000)))
+        .ToList();
+
+    protected override void OnInitialized()
+    {
+        itemsProvider = async req =>
+        {
+            // Simulate async data loading delay
+            await Task.Delay(300);
+
+            // Apply sorting
+            IQueryable<Item> query = allItems.AsQueryable();
+            
+            if (req.GetSortByProperties().Any())
+            {
+                var sortBy = req.GetSortByProperties().First();
+                var ascending = sortBy.Direction != SortDirection.Descending;
+
+                query = sortBy.PropertyName switch
+                {
+                    "Id" => ascending ? query.OrderBy(c => c.Id) : query.OrderByDescending(c => c.Id),
+                    "First" => ascending ? query.OrderBy(c => c.First) : query.OrderByDescending(c => c.First),
+                    "Second" => ascending ? query.OrderBy(c => c.Second) : query.OrderByDescending(c => c.Second),
+                    _ => query.OrderBy(c => c.Id)
+                };
+            }
+
+            // Apply pagination
+            var items = query
+                .Skip(req.StartIndex)
+                .Take(req.Count ?? 10)
+                .ToList();
+
+            return GridItemsProviderResult.From(items, allItems.Count);
+        };
+    }
+}

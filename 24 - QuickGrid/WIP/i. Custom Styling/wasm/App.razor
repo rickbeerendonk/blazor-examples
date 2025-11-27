@@ -1,0 +1,47 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
+
+<h1>QuickGrid - Custom Styling</h1>
+
+<p style="color: gray;">Customize QuickGrid appearance with Theme and Class parameters, plus custom CSS.</p>
+
+<h2>Default Theme</h2>
+<QuickGrid Items="@items">
+    <PropertyColumn Property="@(i => i.Id)" />
+    <PropertyColumn Property="@(i => i.First)" />
+    <PropertyColumn Property="@(i => i.Second)" />
+</QuickGrid>
+
+<h2>Custom Theme</h2>
+<QuickGrid Items="@items" Theme="custom-theme">
+    <PropertyColumn Property="@(i => i.Id)" />
+    <PropertyColumn Property="@(i => i.First)" />
+    <PropertyColumn Property="@(i => i.Second)" />
+</QuickGrid>
+
+<h2 style="margin-top: 30px;">Custom Class with Striped Rows</h2>
+<QuickGrid Items="@items" Class="striped-grid">
+    <PropertyColumn Property="@(i => i.Id)" />
+    <PropertyColumn Property="@(i => i.First)" />
+    <PropertyColumn Property="@(i => i.Second)" />
+</QuickGrid>
+
+<div style="margin-top: 20px; padding: 15px; background-color: #f0f0f0;">
+    <h3>Custom Styling Options:</h3>
+    <ul>
+        <li><code>Theme</code> - Applies a named theme for styling (e.g., "custom-theme")</li>
+        <li><code>Class</code> - Adds custom CSS classes to the grid element</li>
+        <li>Use CSS to target <code>.quickgrid</code>, <code>thead</code>, <code>tbody</code>, <code>tr</code>, <code>th</code>, <code>td</code></li>
+    </ul>
+</div>
+
+@code {
+    record Item(int Id, string First, int Second);
+
+    private readonly IQueryable<Item> items = Enumerable
+        .Repeat(0, 10)
+        .Select((i, idx) => new Item(idx, $"Item {idx + 1}", Random.Shared.Next(0, 10)))
+        .AsQueryable();
+}

@@ -1,0 +1,37 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
+
+<h1>QuickGrid - Virtualization</h1>
+
+<p style="color: gray;">Virtualization efficiently renders large datasets by only creating DOM elements for visible rows.</p>
+
+<div style="height: 400px; overflow: auto; border: 1px solid #ccc;">
+    <QuickGrid Items="@items" Virtualize="true" ItemSize="50">
+        <PropertyColumn Property="@(i => i.Id)" />
+        <PropertyColumn Property="@(i => i.First)" />
+        <PropertyColumn Property="@(i => i.Second)" />
+    </QuickGrid>
+</div>
+
+<div style="margin-top: 20px; padding: 15px; background-color: #f0f0f0;">
+    <h3>Virtualization Features:</h3>
+    <ul>
+        <li><code>Virtualize="true"</code> - Enables row virtualization for large datasets</li>
+        <li><code>ItemSize</code> - Specifies the fixed height of each row in pixels (default: 50)</li>
+        <li>Only renders visible rows plus a small buffer</li>
+        <li>Dramatically improves performance with 10,000+ rows</li>
+        <li>Requires a container with fixed height and <code>overflow: auto</code></li>
+        <li>This example shows <strong>@items.Count()</strong> items efficiently</li>
+    </ul>
+</div>
+
+@code {
+    record Item(int Id, string First, int Second);
+
+    private readonly IQueryable<Item> items = Enumerable
+        .Repeat(0, 1000)
+        .Select((i, idx) => new Item(idx, $"Item {idx + 1}", Random.Shared.Next(0, 1000)))
+        .AsQueryable();
+}
