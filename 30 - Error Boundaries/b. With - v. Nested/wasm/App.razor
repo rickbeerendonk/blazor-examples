@@ -1,0 +1,66 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<h1>With Error Boundary - Nested</h1>
+
+<p style="color: gray;">
+    Nested error boundaries allow you to handle errors at different scopes.
+    Inner boundaries catch errors first, preventing them from propagating to outer boundaries.
+</p>
+
+<!-- Outer Error Boundary -->
+<ErrorBoundary>
+    <ChildContent>
+        <div style="border: 3px solid red; padding: 15px;">
+            <h2>Outer Error Boundary</h2>
+            
+            <!-- First Inner Error Boundary -->
+            <ErrorBoundary>
+                <ChildContent>
+                    <ComponentA />
+                </ChildContent>
+                <ErrorContent Context="ex">
+                    <div class="error" style="background-color: #ffe6e6;">
+                        <p><strong>Inner Boundary A caught error:</strong></p>
+                        <p>@ex.Message</p>
+                        <p style="font-size: 0.9em;">This error was caught by the inner boundary and won't propagate to the outer boundary.</p>
+                    </div>
+                </ErrorContent>
+            </ErrorBoundary>
+
+            <!-- Second Inner Error Boundary -->
+            <ErrorBoundary>
+                <ChildContent>
+                    <ComponentB />
+                </ChildContent>
+                <ErrorContent Context="ex">
+                    <div class="error" style="background-color: #e6ffe6;">
+                        <p><strong>Inner Boundary B caught error:</strong></p>
+                        <p>@ex.Message</p>
+                        <p style="font-size: 0.9em;">This is a separate inner boundary, independent from boundary A.</p>
+                    </div>
+                </ErrorContent>
+            </ErrorBoundary>
+
+            <!-- Component without inner boundary (will propagate to outer) -->
+            <Divider />
+        </div>
+    </ChildContent>
+    <ErrorContent Context="ex">
+        <div class="error" style="background-color: #ffcccc;">
+            <p><strong>Outer Boundary caught error:</strong></p>
+            <p>@ex.Message</p>
+            <p style="font-size: 0.9em;">This error was not caught by any inner boundary, so it propagated here.</p>
+        </div>
+    </ErrorContent>
+</ErrorBoundary>
+
+<div style="margin-top: 20px; padding: 15px; background-color: #f0f0f0;">
+    <h3>Try this:</h3>
+    <ol>
+        <li>Set Component A's value to 0 → Inner Boundary A catches the error</li>
+        <li>Set Component B's value to 0 → Inner Boundary B catches the error</li>
+        <li>Set the bottom divider's value to 0 → Outer Boundary catches the error</li>
+    </ol>
+    <p><strong>Notice:</strong> Errors in Components A and B don't affect each other or the bottom divider!</p>
+</div>

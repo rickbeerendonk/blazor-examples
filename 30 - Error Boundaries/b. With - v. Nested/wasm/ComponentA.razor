@@ -1,0 +1,23 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+<div style="border: 2px solid blue; padding: 10px; margin: 10px 0;">
+    <h3>Component A</h3>
+    <p style="color: gray">Change to 0 to throw an exception</p>
+    <input @onchange="ValueChanged" value="@value" type="number" />
+    <p>Result: @Calculate()</p>
+</div>
+
+@code {
+    private int value = 5;
+
+    private int Calculate()
+    {
+        return 100 / value;
+    }
+
+    private void ValueChanged(ChangeEventArgs e)
+    {
+        value = int.Parse(e.Value?.ToString() ?? "0");
+    }
+}
