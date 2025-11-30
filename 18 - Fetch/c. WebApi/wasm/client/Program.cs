@@ -5,13 +5,13 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-using Fetch_WebApi_Client;
+using Demo;
+using Demo.Todos;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 
-builder.Services.AddTransient(sp =>
-    new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-builder.Services.AddSingleton<ITodosService, TodosHttpService>();
+builder.Services.AddHttpClient<ITodosService, TodosHttpService>(client =>
+	client.BaseAddress = new Uri("http://localhost:5011/todos/"));
 
 await builder.Build().RunAsync();

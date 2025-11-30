@@ -1,6 +1,8 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2021 Rick Beerendonk -->
 
+@using Demo.Todos
+
 @inject ITodosService TodosService
 
 @if (todos == null)
@@ -20,25 +22,22 @@ else
 <button @onclick="Update">Update</button>
 
 @code {
-    private Todo[]? todos;
+    private IEnumerable<Todo>? todos;
 
     private async Task Update()
     {
         // Update 2nd item
-        if (todos?.Length > 2)
-        {
-            Todo todo = todos[1];
-            await TodosService.UpdateAsync(new Todo { Id = todo.Id, Title = todo.Title, Completed = !todo.Completed });
-        }
+        var secondTodo = todos?.ElementAtOrDefault(1);
+        if (secondTodo != null)
+            await TodosService.UpdateAsync(secondTodo with { Completed = !secondTodo.Completed });
 
         // Add item
-        await TodosService.AddAsync(new Todo { Title = $"New item @ {DateTime.Now}", Completed = false });
+        await TodosService.AddAsync(new(0, $"New item @ {DateTimeOffset.Now}", false));
 
         // Delete first item
-        if (todos?.Length > 1)
-        {
-            await TodosService.DeleteAsync(todos[0]);
-        }
+        var firstTodo = todos?.FirstOrDefault();
+        if (firstTodo != null)
+            await TodosService.DeleteAsync(firstTodo);
 
         // Get all items
         todos = await TodosService.TodosAsync();

@@ -12,17 +12,22 @@ else
     <ul>
         @foreach (var todo in todos)
         {
-            <li>@todo.Completed - @todo.Title</li>
+            <li>
+                <span class="checkbox @(todo.Completed ? "completed" : "pending")">
+                    @(todo.Completed ? "☑" : "☐")
+                </span>
+                @todo.Title
+            </li>
         }
     </ul>
 }
 
 @code {
-    private Todo[]? todos;
+    private IEnumerable<Todo>? todos;
 
     protected override async Task OnInitializedAsync()
     {
-        todos = await Http.GetFromJsonAsync<Todo[]>("https://jsonplaceholder.typicode.com/todos");
+        todos = await Http.GetFromJsonAsync<IEnumerable<Todo>>("https://jsonplaceholder.typicode.com/todos") ?? [];
     }
 
     private record Todo(

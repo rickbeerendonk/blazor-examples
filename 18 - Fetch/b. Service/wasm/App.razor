@@ -1,6 +1,8 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
+@using Demo.Todos
+
 @inject ITodosService TodosService
 
 @if (todos == null)
@@ -12,13 +14,18 @@ else
     <ul>
         @foreach (var todo in todos)
         {
-            <li>@($"{(todo.Completed ? "☑" : "☐")} {todo.Title}")</li>
+            <li>
+                <span class="@(todo.Completed ? "completed" : "pending")">
+                    @(todo.Completed ? "☑" : "☐")
+                </span>
+                @todo.Title
+            </li>
         }
     </ul>
 }
 
 @code {
-    private Todo[]? todos;
+    private IEnumerable<Todo>? todos;
 
     protected override async Task OnInitializedAsync()
     {

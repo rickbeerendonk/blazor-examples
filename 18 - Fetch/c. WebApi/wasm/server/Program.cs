@@ -1,17 +1,38 @@
-namespace server
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+// European Union Public License version 1.2
+// Copyright © 2020 Rick Beerendonk
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+using Scalar.AspNetCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Allow CORS
+builder.Services.AddCors(options =>
+{
+	options.AddDefaultPolicy(policy =>
+		policy.AllowAnyOrigin()
+			.AllowAnyHeader()
+			.AllowAnyMethod()
+	);
+});
+
+builder.Services.AddControllers();
+builder.Services.AddOpenApi();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+	app.UseDeveloperExceptionPage();
+	app.MapOpenApi();
+	app.MapScalarApiReference();
 }
+
+app.UseHttpsRedirection();
+
+app.UseCors();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

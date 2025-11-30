@@ -1,0 +1,14 @@
+/* European Union Public License version 1.2 */
+/* Copyright © 2025 Rick Beerendonk */
+
+.checkbox {
+  font-weight: bold;
+}
+
+.completed {
+  color: green;
+}
+
+.pending {
+  color: red;
+}

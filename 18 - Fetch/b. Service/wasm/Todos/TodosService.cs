@@ -1,38 +1,28 @@
 /*! European Union Public License version 1.2 !*/
 /*! Copyright © 2021 Rick Beerendonk          !*/
 
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Threading.Tasks;
 
-namespace Fetch_Service;
+namespace Demo.Todos;
 
-public class Todo
-{
-    public int UserID { get; set; }
-
-    public int ID { get; set; }
-
-    public string? Title { get; set; }
-
-    public bool Completed { get; set; }
-}
+public record Todo(
+    int UserId,
+    int Id,
+    string Title,
+    bool Completed
+);
 
 #nullable enable
 
 public interface ITodosService
 {
-    Task<Todo[]?> TodosAsync();
+    Task<IEnumerable<Todo>> TodosAsync();
 }
 
-public class TodosHttpService : ITodosService
+public class TodosHttpService(HttpClient http) : ITodosService
 {
-    private HttpClient http;
-
-    public TodosHttpService(HttpClient http) => this.http = http;
-
-    public Task<Todo[]?> TodosAsync()
+    public async Task<IEnumerable<Todo>> TodosAsync()
     {
-        return http.GetFromJsonAsync<Todo[]>("https://jsonplaceholder.typicode.com/todos");
+        return await http.GetFromJsonAsync<IEnumerable<Todo>>("https://jsonplaceholder.typicode.com/todos") ?? [];
     }
 }
