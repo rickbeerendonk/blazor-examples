@@ -1,0 +1,37 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@implements IDisposable
+
+<div class="comment">Time from .NET: @currentTime</div>
+
+@code {
+    private string currentTime = "N/A";
+
+    [Inject]
+    private IJSRuntime JS { get; set; } = default!;
+
+    private DotNetObjectReference<App>? objRef;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            objRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("jsCallDotNetInstance.register", objRef);
+        }
+    }
+
+    [JSInvokable]
+    public string GetTime()
+    {
+        currentTime = DateTime.Now.ToString("HH:mm:ss");
+        StateHasChanged();
+        return currentTime;
+    }
+
+    public void Dispose()
+    {
+        objRef?.Dispose();
+    }
+}
