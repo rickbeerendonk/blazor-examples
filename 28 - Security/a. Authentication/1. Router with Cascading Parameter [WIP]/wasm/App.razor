@@ -4,22 +4,15 @@
 <!-- Cascading Authentication Value -->
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(Program).Assembly">
-        <Found Context="routeData">
-            <!-- Special RouteView for Authorization -->
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
-                <NotAuthorized>
-                    <h2>Not Authorized</h2>
-                    <p>Page can't be shown.</p>
-                </NotAuthorized>
-                <Authorizing>
-                    <h1>Authorization in progress</h1>
-                </Authorizing>
-            </AuthorizeRouteView>
-        </Found>
-        <NotFound>
-            <LayoutView Layout="@typeof(MainLayout)">
-                <p>404 Not Found</p>
-            </LayoutView>
-        </NotFound>
+        <!-- Special RouteView for Authorization -->
+        <AuthorizeRouteView DefaultLayout="@typeof(MainLayout)">
+            <NotAuthorized>
+                <h2>Not Authorized</h2>
+                <p>Page can't be shown.</p>
+            </NotAuthorized>
+            <Authorizing>
+                <h1>Authorization in progress</h1>
+            </Authorizing>
+        </AuthorizeRouteView>
     </Router>
 </CascadingAuthenticationState>
