@@ -1,0 +1,13 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2021 Rick Beerendonk -->
+
+@* /page?id=3 *@
+@page "/page"
+
+<h2>Page @Id.ToString()</h2>
+
+@code {
+    // WARNING: Throws when not an int (in the browser console)
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+}

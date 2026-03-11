@@ -1,0 +1,42 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/page/{Id?}"
+
+<h2>Page @Id</h2>
+
+<p>Component created at @creationTime</p>
+
+<p>The route parameter is <strong>optional</strong> (indicated by the <code>?</code> in the route template).</p>
+
+@if (string.IsNullOrEmpty(Id))
+{
+    <p>No ID provided in URL. Using default value: <code>@Id</code></p>
+}
+else
+{
+    <p>ID from URL: <code>@Id</code></p>
+}
+
+@code {
+    private DateTime creationTime = DateTime.Now;
+
+    [Parameter]
+    public string? Id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Provide default value if parameter is not provided
+        if (string.IsNullOrEmpty(Id))
+        {
+            Id = "default";
+        }
+        Console.WriteLine($"OnInitialized: Id = {Id}");
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Use this to react to parameter changes (e.g., fetch data)
+        Console.WriteLine($"OnParametersSet: Id = {Id}");
+    }
+}

@@ -1,0 +1,26 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/page1"
+
+@inject NavigationManager Navigation
+
+<h2>Page 1</h2>
+
+<p>You navigated here programmatically!</p>
+
+<button @onclick="GoBack">Go Back to Home</button>
+
+<h3>Navigation Options:</h3>
+<ul>
+    <li><code>NavigateTo(url)</code> - Navigate to URL</li>
+    <li><code>NavigateTo(url, forceLoad: true)</code> - Force full page reload</li>
+    <li><code>NavigateTo(url, replace: true)</code> - Replace history entry</li>
+</ul>
+
+@code {
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/");
+    }
+}

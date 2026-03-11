@@ -1,0 +1,52 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/docs/{*Path}"
+
+<h2>Documentation Browser</h2>
+
+<p>Component created at @creationTime</p>
+
+<p>The route uses a <strong>catch-all parameter</strong> (indicated by <code>*Path</code>).</p>
+
+@if (string.IsNullOrEmpty(Path))
+{
+    <p>Path: <code>/docs</code> (root)</p>
+}
+else
+{
+    <p>Full path captured: <code>/docs/@Path</code></p>
+    <p>Path segments:</p>
+    <ul>
+        @foreach (var segment in Path.Split('/'))
+        {
+            <li><code>@segment</code></li>
+        }
+    </ul>
+}
+
+<h3>Try these URLs:</h3>
+<ul>
+    <li><a href="/docs">/docs</a></li>
+    <li><a href="/docs/intro">/docs/intro</a></li>
+    <li><a href="/docs/api/v1/users">/docs/api/v1/users</a></li>
+    <li><a href="/docs/guide/getting-started/installation">/docs/guide/getting-started/installation</a></li>
+</ul>
+
+@code {
+    private DateTime creationTime = DateTime.Now;
+
+    [Parameter]
+    public string? Path { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine($"OnInitialized: Path = {Path}");
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Use this to react to parameter changes (e.g., fetch data)
+        Console.WriteLine($"OnParametersSet: Id = {Id}");
+    }
+}

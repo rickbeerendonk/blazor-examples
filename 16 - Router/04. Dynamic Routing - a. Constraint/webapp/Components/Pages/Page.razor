@@ -1,0 +1,12 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<!-- Only allow int. Other types (strings) lead to Not Found ("404") -->
+@page "/page/{Id:int}"
+
+<h2>Page @Id</h2>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+}

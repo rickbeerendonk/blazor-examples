@@ -1,0 +1,28 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/page/{Id:int}"
+
+@inject NavigationManager Navigation
+
+<h2>Page @Id</h2>
+
+<p>You navigated to a dynamic route!</p>
+
+<button @onclick="NextPage">Next Page</button>
+<button @onclick="GoHome">Go Home</button>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private void NextPage()
+    {
+        Navigation.NavigateTo($"/page/{Id + 1}");
+    }
+
+    private void GoHome()
+    {
+        Navigation.NavigateTo("/");
+    }
+}

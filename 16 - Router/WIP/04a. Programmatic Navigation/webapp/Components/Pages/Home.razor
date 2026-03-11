@@ -1,0 +1,53 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/"
+
+@inject NavigationManager Navigation
+
+<h2>Home - Programmatic Navigation</h2>
+
+<h3>NavigateTo Examples:</h3>
+
+<button @onclick="NavigateToPage1">Go to Page 1</button>
+<button @onclick="NavigateToPage2">Go to Page 2</button>
+<button @onclick="NavigateToPage3">Go to Page 3 (with parameter)</button>
+
+<h3>NavigateTo with forceLoad:</h3>
+<button @onclick="NavigateWithForceLoad">Force Load Page 1</button>
+
+<h3>NavigateTo with replace:</h3>
+<button @onclick="NavigateWithReplace">Replace history (Page 2)</button>
+
+<h3>Current URI Information:</h3>
+<p>URI: <code>@Navigation.Uri</code></p>
+<p>BaseUri: <code>@Navigation.BaseUri</code></p>
+
+@code {
+    private void NavigateToPage1()
+    {
+        Navigation.NavigateTo("page1");
+    }
+
+    private void NavigateToPage2()
+    {
+        Navigation.NavigateTo("/page2");
+    }
+
+    private void NavigateToPage3()
+    {
+        Navigation.NavigateTo("/page/3");
+    }
+
+    private void NavigateWithForceLoad()
+    {
+        // Forces a full page reload
+        Navigation.NavigateTo("page1", forceLoad: true);
+    }
+
+    private void NavigateWithReplace()
+    {
+        // Replaces current history entry instead of adding new one
+        Navigation.NavigateTo("/page2", replace: true);
+    }
+}

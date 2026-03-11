@@ -1,0 +1,18 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@page "/oldpage2"
+
+@inject NavigationManager NavManager
+
+<h1>Old Page 2</h1>
+
+<p>Redirecting to New Page 2</p>
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Does replace history, so no back-button issues
+        NavManager.NavigateTo("/page2", replace: true);
+    }
+}
