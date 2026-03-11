@@ -1,8 +1,18 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2020 Rick Beerendonk -->
 
-<h1>Hello @name!</h1>
+<!-- Variable -->
+<input value="@name" />
+
+<!-- Method -->
+<input value="@GetName()" />
+
+<!-- Partial: Combine with static text -->
+<input value="@name C#" />
+<input value="@(name)s" />
 
 @code {
     private string name = "Blazor";
+
+    private string GetName() => $"Name: {name}";
 }
