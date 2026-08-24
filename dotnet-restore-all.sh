@@ -1,1 +1,8 @@
-find . -type d -maxdepth 6 -exec test -e "{}/Program.cs" ';' -exec bash -c "cd '{}' && echo $path && pwd && dotnet restore" \;
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+while IFS= read -r -d '' project; do
+	echo "RESTORE: $project"
+	dotnet restore "$project" -nologo -v q
+done < <(find . -name '*.csproj' -print0)
