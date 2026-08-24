@@ -10,8 +10,10 @@
         "reevaluateOnRerun": true
       },
       "type": "shell",
-      "command": "dotnet",
-      "args": ["watch", "--project", "'${fileDirname}'", "run"],
+      "command": "d='${fileDirname}'; until ls \"$d\"/*.csproj >/dev/null 2>&1; do d=$(dirname \"$d\"); [ \"$d\" = / ] && break; done; dotnet watch --project \"$d\" run",
+      "windows": {
+        "command": "$d='${fileDirname}'; while(-not (Test-Path \"$d\\*.csproj\")){ $d=Split-Path $d -Parent; if([string]::IsNullOrEmpty($d)){ break } }; dotnet watch --project \"$d\" run"
+      },
       "group": {
         "kind": "build",
         "isDefault": true
@@ -32,8 +34,10 @@
         "reevaluateOnRerun": true
       },
       "type": "shell",
-      "command": "dotnet",
-      "args": ["run", "--project", "'${fileDirname}'"],
+      "command": "d='${fileDirname}'; until ls \"$d\"/*.csproj >/dev/null 2>&1; do d=$(dirname \"$d\"); [ \"$d\" = / ] && break; done; dotnet run --project \"$d\"",
+      "windows": {
+        "command": "$d='${fileDirname}'; while(-not (Test-Path \"$d\\*.csproj\")){ $d=Split-Path $d -Parent; if([string]::IsNullOrEmpty($d)){ break } }; dotnet run --project \"$d\""
+      },
       "presentation": {
         "echo": true,
         "reveal": "always",
