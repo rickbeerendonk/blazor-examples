@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-namespace Components_SeparateTempateAndCodeFiles;
+namespace Demo;
 
 public partial class App : ComponentBase
 {

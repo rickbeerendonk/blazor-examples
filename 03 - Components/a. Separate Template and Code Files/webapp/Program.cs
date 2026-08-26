@@ -1,4 +1,4 @@
-using Components_SeparateTempateAndCodeFiles.Components;
+using Demo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
