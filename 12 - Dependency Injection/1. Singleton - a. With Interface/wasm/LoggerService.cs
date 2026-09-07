@@ -10,16 +10,11 @@ namespace DependencyInjection_Singleton_WithInterface
     {
         private static int uniqueId = 0;
 
-        private readonly int id;
-
-        public LoggerService()
-        {
-           this.id = ++LoggerService.uniqueId;
-        }
+        private readonly int id = ++uniqueId;
 
         public void Info(string message)
         {
-            Console.WriteLine($"{message} [logger: {this.id}]");
+            Console.WriteLine($"{message} [logger: {id}]");
         }
     }
 }
