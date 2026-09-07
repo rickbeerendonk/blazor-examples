@@ -3,8 +3,9 @@
 
 <h1>Top</h1>
 
-<!-- Value is automatically databinded -->
-<CascadingValue Value="color">
+<!-- TValue is generic, so a literal must be an explicit C# expression -->
+<!-- Since TValue is an unbound generic, Razor can't just typecheck the attribute as a plain string like it does for concrete-typed parameters — it emits the attribute content as literal C# source to infer TValue. So Value="green" is compiled as the raw expression green, and the compiler looks for a variable/field named green — which doesn't exist, hence CS0103. -->
+<CascadingValue Value="@("green")">
     <Middle />
 </CascadingValue>
 
