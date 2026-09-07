@@ -1,0 +1,17 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<ul>
+    @if (value)
+    {
+        <li>Not Rendered</li>
+    }
+    else
+    {
+        <li>Rendered</li>
+    }
+</ul>
+
+@code {
+    private bool value = false;
+}
