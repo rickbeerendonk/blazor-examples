@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using RenderList_ForEach_WithFilter;
+using Demo;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
