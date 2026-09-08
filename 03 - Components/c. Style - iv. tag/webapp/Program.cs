@@ -1,4 +1,4 @@
-using DataBinding_Style_StyleTag.Components;
+using Demo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

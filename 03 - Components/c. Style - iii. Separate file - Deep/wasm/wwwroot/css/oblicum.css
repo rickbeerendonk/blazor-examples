@@ -77,3 +77,7 @@ body > :first-child::before {
     transform: rotate(360deg);
   }
 }
+
+.middle h1 {
+  color: red;
+}
