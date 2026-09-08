@@ -1,0 +1,16 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+<ul>
+    @foreach (string item in items)
+    {
+        var newItem = item + "!";
+        <li>@newItem</li>
+        newItem += '!';
+        <li>@newItem</li>
+    }
+</ul>
+
+@code {
+    private string[] items = ["one", "two", "three"];
+}
