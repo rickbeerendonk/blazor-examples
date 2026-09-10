@@ -5,7 +5,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-using PageTitle_In_Router;
+using Demo;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
