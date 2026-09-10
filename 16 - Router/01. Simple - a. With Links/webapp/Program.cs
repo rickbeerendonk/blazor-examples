@@ -1,4 +1,4 @@
-using Router_Simple_WithLinks.Components;
+using Demo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
