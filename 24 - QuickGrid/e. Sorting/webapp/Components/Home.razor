@@ -1,0 +1,28 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2023 Rick Beerendonk -->
+
+<!-- Add package reference to Microsoft.AspNetCore.Components.QuickGrid -->
+
+<h1>QuickGrid - Sorting</h1>
+
+@*
+Sorting Features:
+- Sortable="true" = Enables sorting for a column
+- IsDefaultSortColumn="true" = Sets this column as the default sort column
+- InitialSortDirection = Sets initial sort direction (Ascending, Descending, Auto)
+- Click column headers to sort, click again to reverse direction
+*@
+<QuickGrid Items="@items">
+    <PropertyColumn Property="@(i => i.Id)" Sortable="true" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Ascending" />
+    <PropertyColumn Property="@(i => i.First)" Sortable="true" />
+    <PropertyColumn Property="@(i => i.Second)" Sortable="true" />
+</QuickGrid>
+
+@code {
+    record Item(int Id, string First, int Second);
+
+    private readonly IQueryable<Item> items = Enumerable
+        .Repeat(0, 1000)
+        .Select((i, idx) => new Item(idx, $"Item {idx + 1}", Random.Shared.Next(0, 1000)))
+        .AsQueryable();
+}
