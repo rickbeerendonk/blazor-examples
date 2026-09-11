@@ -1,9 +1,9 @@
 ﻿<!-- European Union Public License version 1.2 -->
 <!-- Copyright © 2019 Rick Beerendonk -->
 
-<!-- Pass name and SetName as cascading values -->
-<CascadingValue Value="name" Name="Name">
-    <CascadingValue TValue="EventCallback<string>" Value="SetNameCallback" Name="SetName">
+<!-- Pass name and SetName as cascading values, prefixed to avoid collisions with unrelated cascading values -->
+<CascadingValue Value="name" Name="GreetingEditor.Name">
+    <CascadingValue TValue="EventCallback<string>" Value="SetNameCallback" Name="GreetingEditor.SetName">
         @ChildContent
     </CascadingValue>
 </CascadingValue>

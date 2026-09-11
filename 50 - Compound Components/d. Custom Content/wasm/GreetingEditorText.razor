@@ -4,7 +4,7 @@
 <h1>Hello @Name!</h1>
 
 @code {
-    [CascadingParameter(Name = "Name")]
+    [CascadingParameter(Name = "GreetingEditor.Name")]
     public required string? Name { get; set; }
 
     protected override void OnInitialized()

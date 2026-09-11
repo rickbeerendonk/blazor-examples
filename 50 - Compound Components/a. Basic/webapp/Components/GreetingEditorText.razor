@@ -6,12 +6,4 @@
 @code {
     [CascadingParameter(Name = "GreetingEditor.Name")]
     public required string? Name { get; set; }
-
-    protected override void OnInitialized()
-    {
-        if (Name == null)
-        {
-            throw new InvalidOperationException("Compound component GreetingEditorText rendered outside GreetingEditor");
-        }
-    }
 }
