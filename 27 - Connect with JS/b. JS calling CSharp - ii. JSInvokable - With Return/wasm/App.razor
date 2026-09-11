@@ -1,0 +1,14 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2026 Rick Beerendonk -->
+
+<div class="comment">Open the browser console to see the returned values.</div>
+
+@code {
+    [JSInvokable]
+    public static double GetRandomNumber()
+    {
+        double value = Random.Shared.NextDouble();
+        Console.WriteLine($"C# returns: {value}");
+        return value;
+    }
+}

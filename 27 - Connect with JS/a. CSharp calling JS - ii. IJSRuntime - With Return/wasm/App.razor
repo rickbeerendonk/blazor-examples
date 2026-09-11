@@ -1,0 +1,32 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2026 Rick Beerendonk -->
+
+@inject IJSRuntime JS
+
+<button @onclick="handleClickAsync">Call JavaScript Function</button>
+<h1>@output</h1>
+
+@code {
+    private IJSObjectReference? module;
+    private string output = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        module = await JS.InvokeAsync<IJSObjectReference>(
+            "import", "./js/csharp-calling-js.mjs");
+    }
+
+    private async Task handleClickAsync()
+    {
+        if (module != null)
+        {
+            string input = DateTime.Now.ToString();
+            Console.WriteLine($"C# sent: {input}");
+
+            double outputAsDouble = await module.InvokeAsync<double>("jsfunc", input);
+
+            output = outputAsDouble.ToString();
+            Console.WriteLine($"C# received: {output}");
+        }
+    }
+}

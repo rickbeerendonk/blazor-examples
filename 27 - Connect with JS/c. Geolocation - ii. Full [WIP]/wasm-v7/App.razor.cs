@@ -3,6 +3,7 @@
 
 using System.Runtime.InteropServices.JavaScript;
 using System.Runtime.Versioning;
+using System.Text.Json.Serialization;
 
 namespace GeolocationDemo;
 
@@ -11,11 +12,6 @@ public partial class App
     [JSImport("getCurrentPosition", "App")]
     [return: JSMarshalAs<JSType.Promise<JSType.Object>>()]
     internal static partial Task<JSObject> GetCurrentPositionJS();
-
-    internal static getCurrentPosition()
-    {
-
-    }
 }
 
 public class GeolocationPosition

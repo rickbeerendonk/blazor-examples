@@ -17,7 +17,7 @@
     private async Task handleClickAsync()
     {
         // Call JS function
-        JSObject coord = await GetCurrentPosition();
+        JSObject coord = await App.GetCurrentPositionJS();
 
         output = $"Longitude: {coord.GetPropertyAsDouble("longitude")} + Latitude: {coord.GetPropertyAsDouble("latitude")}";
         Console.WriteLine($"C# received: {output}");

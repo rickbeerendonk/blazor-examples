@@ -1,0 +1,23 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2026 Rick Beerendonk -->
+
+@using System.Runtime.InteropServices.JavaScript
+
+<button @onclick="handleClick">Call JavaScript Function</button>
+<p>Open the browser console to see the message.</p>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await JSHost.ImportAsync("App", "../App.razor.js");
+    }
+
+    private void handleClick()
+    {
+        string input = DateTime.Now.ToString();
+        Console.WriteLine($"C# sent: {input}");
+
+        // Call JS function
+        JSFunc(input);
+    }
+}
