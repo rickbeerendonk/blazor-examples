@@ -1,0 +1,28 @@
+<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2025 Rick Beerendonk -->
+
+@inject IStringLocalizer<SharedResources> L
+@inject CultureInfo[] SupportedCultures
+
+<h1>@L["Greeting"]</h1>
+
+<select @onchange="OnCultureChanged" value="@currentCulture">
+    @foreach (var culture in SupportedCultures)
+    {
+        <option value="@culture.Name">@culture.NativeName</option>
+    }
+</select>
+
+@code {
+    private string currentCulture = CultureInfo.CurrentCulture.Name;
+
+    private void OnCultureChanged(ChangeEventArgs e)
+    {
+        var culture = new CultureInfo(e.Value?.ToString() ?? "en");
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+        CultureInfo.CurrentCulture = culture;
+        CultureInfo.CurrentUICulture = culture;
+        currentCulture = culture.Name;
+    }
+}
