@@ -1,0 +1,11 @@
+﻿<!-- European Union Public License version 1.2 -->
+<!-- Copyright © 2020 Rick Beerendonk -->
+
+@* @onclick is an event handler attribute *@
+<button @onclick="HandleClick">This has been clicked @count times!</button>
+
+@code {
+    private int count;
+
+    private void HandleClick() => count++;
+}
